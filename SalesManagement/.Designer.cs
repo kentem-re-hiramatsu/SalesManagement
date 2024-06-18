@@ -38,11 +38,11 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.TotaltSalesAmountLabel = new System.Windows.Forms.Label();
             this.TotalIncomeAmountLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
@@ -73,6 +73,7 @@
             this.InventoryListButton.TabIndex = 2;
             this.InventoryListButton.Text = "在庫一覧";
             this.InventoryListButton.UseVisualStyleBackColor = true;
+            this.InventoryListButton.Click += new System.EventHandler(this.InventoryListButton_Click);
             // 
             // listView1
             // 
@@ -117,27 +118,6 @@
             this.columnHeader6.Text = "売上金額";
             this.columnHeader6.Width = 76;
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "販売商品",
-            "本日の販売商品"});
-            this.checkedListBox1.Location = new System.Drawing.Point(345, 46);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 46);
-            this.checkedListBox1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(343, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "絞り込み表示";
-            // 
             // TotaltSalesAmountLabel
             // 
             this.TotaltSalesAmountLabel.AutoSize = true;
@@ -165,17 +145,38 @@
             this.CloseButton.TabIndex = 8;
             this.CloseButton.Text = "閉じる";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.button1.Location = new System.Drawing.Point(406, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 30);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "絞込解除";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.button2.Location = new System.Drawing.Point(341, 46);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(59, 30);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "今日販売";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 413);
+            this.ClientSize = new System.Drawing.Size(489, 418);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.TotalIncomeAmountLabel);
             this.Controls.Add(this.TotaltSalesAmountLabel);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.InventoryListButton);
             this.Controls.Add(this.PurchaseProcessingButton);
@@ -199,11 +200,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TotaltSalesAmountLabel;
         private System.Windows.Forms.Label TotalIncomeAmountLabel;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

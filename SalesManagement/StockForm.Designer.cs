@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,16 +53,6 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 11F);
-            this.label1.Location = new System.Drawing.Point(12, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "販売状況";
             // 
             // columnHeader1
             // 
@@ -86,6 +76,16 @@
             // 
             this.columnHeader5.Text = "在庫数";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "販売状況";
+            // 
             // CloseButton
             // 
             this.CloseButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
@@ -95,6 +95,7 @@
             this.CloseButton.TabIndex = 2;
             this.CloseButton.Text = "閉じる";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // StockForm
             // 

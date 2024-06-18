@@ -49,5 +49,17 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
+
+        private void OkButton_Click(object sender, System.EventArgs e)
+        {
+            if (_isPurchaseOrder)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }
