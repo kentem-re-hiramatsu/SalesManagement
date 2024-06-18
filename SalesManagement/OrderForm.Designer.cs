@@ -111,6 +111,7 @@
             this.ProductTextBox.Name = "ProductTextBox";
             this.ProductTextBox.Size = new System.Drawing.Size(117, 21);
             this.ProductTextBox.TabIndex = 4;
+            this.ProductTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // PurchaseQuantityTextBox
             // 
@@ -119,6 +120,7 @@
             this.PurchaseQuantityTextBox.Name = "PurchaseQuantityTextBox";
             this.PurchaseQuantityTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchaseQuantityTextBox.TabIndex = 5;
+            this.PurchaseQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // PurchasePriceTextBox
             // 
@@ -127,6 +129,7 @@
             this.PurchasePriceTextBox.Name = "PurchasePriceTextBox";
             this.PurchasePriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchasePriceTextBox.TabIndex = 6;
+            this.PurchasePriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // SalesQuantityLabel
             // 
@@ -145,6 +148,7 @@
             this.SalesPriceTextBox.Name = "SalesPriceTextBox";
             this.SalesPriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.SalesPriceTextBox.TabIndex = 7;
+            this.SalesPriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // SalesQuantityTextBox
             // 
@@ -153,6 +157,7 @@
             this.SalesQuantityTextBox.Name = "SalesQuantityTextBox";
             this.SalesQuantityTextBox.Size = new System.Drawing.Size(117, 21);
             this.SalesQuantityTextBox.TabIndex = 8;
+            this.SalesQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // SalesGroup
             // 
