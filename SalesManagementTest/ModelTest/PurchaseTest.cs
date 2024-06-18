@@ -7,9 +7,6 @@ namespace SalesManagementTest.ModelTest
     [TestClass]
     public class PurchaseTest
     {
-        /// <summary>
-        /// 正しくコンストラクタが動作しているか。
-        /// </summary>
         [TestMethod]
         public void PurchaseConstructorTest()
         {

@@ -23,6 +23,9 @@ namespace SalesManagementTest.ModelTest
             Assert.ThrowsException<Exception>(() => new Sales(-1, purchase));
         }
 
+        /// <summary>
+        /// 販売処理テスト
+        /// </summary>
         [TestMethod]
         public void ProcessSalesTest()
         {
@@ -34,6 +37,9 @@ namespace SalesManagementTest.ModelTest
             Assert.AreEqual(5, sales.StockQuantity);
         }
 
+        /// <summary>
+        /// 販売数が在庫数を上回ったときエラーテスト
+        /// </summary>
         [TestMethod]
         public void OverProcessSalesTest()
         {
@@ -45,6 +51,9 @@ namespace SalesManagementTest.ModelTest
             Assert.ThrowsException<Exception>(() => sales.ProcessSales(-1));
         }
 
+        /// <summary>
+        /// 売上金額と利益金額のテスト
+        /// </summary>
         [TestMethod]
         public void TotaltSalesAmountAndTotalIncomeAmountTest()
         {

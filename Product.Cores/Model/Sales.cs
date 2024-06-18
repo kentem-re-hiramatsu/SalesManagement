@@ -20,23 +20,34 @@ namespace Product.Cores.Model
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
+
             StockQuantity = purchase.PurchaseQuantity;
             _purchase = purchase;
             SalesDataTime = DateTime.Now;
         }
 
+        /// <summary>
+        /// 売上金額
+        /// </summary>
         public int GetSalesAmount()
         {
             return SalesPrice * SalesQuantity;
         }
 
+        /// <summary>
+        /// 利益金額
+        /// </summary>
         public int GetIncomeAmount()
         {
             return GetSalesAmount() - _purchase.PurchasePrice * SalesQuantity;
         }
 
+        /// <summary>
+        /// 販売処理
+        /// </summary>
         public void ProcessSales(int salesQuantity)
         {
+            //0以上かつ在庫数以下
             if (salesQuantity > 0 && StockQuantity >= salesQuantity)
             {
                 SalesQuantity += salesQuantity;

@@ -1,5 +1,6 @@
 ﻿using Product.Cores.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Product.Cores.Manager
 {
@@ -19,28 +20,20 @@ namespace Product.Cores.Manager
             return _salesList[index];
         }
 
+        /// <summary>
+        /// 売上合計金額
+        /// </summary>
         public int GetTotalSalesAmount()
         {
-            var totalSalesAmount = 0;
-
-            foreach (Sales sales in _salesList)
-            {
-                totalSalesAmount += sales.GetSalesAmount();
-            }
-
-            return totalSalesAmount;
+            return _salesList.Sum(sales => sales.GetSalesAmount());
         }
 
+        /// <summary>
+        /// 利益合計金額
+        /// </summary>
         public int GetTotalIncomeAmount()
         {
-            var totalIncomeAmount = 0;
-
-            foreach (Sales sales in _salesList)
-            {
-                totalIncomeAmount += sales.GetIncomeAmount();
-            }
-
-            return totalIncomeAmount;
+            return _salesList.Sum(sales => sales.GetIncomeAmount());
         }
     }
 }

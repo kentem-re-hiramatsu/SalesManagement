@@ -23,6 +23,9 @@ namespace SalesManagementTest.ManagerTest
             Assert.AreEqual(300, salesmana.GetSales(1).SalesPrice);
         }
 
+        /// <summary>
+        /// 売上合計金額と利益合計金額のテスト
+        /// </summary>
         [TestMethod]
         public void TotalSalesAndTotalIncomeAmountTest()
         {
