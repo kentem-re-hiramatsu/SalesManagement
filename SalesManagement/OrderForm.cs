@@ -32,14 +32,22 @@ namespace WindowsFormsApp1
             Close();
         }
 
-        private void OkButton_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
         private void ProductTextBox_TextChanged(object sender, System.EventArgs e)
         {
             OkButtonChangedEnabled();
+        }
+
+        private void PurchaseQuantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\b')
+            {
+                return;
+            }
+
+            if (e.KeyChar < '0' || '9' < e.KeyChar)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

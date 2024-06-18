@@ -121,6 +121,7 @@
             this.PurchaseQuantityTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchaseQuantityTextBox.TabIndex = 5;
             this.PurchaseQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.PurchaseQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // PurchasePriceTextBox
             // 
@@ -130,6 +131,7 @@
             this.PurchasePriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchasePriceTextBox.TabIndex = 6;
             this.PurchasePriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.PurchasePriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // SalesQuantityLabel
             // 
@@ -149,6 +151,7 @@
             this.SalesPriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.SalesPriceTextBox.TabIndex = 7;
             this.SalesPriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.SalesPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // SalesQuantityTextBox
             // 
@@ -158,6 +161,7 @@
             this.SalesQuantityTextBox.Size = new System.Drawing.Size(117, 21);
             this.SalesQuantityTextBox.TabIndex = 8;
             this.SalesQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.SalesQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // SalesGroup
             // 
@@ -181,7 +185,6 @@
             this.OkButton.TabIndex = 10;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
-            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // CancelButton
             // 
