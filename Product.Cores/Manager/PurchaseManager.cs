@@ -9,14 +9,8 @@ namespace Product.Cores.Manager
 
         public IReadOnlyCollection<Purchase> PurchaseList { get { return _purchaseList; } }
 
-        public void Add(Purchase purchase)
-        {
-            _purchaseList.Add(purchase);
-        }
+        public void Add(Purchase purchase) => _purchaseList.Add(purchase);
 
-        public Purchase GetPurchase(int index)
-        {
-            return _purchaseList[index];
-        }
+        public Purchase GetPurchase(int index) => _purchaseList[index];
     }
 }

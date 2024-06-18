@@ -29,18 +29,12 @@ namespace Product.Cores.Model
         /// <summary>
         /// 売上金額
         /// </summary>
-        public int GetSalesAmount()
-        {
-            return SalesPrice * SalesQuantity;
-        }
+        public int GetSalesAmount() => SalesPrice * SalesQuantity;
 
         /// <summary>
         /// 利益金額
         /// </summary>
-        public int GetIncomeAmount()
-        {
-            return GetSalesAmount() - _purchase.PurchasePrice * SalesQuantity;
-        }
+        public int GetIncomeAmount() => GetSalesAmount() - _purchase.PurchasePrice * SalesQuantity;
 
         /// <summary>
         /// 販売処理
