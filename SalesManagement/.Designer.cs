@@ -53,6 +53,7 @@
             this.SalesProcessingButton.TabIndex = 0;
             this.SalesProcessingButton.Text = "販売処理";
             this.SalesProcessingButton.UseVisualStyleBackColor = true;
+            this.SalesProcessingButton.Click += new System.EventHandler(this.SalesProcessingButton_Click);
             // 
             // PurchaseProcessingButton
             // 
@@ -62,6 +63,7 @@
             this.PurchaseProcessingButton.TabIndex = 1;
             this.PurchaseProcessingButton.Text = "仕入処理";
             this.PurchaseProcessingButton.UseVisualStyleBackColor = true;
+            this.PurchaseProcessingButton.Click += new System.EventHandler(this.PurchaseProcessingButton_Click);
             // 
             // InventoryListButton
             // 

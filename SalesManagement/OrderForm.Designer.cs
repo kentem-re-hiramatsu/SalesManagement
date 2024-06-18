@@ -56,6 +56,7 @@
             this.PuchaseOrderGroup.Controls.Add(this.PurchasePriceLabel);
             this.PuchaseOrderGroup.Controls.Add(this.PurchaseQuantityLabel);
             this.PuchaseOrderGroup.Controls.Add(this.ProductLabel);
+            this.PuchaseOrderGroup.Enabled = false;
             this.PuchaseOrderGroup.Location = new System.Drawing.Point(12, 37);
             this.PuchaseOrderGroup.Name = "PuchaseOrderGroup";
             this.PuchaseOrderGroup.Size = new System.Drawing.Size(284, 173);
@@ -157,6 +158,7 @@
             // 
             this.SalesGroup.Controls.Add(this.SalesQuantityLabel);
             this.SalesGroup.Controls.Add(this.SalesQuantityTextBox);
+            this.SalesGroup.Enabled = false;
             this.SalesGroup.Location = new System.Drawing.Point(12, 231);
             this.SalesGroup.Name = "SalesGroup";
             this.SalesGroup.Size = new System.Drawing.Size(284, 78);
@@ -166,6 +168,7 @@
             // 
             // OkButton
             // 
+            this.OkButton.Enabled = false;
             this.OkButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.OkButton.Location = new System.Drawing.Point(120, 324);
             this.OkButton.Name = "OkButton";
@@ -197,6 +200,7 @@
             this.Controls.Add(this.PuchaseOrderGroup);
             this.Name = "OrderForm";
             this.Text = "仕入処理";
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.PuchaseOrderGroup.ResumeLayout(false);
             this.PuchaseOrderGroup.PerformLayout();
             this.SalesGroup.ResumeLayout(false);

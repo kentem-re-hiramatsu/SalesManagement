@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace SalesManagement
 {
@@ -7,6 +8,26 @@ namespace SalesManagement
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void IsPurchaseOrder(bool isPurchaseOrder)
+        {
+            var OrderForm = new OrderForm(isPurchaseOrder);
+
+            if (DialogResult.OK == OrderForm.ShowDialog())
+            {
+
+            }
+        }
+
+        private void SalesProcessingButton_Click(object sender, System.EventArgs e)
+        {
+            IsPurchaseOrder(false);
+        }
+
+        private void PurchaseProcessingButton_Click(object sender, System.EventArgs e)
+        {
+            IsPurchaseOrder(true);
         }
     }
 }
