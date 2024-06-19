@@ -13,11 +13,9 @@ namespace SalesManagementTest.ModelTest
         public void SalesConstructorTest()
         {
             var sales = new Sales(100, purchase);
-            var nowDataTime = DateTime.Now.Date.ToString("MM月dd日");
 
             Assert.AreEqual(100, sales.SalesPrice);
             Assert.AreEqual(8, sales.StockQuantity);
-            Assert.AreEqual(nowDataTime, sales.SalesDataTime);
 
             Assert.ThrowsException<Exception>(() => new Sales(0, purchase));
             Assert.ThrowsException<Exception>(() => new Sales(-1, purchase));
@@ -32,9 +30,10 @@ namespace SalesManagementTest.ModelTest
             var sales = new Sales(100, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
-            sales.ProcessSales(3);
+            sales.ProcessSales(3, "06/19");
             Assert.AreEqual(3, sales.SalesQuantity);
             Assert.AreEqual(5, sales.StockQuantity);
+            Assert.AreEqual("06/19", sales.SalesDataTime);
         }
 
         /// <summary>
@@ -46,9 +45,9 @@ namespace SalesManagementTest.ModelTest
             var sales = new Sales(100, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(9));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(0));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(-1));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSales(9, "06/19"));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSales(0, "06/19"));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSales(-1, "06/19"));
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace SalesManagementTest.ModelTest
         public void TotaltSalesAmountAndTotalIncomeAmountTest()
         {
             var sales = new Sales(200, purchase);
-            sales.ProcessSales(3);
+            sales.ProcessSales(3, "06/19");
 
             var salesPrice = 200;
             var salesQuantity = 3;
