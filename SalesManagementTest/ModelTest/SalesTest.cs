@@ -13,7 +13,7 @@ namespace SalesManagementTest.ModelTest
         public void SalesConstructorTest()
         {
             var sales = new Sales(100, purchase);
-            var nowDataTime = DateTime.Now;
+            var nowDataTime = DateTime.Now.Date.ToString("MM月dd日");
 
             Assert.AreEqual(100, sales.SalesPrice);
             Assert.AreEqual(8, sales.StockQuantity);

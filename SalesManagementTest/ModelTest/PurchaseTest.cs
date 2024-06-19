@@ -11,7 +11,7 @@ namespace SalesManagementTest.ModelTest
         public void PurchaseConstructorTest()
         {
             var purchase = new Purchase("りんご", 5, 80);
-            var nowDateTime = DateTime.Now;
+            var nowDateTime = DateTime.Now.Date.ToString("MM月dd日");
 
             Assert.AreEqual("りんご", purchase.ProductName);
             Assert.AreEqual(5, purchase.PurchaseQuantity);

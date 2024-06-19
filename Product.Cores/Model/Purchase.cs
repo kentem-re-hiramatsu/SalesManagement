@@ -7,7 +7,7 @@ namespace Product.Cores.Model
         public string ProductName { get; }
         public int PurchaseQuantity { get; }
         public int PurchasePrice { get; }
-        public DateTime PurchaseDateTime { get; }
+        public string PurchaseDateTime { get; }
 
         public Purchase(string name, int purchaseQuantity, int price)
         {
@@ -22,7 +22,7 @@ namespace Product.Cores.Model
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
-            PurchaseDateTime = DateTime.Now;
+            PurchaseDateTime = DateTime.Now.Date.ToString("MM月dd日");
         }
     }
 }

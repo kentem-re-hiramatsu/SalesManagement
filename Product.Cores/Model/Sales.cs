@@ -6,7 +6,7 @@ namespace Product.Cores.Model
     {
         public int SalesPrice { get; }
         public int SalesQuantity { get; private set; }
-        public DateTime SalesDataTime { get; }
+        public string SalesDataTime { get; }
         public int StockQuantity { get; private set; }
         public Purchase Purchase { get; }
 
@@ -23,7 +23,7 @@ namespace Product.Cores.Model
 
             StockQuantity = purchase.PurchaseQuantity;
             Purchase = purchase;
-            SalesDataTime = DateTime.Now;
+            SalesDataTime = DateTime.Now.Date.ToString("MM月dd日");
         }
 
         /// <summary>
