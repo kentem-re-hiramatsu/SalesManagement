@@ -6,7 +6,8 @@ namespace SalesManagement
 {
     public partial class MainForm : Form
     {
-        PurchaseManager purchaseManager = new PurchaseManager();
+        private PurchaseManager _purchaseMana = new PurchaseManager();
+        private SalesManager _salesMana = new SalesManager();
 
         public MainForm()
         {
@@ -15,12 +16,9 @@ namespace SalesManagement
 
         private void IsPurchaseOrder(bool isPurchaseOrder)
         {
-            var orderForm = new OrderForm(isPurchaseOrder);
+            var orderForm = new OrderForm(isPurchaseOrder, _purchaseMana, _salesMana);
 
-            if (DialogResult.OK == orderForm.ShowDialog())
-            {
-
-            }
+            orderForm.ShowDialog();
         }
 
         private void SalesProcessingButton_Click(object sender, System.EventArgs e)
@@ -35,7 +33,7 @@ namespace SalesManagement
 
         private void InventoryListButton_Click(object sender, System.EventArgs e)
         {
-            var stockForm = new StockForm();
+            var stockForm = new StockForm(_purchaseMana, _salesMana);
             stockForm.Show();
         }
 

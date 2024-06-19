@@ -1,14 +1,21 @@
-﻿using System.Windows.Forms;
+﻿using Product.Cores.Manager;
+using Product.Cores.Model;
+using System;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class OrderForm : Form
     {
         private bool _isPurchaseOrder;
+        private PurchaseManager _purchaseMana;
+        private SalesManager _salesMana;
 
-        public OrderForm(bool isPurchaseOrder)
+        public OrderForm(bool isPurchaseOrder, PurchaseManager purchaseMana, SalesManager salesManager)
         {
             _isPurchaseOrder = isPurchaseOrder;
+            _purchaseMana = purchaseMana;
+            _salesMana = salesManager;
             InitializeComponent();
         }
         private void OrderForm_Load(object sender, System.EventArgs e)
@@ -54,7 +61,23 @@ namespace WindowsFormsApp1
         {
             if (_isPurchaseOrder)
             {
+                var productName = ProductTextBox.Text;
+                var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
+                var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
+                var salesPrice = int.Parse(SalesPriceTextBox.Text);
+                var purchase = new Purchase(productName, purchaseQuantity, purchasePrice);
 
+                try
+                {
+                    _purchaseMana.Add(purchase);
+                    _salesMana.Add(new Sales(salesPrice, purchase));
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //Close();
             }
             else
             {

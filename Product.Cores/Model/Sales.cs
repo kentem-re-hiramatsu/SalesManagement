@@ -8,7 +8,7 @@ namespace Product.Cores.Model
         public int SalesQuantity { get; private set; }
         public DateTime SalesDataTime { get; }
         public int StockQuantity { get; private set; }
-        private Purchase _purchase;
+        public Purchase Purchase { get; }
 
         public Sales(int price, Purchase purchase)
         {
@@ -22,7 +22,7 @@ namespace Product.Cores.Model
             }
 
             StockQuantity = purchase.PurchaseQuantity;
-            _purchase = purchase;
+            Purchase = purchase;
             SalesDataTime = DateTime.Now;
         }
 
@@ -34,7 +34,7 @@ namespace Product.Cores.Model
         /// <summary>
         /// 利益金額
         /// </summary>
-        public int GetIncomeAmount() => GetSalesAmount() - _purchase.PurchasePrice * SalesQuantity;
+        public int GetIncomeAmount() => GetSalesAmount() - Purchase.PurchasePrice * SalesQuantity;
 
         /// <summary>
         /// 販売処理
