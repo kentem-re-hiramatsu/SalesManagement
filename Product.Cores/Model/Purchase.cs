@@ -22,7 +22,7 @@ namespace Product.Cores.Model
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
-            PurchaseDateTime = DateTime.Now.Date.ToString("MM月dd日");
+            PurchaseDateTime = DateTime.Now.Date.ToString("MM/dd");
         }
     }
 }

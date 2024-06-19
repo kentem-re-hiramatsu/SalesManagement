@@ -6,7 +6,7 @@ namespace Product.Cores.Model
     {
         public int SalesPrice { get; }
         public int SalesQuantity { get; private set; }
-        public string SalesDataTime { get; }
+        public string SalesDataTime { get; private set; }
         public int StockQuantity { get; private set; }
         public Purchase Purchase { get; }
 
@@ -23,7 +23,6 @@ namespace Product.Cores.Model
 
             StockQuantity = purchase.PurchaseQuantity;
             Purchase = purchase;
-            SalesDataTime = DateTime.Now.Date.ToString("MM月dd日");
         }
 
         /// <summary>
@@ -39,13 +38,14 @@ namespace Product.Cores.Model
         /// <summary>
         /// 販売処理
         /// </summary>
-        public void ProcessSales(int salesQuantity)
+        public void ProcessSales(int salesQuantity, string salesDataTime)
         {
             //0以上かつ在庫数以下
             if (salesQuantity > 0 && StockQuantity >= salesQuantity)
             {
                 SalesQuantity += salesQuantity;
                 StockQuantity -= salesQuantity;
+                SalesDataTime = salesDataTime;
             }
             else
             {
