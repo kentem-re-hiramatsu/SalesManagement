@@ -4,6 +4,7 @@ using Product.Cores.Model;
 
 namespace SalesManagementTest.ManagerTest
 {
+    [TestClass]
     public class PurchaseManagerTest
     {
         PurchaseManager purchase = new PurchaseManager();
