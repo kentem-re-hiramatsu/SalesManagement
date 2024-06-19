@@ -21,8 +21,9 @@ namespace WindowsFormsApp1
             Close();
         }
 
-        private void UpdateScreen()
+        public void UpdateScreen()
         {
+            StockListView.Items.Clear();
             foreach (var sales in _salesMana.SalesList)
             {
                 var purchase = sales.Purchase;
@@ -30,7 +31,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void StockForm_Load(object sender, EventArgs e)
+        public void StockForm_Load(object sender, EventArgs e)
         {
             UpdateScreen();
         }

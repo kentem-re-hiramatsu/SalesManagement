@@ -114,8 +114,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView StockListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -123,6 +121,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button CloseButton;
+        public System.Windows.Forms.ListView StockListView;
     }
 }
 

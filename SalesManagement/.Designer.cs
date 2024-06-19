@@ -183,6 +183,7 @@
             this.Controls.Add(this.SalesProcessingButton);
             this.Name = "MainForm";
             this.Text = "販売処理";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +193,6 @@
 
         private System.Windows.Forms.Button SalesProcessingButton;
         private System.Windows.Forms.Button PurchaseProcessingButton;
-        private System.Windows.Forms.Button InventoryListButton;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -205,6 +205,7 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button InventoryListButton;
     }
 }
 

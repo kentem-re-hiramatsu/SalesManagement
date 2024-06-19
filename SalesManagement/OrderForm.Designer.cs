@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.PuchaseOrderGroup = new System.Windows.Forms.GroupBox();
-            this.ProductLabel = new System.Windows.Forms.Label();
-            this.PurchaseQuantityLabel = new System.Windows.Forms.Label();
-            this.PurchasePriceLabel = new System.Windows.Forms.Label();
-            this.SalesPriceLabel = new System.Windows.Forms.Label();
-            this.ProductTextBox = new System.Windows.Forms.TextBox();
-            this.PurchaseQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.PurchasePriceTextBox = new System.Windows.Forms.TextBox();
-            this.SalesQuantityLabel = new System.Windows.Forms.Label();
             this.SalesPriceTextBox = new System.Windows.Forms.TextBox();
+            this.PurchasePriceTextBox = new System.Windows.Forms.TextBox();
+            this.PurchaseQuantityTextBox = new System.Windows.Forms.TextBox();
+            this.ProductTextBox = new System.Windows.Forms.TextBox();
+            this.SalesPriceLabel = new System.Windows.Forms.Label();
+            this.PurchasePriceLabel = new System.Windows.Forms.Label();
+            this.PurchaseQuantityLabel = new System.Windows.Forms.Label();
+            this.ProductLabel = new System.Windows.Forms.Label();
+            this.SalesQuantityLabel = new System.Windows.Forms.Label();
             this.SalesQuantityTextBox = new System.Windows.Forms.TextBox();
             this.SalesGroup = new System.Windows.Forms.GroupBox();
             this.OkButton = new System.Windows.Forms.Button();
@@ -64,64 +64,15 @@
             this.PuchaseOrderGroup.TabStop = false;
             this.PuchaseOrderGroup.Text = "仕入処理";
             // 
-            // ProductLabel
+            // SalesPriceTextBox
             // 
-            this.ProductLabel.AutoSize = true;
-            this.ProductLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.ProductLabel.Location = new System.Drawing.Point(16, 27);
-            this.ProductLabel.Name = "ProductLabel";
-            this.ProductLabel.Size = new System.Drawing.Size(49, 14);
-            this.ProductLabel.TabIndex = 0;
-            this.ProductLabel.Text = "商品名";
-            // 
-            // PurchaseQuantityLabel
-            // 
-            this.PurchaseQuantityLabel.AutoSize = true;
-            this.PurchaseQuantityLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchaseQuantityLabel.Location = new System.Drawing.Point(16, 64);
-            this.PurchaseQuantityLabel.Name = "PurchaseQuantityLabel";
-            this.PurchaseQuantityLabel.Size = new System.Drawing.Size(49, 14);
-            this.PurchaseQuantityLabel.TabIndex = 1;
-            this.PurchaseQuantityLabel.Text = "仕入数";
-            // 
-            // PurchasePriceLabel
-            // 
-            this.PurchasePriceLabel.AutoSize = true;
-            this.PurchasePriceLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchasePriceLabel.Location = new System.Drawing.Point(16, 103);
-            this.PurchasePriceLabel.Name = "PurchasePriceLabel";
-            this.PurchasePriceLabel.Size = new System.Drawing.Size(63, 14);
-            this.PurchasePriceLabel.TabIndex = 2;
-            this.PurchasePriceLabel.Text = "仕入価格";
-            // 
-            // SalesPriceLabel
-            // 
-            this.SalesPriceLabel.AutoSize = true;
-            this.SalesPriceLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesPriceLabel.Location = new System.Drawing.Point(16, 139);
-            this.SalesPriceLabel.Name = "SalesPriceLabel";
-            this.SalesPriceLabel.Size = new System.Drawing.Size(63, 14);
-            this.SalesPriceLabel.TabIndex = 3;
-            this.SalesPriceLabel.Text = "販売価格";
-            // 
-            // ProductTextBox
-            // 
-            this.ProductTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.ProductTextBox.Location = new System.Drawing.Point(126, 24);
-            this.ProductTextBox.Name = "ProductTextBox";
-            this.ProductTextBox.Size = new System.Drawing.Size(117, 21);
-            this.ProductTextBox.TabIndex = 4;
-            this.ProductTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
-            // 
-            // PurchaseQuantityTextBox
-            // 
-            this.PurchaseQuantityTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchaseQuantityTextBox.Location = new System.Drawing.Point(126, 61);
-            this.PurchaseQuantityTextBox.Name = "PurchaseQuantityTextBox";
-            this.PurchaseQuantityTextBox.Size = new System.Drawing.Size(117, 21);
-            this.PurchaseQuantityTextBox.TabIndex = 5;
-            this.PurchaseQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
-            this.PurchaseQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
+            this.SalesPriceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.SalesPriceTextBox.Location = new System.Drawing.Point(126, 136);
+            this.SalesPriceTextBox.Name = "SalesPriceTextBox";
+            this.SalesPriceTextBox.Size = new System.Drawing.Size(117, 21);
+            this.SalesPriceTextBox.TabIndex = 7;
+            this.SalesPriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.SalesPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // PurchasePriceTextBox
             // 
@@ -133,6 +84,65 @@
             this.PurchasePriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             this.PurchasePriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
+            // PurchaseQuantityTextBox
+            // 
+            this.PurchaseQuantityTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.PurchaseQuantityTextBox.Location = new System.Drawing.Point(126, 61);
+            this.PurchaseQuantityTextBox.Name = "PurchaseQuantityTextBox";
+            this.PurchaseQuantityTextBox.Size = new System.Drawing.Size(117, 21);
+            this.PurchaseQuantityTextBox.TabIndex = 5;
+            this.PurchaseQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            this.PurchaseQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
+            // 
+            // ProductTextBox
+            // 
+            this.ProductTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.ProductTextBox.Location = new System.Drawing.Point(126, 24);
+            this.ProductTextBox.Name = "ProductTextBox";
+            this.ProductTextBox.Size = new System.Drawing.Size(117, 21);
+            this.ProductTextBox.TabIndex = 4;
+            this.ProductTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
+            // 
+            // SalesPriceLabel
+            // 
+            this.SalesPriceLabel.AutoSize = true;
+            this.SalesPriceLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.SalesPriceLabel.Location = new System.Drawing.Point(16, 139);
+            this.SalesPriceLabel.Name = "SalesPriceLabel";
+            this.SalesPriceLabel.Size = new System.Drawing.Size(63, 14);
+            this.SalesPriceLabel.TabIndex = 3;
+            this.SalesPriceLabel.Text = "販売価格";
+            // 
+            // PurchasePriceLabel
+            // 
+            this.PurchasePriceLabel.AutoSize = true;
+            this.PurchasePriceLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.PurchasePriceLabel.Location = new System.Drawing.Point(16, 103);
+            this.PurchasePriceLabel.Name = "PurchasePriceLabel";
+            this.PurchasePriceLabel.Size = new System.Drawing.Size(63, 14);
+            this.PurchasePriceLabel.TabIndex = 2;
+            this.PurchasePriceLabel.Text = "仕入価格";
+            // 
+            // PurchaseQuantityLabel
+            // 
+            this.PurchaseQuantityLabel.AutoSize = true;
+            this.PurchaseQuantityLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.PurchaseQuantityLabel.Location = new System.Drawing.Point(16, 64);
+            this.PurchaseQuantityLabel.Name = "PurchaseQuantityLabel";
+            this.PurchaseQuantityLabel.Size = new System.Drawing.Size(49, 14);
+            this.PurchaseQuantityLabel.TabIndex = 1;
+            this.PurchaseQuantityLabel.Text = "仕入数";
+            // 
+            // ProductLabel
+            // 
+            this.ProductLabel.AutoSize = true;
+            this.ProductLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.ProductLabel.Location = new System.Drawing.Point(16, 27);
+            this.ProductLabel.Name = "ProductLabel";
+            this.ProductLabel.Size = new System.Drawing.Size(49, 14);
+            this.ProductLabel.TabIndex = 0;
+            this.ProductLabel.Text = "商品名";
+            // 
             // SalesQuantityLabel
             // 
             this.SalesQuantityLabel.AutoSize = true;
@@ -142,16 +152,6 @@
             this.SalesQuantityLabel.Size = new System.Drawing.Size(49, 14);
             this.SalesQuantityLabel.TabIndex = 8;
             this.SalesQuantityLabel.Text = "販売数";
-            // 
-            // SalesPriceTextBox
-            // 
-            this.SalesPriceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesPriceTextBox.Location = new System.Drawing.Point(126, 136);
-            this.SalesPriceTextBox.Name = "SalesPriceTextBox";
-            this.SalesPriceTextBox.Size = new System.Drawing.Size(117, 21);
-            this.SalesPriceTextBox.TabIndex = 7;
-            this.SalesPriceTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
-            this.SalesPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
             // 
             // SalesQuantityTextBox
             // 

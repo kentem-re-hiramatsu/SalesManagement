@@ -10,12 +10,14 @@ namespace WindowsFormsApp1
         private bool _isPurchaseOrder;
         private PurchaseManager _purchaseMana;
         private SalesManager _salesMana;
+        private StockForm _stockForm;
 
-        public OrderForm(bool isPurchaseOrder, PurchaseManager purchaseMana, SalesManager salesManager)
+        public OrderForm(bool isPurchaseOrder, PurchaseManager purchaseMana, SalesManager salesManager, StockForm stockForm)
         {
             _isPurchaseOrder = isPurchaseOrder;
             _purchaseMana = purchaseMana;
             _salesMana = salesManager;
+            _stockForm = stockForm;
             InitializeComponent();
         }
         private void OrderForm_Load(object sender, System.EventArgs e)
@@ -71,13 +73,17 @@ namespace WindowsFormsApp1
                 {
                     _purchaseMana.Add(purchase);
                     _salesMana.Add(new Sales(salesPrice, purchase));
+                    var stockForm = new StockForm(_purchaseMana, _salesMana);
+                    if (_stockForm != null)
+                    {
+                        _stockForm.UpdateScreen();
+                    }
                     Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //Close();
             }
             else
             {
