@@ -37,13 +37,9 @@
             this.PurchasePriceLabel = new System.Windows.Forms.Label();
             this.PurchaseQuantityLabel = new System.Windows.Forms.Label();
             this.ProductLabel = new System.Windows.Forms.Label();
-            this.SalesQuantityLabel = new System.Windows.Forms.Label();
-            this.SalesQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.SalesGroup = new System.Windows.Forms.GroupBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.PuchaseOrderGroup.SuspendLayout();
-            this.SalesGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // PuchaseOrderGroup
@@ -56,7 +52,6 @@
             this.PuchaseOrderGroup.Controls.Add(this.PurchasePriceLabel);
             this.PuchaseOrderGroup.Controls.Add(this.PurchaseQuantityLabel);
             this.PuchaseOrderGroup.Controls.Add(this.ProductLabel);
-            this.PuchaseOrderGroup.Enabled = false;
             this.PuchaseOrderGroup.Location = new System.Drawing.Point(12, 37);
             this.PuchaseOrderGroup.Name = "PuchaseOrderGroup";
             this.PuchaseOrderGroup.Size = new System.Drawing.Size(284, 173);
@@ -143,43 +138,11 @@
             this.ProductLabel.TabIndex = 0;
             this.ProductLabel.Text = "商品名";
             // 
-            // SalesQuantityLabel
-            // 
-            this.SalesQuantityLabel.AutoSize = true;
-            this.SalesQuantityLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesQuantityLabel.Location = new System.Drawing.Point(16, 39);
-            this.SalesQuantityLabel.Name = "SalesQuantityLabel";
-            this.SalesQuantityLabel.Size = new System.Drawing.Size(49, 14);
-            this.SalesQuantityLabel.TabIndex = 8;
-            this.SalesQuantityLabel.Text = "販売数";
-            // 
-            // SalesQuantityTextBox
-            // 
-            this.SalesQuantityTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesQuantityTextBox.Location = new System.Drawing.Point(126, 36);
-            this.SalesQuantityTextBox.Name = "SalesQuantityTextBox";
-            this.SalesQuantityTextBox.Size = new System.Drawing.Size(117, 21);
-            this.SalesQuantityTextBox.TabIndex = 8;
-            this.SalesQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
-            this.SalesQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
-            // 
-            // SalesGroup
-            // 
-            this.SalesGroup.Controls.Add(this.SalesQuantityLabel);
-            this.SalesGroup.Controls.Add(this.SalesQuantityTextBox);
-            this.SalesGroup.Enabled = false;
-            this.SalesGroup.Location = new System.Drawing.Point(12, 231);
-            this.SalesGroup.Name = "SalesGroup";
-            this.SalesGroup.Size = new System.Drawing.Size(284, 78);
-            this.SalesGroup.TabIndex = 9;
-            this.SalesGroup.TabStop = false;
-            this.SalesGroup.Text = "販売処理";
-            // 
             // OkButton
             // 
             this.OkButton.Enabled = false;
             this.OkButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.OkButton.Location = new System.Drawing.Point(120, 324);
+            this.OkButton.Location = new System.Drawing.Point(120, 227);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(85, 28);
             this.OkButton.TabIndex = 10;
@@ -190,7 +153,7 @@
             // CancelButton
             // 
             this.CancelButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(211, 324);
+            this.CancelButton.Location = new System.Drawing.Point(211, 227);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(85, 28);
             this.CancelButton.TabIndex = 11;
@@ -202,18 +165,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 371);
+            this.ClientSize = new System.Drawing.Size(308, 270);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.SalesGroup);
             this.Controls.Add(this.PuchaseOrderGroup);
             this.Name = "OrderForm";
             this.Text = "仕入処理";
-            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.PuchaseOrderGroup.ResumeLayout(false);
             this.PuchaseOrderGroup.PerformLayout();
-            this.SalesGroup.ResumeLayout(false);
-            this.SalesGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -229,9 +188,6 @@
         private System.Windows.Forms.Label PurchaseQuantityLabel;
         private System.Windows.Forms.Label ProductLabel;
         private System.Windows.Forms.TextBox SalesPriceTextBox;
-        private System.Windows.Forms.Label SalesQuantityLabel;
-        private System.Windows.Forms.TextBox SalesQuantityTextBox;
-        private System.Windows.Forms.GroupBox SalesGroup;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
     }
