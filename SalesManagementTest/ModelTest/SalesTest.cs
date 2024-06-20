@@ -12,13 +12,16 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void SalesConstructorTest()
         {
-            var sales = new Sales(100, purchase);
+            var sales = new Sales(200, purchase);
 
-            Assert.AreEqual(100, sales.SalesPrice);
+            Assert.AreEqual(200, sales.SalesPrice);
             Assert.AreEqual(8, sales.StockQuantity);
 
             Assert.ThrowsException<Exception>(() => new Sales(0, purchase));
             Assert.ThrowsException<Exception>(() => new Sales(-1, purchase));
+
+            //仕入価格が販売価格を下回っていないか
+            Assert.ThrowsException<Exception>(() => new Sales(100, purchase));
         }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void ProcessSalesTest()
         {
-            var sales = new Sales(100, purchase);
+            var sales = new Sales(200, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
             sales.ProcessSales(3, "06/19");
@@ -42,7 +45,7 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void OverProcessSalesTest()
         {
-            var sales = new Sales(100, purchase);
+            var sales = new Sales(200, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
             Assert.ThrowsException<Exception>(() => sales.ProcessSales(9, "06/19"));
