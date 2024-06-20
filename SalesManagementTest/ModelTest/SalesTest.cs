@@ -14,7 +14,7 @@ namespace SalesManagementTest.ModelTest
         {
             var sales = new Sale(200, purchase);
 
-            Assert.AreEqual(200, sales.SalesPrice);
+            Assert.AreEqual(200, sales.SalePrice);
             Assert.AreEqual(8, sales.StockQuantity);
 
             Assert.ThrowsException<Exception>(() => new Sale(0, purchase));
@@ -34,7 +34,7 @@ namespace SalesManagementTest.ModelTest
             Assert.AreEqual(8, sales.StockQuantity);
 
             sales.ProcessSale(3, "06/19");
-            Assert.AreEqual(3, sales.SalesQuantity);
+            Assert.AreEqual(3, sales.SaleQuantity);
             Assert.AreEqual(5, sales.StockQuantity);
             Assert.AreEqual("06/19", sales.SalesDataTime);
         }

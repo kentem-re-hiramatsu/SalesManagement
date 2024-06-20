@@ -20,8 +20,8 @@ namespace SalesManagementTest.ManagerTest
             salesmana.Add(banana);
 
             Assert.AreEqual(2, salesmana.SalesList.Count);
-            Assert.AreEqual(200, salesmana.GetSales(0).SalesPrice);
-            Assert.AreEqual(300, salesmana.GetSales(1).SalesPrice);
+            Assert.AreEqual(200, salesmana.GetSales(0).SalePrice);
+            Assert.AreEqual(300, salesmana.GetSales(1).SalePrice);
         }
 
         /// <summary>

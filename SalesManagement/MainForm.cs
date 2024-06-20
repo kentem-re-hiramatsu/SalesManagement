@@ -28,7 +28,7 @@ namespace SalesManagement
             foreach (var sale in _historyManager.HistoryList)
             {
                 var purchase = sale.Purchase;
-                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sale.SalesPrice.ToString(), purchase.PurchaseDateTime, sale.SalesDataTime, sale.SalesQuantity.ToString(), sale.GetSalesAmount().ToString() }));
+                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sale.SalePrice.ToString(), purchase.PurchaseDateTime, sale.SalesDataTime, sale.SaleQuantity.ToString(), sale.GetSalesAmount().ToString() }));
             }
 
             TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.SalesList.Sum(x => x.GetSalesAmount())}円";

@@ -32,7 +32,7 @@ namespace WindowsFormsApp2
             foreach (var sales in _salesMana.SalesList)
             {
                 var purchase = sales.Purchase;
-                StockListView.Items.Add(new ListViewItem(new string[] { "", purchase.ProductName, purchase.PurchaseDateTime.ToString(), purchase.PurchasePrice.ToString(), sales.SalesPrice.ToString(), sales.StockQuantity.ToString() }));
+                StockListView.Items.Add(new ListViewItem(new string[] { "", purchase.ProductName, purchase.PurchaseDateTime.ToString(), purchase.PurchasePrice.ToString(), sales.SalePrice.ToString(), sales.StockQuantity.ToString() }));
             }
         }
 
