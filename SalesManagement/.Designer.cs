@@ -41,8 +41,8 @@
             this.TotaltSalesAmountLabel = new System.Windows.Forms.Label();
             this.TotalIncomeAmountLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ClearFilterButton = new System.Windows.Forms.Button();
+            this.TodaySalesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
@@ -147,33 +147,36 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // button1
+            // ClearFilterButton
             // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.button1.Location = new System.Drawing.Point(406, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 30);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "絞込解除";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ClearFilterButton.Enabled = false;
+            this.ClearFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.ClearFilterButton.Location = new System.Drawing.Point(406, 46);
+            this.ClearFilterButton.Name = "ClearFilterButton";
+            this.ClearFilterButton.Size = new System.Drawing.Size(59, 30);
+            this.ClearFilterButton.TabIndex = 9;
+            this.ClearFilterButton.Text = "絞込解除";
+            this.ClearFilterButton.UseVisualStyleBackColor = true;
+            this.ClearFilterButton.Click += new System.EventHandler(this.ClearFilterButton_Click);
             // 
-            // button2
+            // TodaySalesButton
             // 
-            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.button2.Location = new System.Drawing.Point(341, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 30);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "今日販売";
-            this.button2.UseVisualStyleBackColor = true;
+            this.TodaySalesButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.TodaySalesButton.Location = new System.Drawing.Point(341, 46);
+            this.TodaySalesButton.Name = "TodaySalesButton";
+            this.TodaySalesButton.Size = new System.Drawing.Size(59, 30);
+            this.TodaySalesButton.TabIndex = 10;
+            this.TodaySalesButton.Text = "今日販売";
+            this.TodaySalesButton.UseVisualStyleBackColor = true;
+            this.TodaySalesButton.Click += new System.EventHandler(this.TodaySalesButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 418);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TodaySalesButton);
+            this.Controls.Add(this.ClearFilterButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.TotalIncomeAmountLabel);
             this.Controls.Add(this.TotaltSalesAmountLabel);
@@ -203,8 +206,8 @@
         private System.Windows.Forms.Label TotaltSalesAmountLabel;
         private System.Windows.Forms.Label TotalIncomeAmountLabel;
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ClearFilterButton;
+        private System.Windows.Forms.Button TodaySalesButton;
         private System.Windows.Forms.Button InventoryListButton;
     }
 }
