@@ -29,10 +29,7 @@ namespace Product.Cores.Model
             Purchase = purchase;
         }
 
-        public Sale CloneSale()
-        {
-            return (Sale)MemberwiseClone();
-        }
+        public Sale CloneSale() => (Sale)MemberwiseClone();
 
         /// <summary>
         /// 売上金額
