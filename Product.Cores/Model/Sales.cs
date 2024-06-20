@@ -12,7 +12,7 @@ namespace Product.Cores.Model
 
         public Sales(int price, Purchase purchase)
         {
-            if (price > 0)
+            if (price > 0 && price > purchase.PurchasePrice)
             {
                 SalesPrice = price;
             }
