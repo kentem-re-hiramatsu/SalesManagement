@@ -7,14 +7,12 @@ namespace WindowsFormsApp1
 {
     public partial class OrderForm : Form
     {
-        private PurchaseManager _purchaseMana;
         private SalesManager _salesMana;
         private StockForm _stockForm;
 
-        public OrderForm(PurchaseManager purchaseMana, SalesManager salesManager, StockForm stockForm)
+        public OrderForm(SalesManager salesMana, StockForm stockForm)
         {
-            _purchaseMana = purchaseMana;
-            _salesMana = salesManager;
+            _salesMana = salesMana;
             _stockForm = stockForm;
             InitializeComponent();
         }
@@ -54,12 +52,11 @@ namespace WindowsFormsApp1
             var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
             var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
             var salesPrice = int.Parse(SalesPriceTextBox.Text);
-            var purchase = new Purchase(productName, purchaseDateTime, purchaseQuantity, purchasePrice);
 
             try
             {
-                _purchaseMana.Add(purchase);
-                _salesMana.Add(new Sales(salesPrice, purchase));
+                var purchase = new Purchase(productName, purchaseDateTime, purchaseQuantity, purchasePrice);
+                _salesMana.Add(new Sale(salesPrice, purchase));
 
                 //在庫一覧が開かれているか。
                 if (_stockForm != null)

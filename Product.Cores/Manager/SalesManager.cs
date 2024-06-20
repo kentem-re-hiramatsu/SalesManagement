@@ -6,22 +6,22 @@ namespace Product.Cores.Manager
 {
     public class SalesManager
     {
-        private List<Sales> _salesList = new List<Sales>();
+        private List<Sale> _salesList = new List<Sale>();
 
-        public IReadOnlyCollection<Sales> SalesList { get { return _salesList; } }
+        public IReadOnlyCollection<Sale> SalesList { get { return _salesList; } }
 
-        public void Add(Sales sales) => _salesList.Add(sales);
+        public void Add(Sale sale) => _salesList.Add(sale);
 
-        public Sales GetSales(int index) => _salesList[index];
+        public Sale GetSales(int index) => _salesList[index];
 
         /// <summary>
         /// 売上合計金額
         /// </summary>
-        public int GetTotalSalesAmount() => _salesList.Sum(sales => sales.GetSalesAmount());
+        public int GetTotalSalesAmount() => _salesList.Sum(sale => sale.GetSalesAmount());
 
         /// <summary>
         /// 利益合計金額
         /// </summary>
-        public int GetTotalIncomeAmount() => _salesList.Sum(sales => sales.GetIncomeAmount());
+        public int GetTotalIncomeAmount() => _salesList.Sum(sale => sale.GetIncomeAmount());
     }
 }
