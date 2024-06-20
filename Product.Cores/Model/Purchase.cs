@@ -9,9 +9,10 @@ namespace Product.Cores.Model
         public int PurchasePrice { get; }
         public string PurchaseDateTime { get; }
 
-        public Purchase(string name, int purchaseQuantity, int price)
+        public Purchase(string name, string purchaseDateTime, int purchaseQuantity, int price)
         {
             ProductName = name;
+            PurchaseDateTime = purchaseDateTime;
 
             if (purchaseQuantity > 0 && price > 0)
             {
@@ -22,7 +23,6 @@ namespace Product.Cores.Model
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
-            PurchaseDateTime = DateTime.Now.Date.ToString("MM/dd");
         }
     }
 }

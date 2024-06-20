@@ -39,11 +39,15 @@
             this.ProductLabel = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SalesDateTime = new System.Windows.Forms.DateTimePicker();
             this.PuchaseOrderGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // PuchaseOrderGroup
             // 
+            this.PuchaseOrderGroup.Controls.Add(this.SalesDateTime);
+            this.PuchaseOrderGroup.Controls.Add(this.label1);
             this.PuchaseOrderGroup.Controls.Add(this.SalesPriceTextBox);
             this.PuchaseOrderGroup.Controls.Add(this.PurchasePriceTextBox);
             this.PuchaseOrderGroup.Controls.Add(this.PurchaseQuantityTextBox);
@@ -58,11 +62,12 @@
             this.PuchaseOrderGroup.TabIndex = 0;
             this.PuchaseOrderGroup.TabStop = false;
             this.PuchaseOrderGroup.Text = "仕入処理";
+            this.PuchaseOrderGroup.Enter += new System.EventHandler(this.PuchaseOrderGroup_Enter);
             // 
             // SalesPriceTextBox
             // 
             this.SalesPriceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesPriceTextBox.Location = new System.Drawing.Point(126, 136);
+            this.SalesPriceTextBox.Location = new System.Drawing.Point(126, 132);
             this.SalesPriceTextBox.Name = "SalesPriceTextBox";
             this.SalesPriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.SalesPriceTextBox.TabIndex = 7;
@@ -72,7 +77,7 @@
             // PurchasePriceTextBox
             // 
             this.PurchasePriceTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchasePriceTextBox.Location = new System.Drawing.Point(126, 100);
+            this.PurchasePriceTextBox.Location = new System.Drawing.Point(126, 105);
             this.PurchasePriceTextBox.Name = "PurchasePriceTextBox";
             this.PurchasePriceTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchasePriceTextBox.TabIndex = 6;
@@ -82,7 +87,7 @@
             // PurchaseQuantityTextBox
             // 
             this.PurchaseQuantityTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchaseQuantityTextBox.Location = new System.Drawing.Point(126, 61);
+            this.PurchaseQuantityTextBox.Location = new System.Drawing.Point(126, 78);
             this.PurchaseQuantityTextBox.Name = "PurchaseQuantityTextBox";
             this.PurchaseQuantityTextBox.Size = new System.Drawing.Size(117, 21);
             this.PurchaseQuantityTextBox.TabIndex = 5;
@@ -112,7 +117,7 @@
             // 
             this.PurchasePriceLabel.AutoSize = true;
             this.PurchasePriceLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchasePriceLabel.Location = new System.Drawing.Point(16, 103);
+            this.PurchasePriceLabel.Location = new System.Drawing.Point(16, 108);
             this.PurchasePriceLabel.Name = "PurchasePriceLabel";
             this.PurchasePriceLabel.Size = new System.Drawing.Size(63, 14);
             this.PurchasePriceLabel.TabIndex = 2;
@@ -122,7 +127,7 @@
             // 
             this.PurchaseQuantityLabel.AutoSize = true;
             this.PurchaseQuantityLabel.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.PurchaseQuantityLabel.Location = new System.Drawing.Point(16, 64);
+            this.PurchaseQuantityLabel.Location = new System.Drawing.Point(16, 81);
             this.PurchaseQuantityLabel.Name = "PurchaseQuantityLabel";
             this.PurchaseQuantityLabel.Size = new System.Drawing.Size(49, 14);
             this.PurchaseQuantityLabel.TabIndex = 1;
@@ -161,11 +166,31 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.label1.Location = new System.Drawing.Point(16, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "仕入日";
+            // 
+            // SalesDateTime
+            // 
+            this.SalesDateTime.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.SalesDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SalesDateTime.Location = new System.Drawing.Point(126, 51);
+            this.SalesDateTime.Name = "SalesDateTime";
+            this.SalesDateTime.Size = new System.Drawing.Size(117, 21);
+            this.SalesDateTime.TabIndex = 12;
+            this.SalesDateTime.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 270);
+            this.ClientSize = new System.Drawing.Size(308, 273);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.PuchaseOrderGroup);
@@ -190,6 +215,8 @@
         private System.Windows.Forms.TextBox SalesPriceTextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker SalesDateTime;
     }
 }
 

@@ -50,10 +50,11 @@ namespace WindowsFormsApp1
         private void OkButton_Click(object sender, System.EventArgs e)
         {
             var productName = ProductTextBox.Text;
+            var purchaseDateTime = SalesDateTime.Value.ToString("MM/dd");
             var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
             var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
             var salesPrice = int.Parse(SalesPriceTextBox.Text);
-            var purchase = new Purchase(productName, purchaseQuantity, purchasePrice);
+            var purchase = new Purchase(productName, purchaseDateTime, purchaseQuantity, purchasePrice);
 
             try
             {
@@ -71,6 +72,11 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PuchaseOrderGroup_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
