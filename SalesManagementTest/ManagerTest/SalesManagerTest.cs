@@ -12,8 +12,8 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void AddTest()
         {
-            var cherry = new Sales(200, new Purchase("さくらんぼ", "06/20", 5, 100));
-            var banana = new Sales(300, new Purchase("バナナ", "06/20", 3, 150));
+            var cherry = new Sale(200, new Purchase("さくらんぼ", "06/20", 5, 100));
+            var banana = new Sale(300, new Purchase("バナナ", "06/20", 3, 150));
             Assert.AreEqual(0, salesmana.SalesList.Count);
 
             salesmana.Add(cherry);
@@ -32,8 +32,8 @@ namespace SalesManagementTest.ManagerTest
         {
             var cherryPuchase = new Purchase("さくらんぼ", "06/20", 5, 100);
             var bananaPuchase = new Purchase("バナナ", "06/20", 3, 150);
-            var cherry = new Sales(200, cherryPuchase);
-            var banana = new Sales(300, bananaPuchase);
+            var cherry = new Sale(200, cherryPuchase);
+            var banana = new Sale(300, bananaPuchase);
 
             cherry.ProcessSale(2, "06/19");
             banana.ProcessSale(1, "06/19");
