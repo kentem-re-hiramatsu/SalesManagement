@@ -24,12 +24,12 @@ namespace WindowsFormsApp1
             OkButton.Enabled = ProductTextBox.Text.Length > 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0;
         }
 
-        private void CancelButton_Click(object sender, System.EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void ProductTextBox_TextChanged(object sender, System.EventArgs e)
+        private void ProductTextBox_TextChanged(object sender, EventArgs e)
         {
             OkButtonChangedEnabled();
         }
@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void OkButton_Click(object sender, System.EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             var productName = ProductTextBox.Text;
             var purchaseDateTime = SalesDateTime.Value.ToString("MM/dd");
@@ -72,11 +72,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void PuchaseOrderGroup_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

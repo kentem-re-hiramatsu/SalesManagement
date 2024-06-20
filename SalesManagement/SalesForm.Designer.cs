@@ -49,7 +49,6 @@
             this.SalesDateTime.Enabled = false;
             this.SalesDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.SalesDateTime.Location = new System.Drawing.Point(93, 423);
-            this.SalesDateTime.MinDate = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
             this.SalesDateTime.Name = "SalesDateTime";
             this.SalesDateTime.Size = new System.Drawing.Size(100, 19);
             this.SalesDateTime.TabIndex = 7;

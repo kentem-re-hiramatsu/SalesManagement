@@ -62,7 +62,6 @@
             this.PuchaseOrderGroup.TabIndex = 0;
             this.PuchaseOrderGroup.TabStop = false;
             this.PuchaseOrderGroup.Text = "仕入処理";
-            this.PuchaseOrderGroup.Enter += new System.EventHandler(this.PuchaseOrderGroup_Enter);
             // 
             // SalesPriceTextBox
             // 

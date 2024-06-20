@@ -1,4 +1,5 @@
 ﻿using Product.Cores.Manager;
+using System;
 using System.Windows.Forms;
 using WindowsFormsApp1;
 using WindowsFormsApp2;
@@ -15,7 +16,7 @@ namespace SalesManagement
         {
             InitializeComponent();
         }
-        private void MainForm_Load(object sender, System.EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             _stockForm = new StockForm(_salesMana);
         }
@@ -30,7 +31,7 @@ namespace SalesManagement
             }
         }
 
-        private void SalesProcessingButton_Click(object sender, System.EventArgs e)
+        private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
             var salesOrderForm = new SalesForm(_salesMana, _stockForm);
             if (DialogResult.OK == salesOrderForm.ShowDialog())
@@ -39,13 +40,13 @@ namespace SalesManagement
             }
         }
 
-        private void PurchaseProcessingButton_Click(object sender, System.EventArgs e)
+        private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
             var orderForm = new OrderForm(_purchaseMana, _salesMana, _stockForm);
             orderForm.ShowDialog();
         }
 
-        private void InventoryListButton_Click(object sender, System.EventArgs e)
+        private void InventoryListButton_Click(object sender, EventArgs e)
         {
             _stockForm = new StockForm(_salesMana);
 
@@ -54,7 +55,7 @@ namespace SalesManagement
             InventoryListButton.Enabled = false;
         }
 
-        private void CloseButton_Click(object sender, System.EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }
