@@ -1,5 +1,6 @@
 ﻿using Product.Cores.Manager;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp1;
 using WindowsFormsApp2;
@@ -29,6 +30,9 @@ namespace SalesManagement
                 var purchase = sales.Purchase;
                 SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sales.SalesPrice.ToString(), purchase.PurchaseDateTime, sales.SalesDataTime, sales.SalesQuantity.ToString(), sales.GetSalesAmount().ToString() }));
             }
+
+            TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.SalesList.Sum(x => x.GetSalesAmount())}円";
+            TotalIncomeAmountLabel.Text = $"利益合計金額：{_salesMana.SalesList.Sum(x => x.GetIncomeAmount())}円";
         }
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
