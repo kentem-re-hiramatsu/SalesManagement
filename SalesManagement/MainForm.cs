@@ -31,8 +31,8 @@ namespace SalesManagement
                 SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sale.SalePrice.ToString(), purchase.PurchaseDateTime, sale.SalesDataTime, sale.SaleQuantity.ToString(), sale.GetSalesAmount().ToString() }));
             }
 
-            TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.SalesList.Sum(x => x.GetSalesAmount())}円";
-            TotalIncomeAmountLabel.Text = $"利益合計金額：{_salesMana.SalesList.Sum(x => x.GetIncomeAmount())}円";
+            TotaltSalesAmountLabel.Text = $"売上合計金額：{_historyManager.HistoryList.Sum(x => x.GetSalesAmount())}円";
+            TotalIncomeAmountLabel.Text = $"利益合計金額：{_historyManager.HistoryList.Sum(x => x.GetIncomeAmount())}円";
         }
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
