@@ -31,7 +31,7 @@
             this.SalesProcessingButton = new System.Windows.Forms.Button();
             this.PurchaseProcessingButton = new System.Windows.Forms.Button();
             this.InventoryListButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.SalesListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,22 +75,22 @@
             this.InventoryListButton.UseVisualStyleBackColor = true;
             this.InventoryListButton.Click += new System.EventHandler(this.InventoryListButton_Click);
             // 
-            // listView1
+            // SalesListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SalesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 102);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(453, 247);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.SalesListView.HideSelection = false;
+            this.SalesListView.Location = new System.Drawing.Point(12, 102);
+            this.SalesListView.Name = "SalesListView";
+            this.SalesListView.Size = new System.Drawing.Size(453, 247);
+            this.SalesListView.TabIndex = 3;
+            this.SalesListView.UseCompatibleStateImageBehavior = false;
+            this.SalesListView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -177,7 +177,7 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.TotalIncomeAmountLabel);
             this.Controls.Add(this.TotaltSalesAmountLabel);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.SalesListView);
             this.Controls.Add(this.InventoryListButton);
             this.Controls.Add(this.PurchaseProcessingButton);
             this.Controls.Add(this.SalesProcessingButton);
@@ -193,7 +193,7 @@
 
         private System.Windows.Forms.Button SalesProcessingButton;
         private System.Windows.Forms.Button PurchaseProcessingButton;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView SalesListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

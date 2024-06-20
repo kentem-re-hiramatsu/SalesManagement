@@ -6,12 +6,10 @@ namespace WindowsFormsApp1
 {
     public partial class StockForm : Form
     {
-        private PurchaseManager _purchaseMana;
         private SalesManager _salesMana;
 
-        public StockForm(PurchaseManager purchaseMana, SalesManager salesManager)
+        public StockForm(SalesManager salesManager)
         {
-            _purchaseMana = purchaseMana;
             _salesMana = salesManager;
             InitializeComponent();
         }
@@ -24,6 +22,7 @@ namespace WindowsFormsApp1
         public void UpdateScreen()
         {
             StockListView.Items.Clear();
+
             foreach (var sales in _salesMana.SalesList)
             {
                 var purchase = sales.Purchase;

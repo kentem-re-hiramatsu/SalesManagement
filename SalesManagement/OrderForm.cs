@@ -7,33 +7,21 @@ namespace WindowsFormsApp1
 {
     public partial class OrderForm : Form
     {
-        private bool _isPurchaseOrder;
         private PurchaseManager _purchaseMana;
         private SalesManager _salesMana;
         private StockForm _stockForm;
 
-        public OrderForm(bool isPurchaseOrder, PurchaseManager purchaseMana, SalesManager salesManager, StockForm stockForm)
+        public OrderForm(PurchaseManager purchaseMana, SalesManager salesManager, StockForm stockForm)
         {
-            _isPurchaseOrder = isPurchaseOrder;
             _purchaseMana = purchaseMana;
             _salesMana = salesManager;
             _stockForm = stockForm;
             InitializeComponent();
         }
-        private void OrderForm_Load(object sender, System.EventArgs e)
-        {
-            OrderFormSettings();
-        }
-
-        public void OrderFormSettings()
-        {
-            PuchaseOrderGroup.Enabled = _isPurchaseOrder;
-            SalesGroup.Enabled = !_isPurchaseOrder;
-        }
 
         public void OkButtonChangedEnabled()
         {
-            OkButton.Enabled = ProductTextBox.Text.Length > 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0 || SalesQuantityTextBox.Text.Length > 0;
+            OkButton.Enabled = ProductTextBox.Text.Length > 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0;
         }
 
         private void CancelButton_Click(object sender, System.EventArgs e)
@@ -61,33 +49,26 @@ namespace WindowsFormsApp1
 
         private void OkButton_Click(object sender, System.EventArgs e)
         {
-            if (_isPurchaseOrder)
-            {
-                var productName = ProductTextBox.Text;
-                var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
-                var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
-                var salesPrice = int.Parse(SalesPriceTextBox.Text);
-                var purchase = new Purchase(productName, purchaseQuantity, purchasePrice);
+            var productName = ProductTextBox.Text;
+            var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
+            var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
+            var salesPrice = int.Parse(SalesPriceTextBox.Text);
+            var purchase = new Purchase(productName, purchaseQuantity, purchasePrice);
 
-                try
+            try
+            {
+                _purchaseMana.Add(purchase);
+                _salesMana.Add(new Sales(salesPrice, purchase));
+
+                if (_stockForm != null)
                 {
-                    _purchaseMana.Add(purchase);
-                    _salesMana.Add(new Sales(salesPrice, purchase));
-                    var stockForm = new StockForm(_purchaseMana, _salesMana);
-                    if (_stockForm != null)
-                    {
-                        _stockForm.UpdateScreen();
-                    }
-                    Close();
+                    _stockForm.UpdateScreen();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
