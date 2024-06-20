@@ -9,8 +9,8 @@ namespace SalesManagement
 {
     public partial class MainForm : Form
     {
-        private PurchaseManager _purchaseMana = new PurchaseManager();
         private SalesManager _salesMana = new SalesManager();
+        private HistoryManager _historyManager = new HistoryManager();
         private StockForm _stockForm;
 
         public MainForm()
@@ -25,10 +25,10 @@ namespace SalesManagement
         private void UpdateScreen()
         {
             SalesListView.Items.Clear();
-            foreach (var sales in _salesMana.SalesList)
+            foreach (var sale in _historyManager.HistoryList)
             {
-                var purchase = sales.Purchase;
-                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sales.SalesPrice.ToString(), purchase.PurchaseDateTime, sales.SalesDataTime, sales.SalesQuantity.ToString(), sales.GetSalesAmount().ToString() }));
+                var purchase = sale.Purchase;
+                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sale.SalesPrice.ToString(), purchase.PurchaseDateTime, sale.SalesDataTime, sale.SalesQuantity.ToString(), sale.GetSalesAmount().ToString() }));
             }
 
             TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.SalesList.Sum(x => x.GetSalesAmount())}円";
@@ -37,7 +37,7 @@ namespace SalesManagement
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana, _stockForm);
+            var salesOrderForm = new SalesForm(_salesMana, _historyManager, _stockForm);
             if (DialogResult.OK == salesOrderForm.ShowDialog())
             {
                 UpdateScreen();
@@ -46,7 +46,7 @@ namespace SalesManagement
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_purchaseMana, _salesMana, _stockForm);
+            var orderForm = new OrderForm(_salesMana, _stockForm);
             orderForm.ShowDialog();
         }
 

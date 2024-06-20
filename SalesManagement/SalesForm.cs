@@ -9,11 +9,13 @@ namespace WindowsFormsApp2
     {
         private int _selectedIndex;
         private SalesManager _salesMana;
+        private HistoryManager _historyMana;
         private StockForm _stockFrom;
 
-        public SalesForm(SalesManager salesMana, StockForm stockForm)
+        public SalesForm(SalesManager salesMana, HistoryManager historyMana, StockForm stockForm)
         {
             _salesMana = salesMana;
+            _historyMana = historyMana;
             _stockFrom = stockForm;
             InitializeComponent();
         }
@@ -44,6 +46,7 @@ namespace WindowsFormsApp2
             try
             {
                 _salesMana.GetSales(_selectedIndex).ProcessSale(int.Parse(SalesQuantityTextBox.Text), SalesDateTime.Value.ToString("MM/dd"));
+                _historyMana.Add(_salesMana.GetSales(_selectedIndex).CloneSale());
 
                 //在庫一覧が開かれているか。
                 if (_stockFrom != null)
