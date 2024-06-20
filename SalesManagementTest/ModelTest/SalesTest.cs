@@ -20,7 +20,7 @@ namespace SalesManagementTest.ModelTest
             Assert.ThrowsException<Exception>(() => new Sales(0, purchase));
             Assert.ThrowsException<Exception>(() => new Sales(-1, purchase));
 
-            //仕入価格が販売価格を下回っていないか
+            //仕入価格が販売価格が同じまたは下回っていないか
             Assert.ThrowsException<Exception>(() => new Sales(100, purchase));
         }
 
