@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Product.Cores.Model
 {
@@ -44,18 +45,25 @@ namespace Product.Cores.Model
         /// <summary>
         /// 販売処理
         /// </summary>
-        public void ProcessSale(int salesQuantity, string salesDataTime)
+        public void ProcessSale(int salesQuantity, string salesDateTime)
         {
+            DateTime purchaseTime = DateTime.ParseExact(Purchase.PurchaseDateTime + "/", "MM/dd/", CultureInfo.InvariantCulture);
+            DateTime salesTime = DateTime.ParseExact(salesDateTime + "/", "MM/dd/", CultureInfo.InvariantCulture);
+
             //0以上かつ在庫数以下
-            if (salesQuantity > 0 && StockQuantity >= salesQuantity)
+            if (salesQuantity > 0 && StockQuantity >= salesQuantity && purchaseTime <= salesTime)
             {
                 SaleQuantity = salesQuantity;
                 StockQuantity -= salesQuantity;
-                SalesDataTime = salesDataTime;
+                SalesDataTime = salesDateTime;
             }
             else if (salesQuantity <= 0)
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
+            }
+            else if (purchaseTime > salesTime)
+            {
+                throw new Exception(Consts.LESS_THAN_SALEDAY_ERROR_MESSAGE);
             }
             else
             {
