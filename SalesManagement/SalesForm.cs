@@ -43,7 +43,7 @@ namespace WindowsFormsApp2
         {
             try
             {
-                _salesMana.GetSales(_selectedIndex).ProcessSales(int.Parse(SalesQuantityTextBox.Text), SalesDateTime.Value.ToString("MM/dd"));
+                _salesMana.GetSales(_selectedIndex).ProcessSale(int.Parse(SalesQuantityTextBox.Text), SalesDateTime.Value.ToString("MM/dd"));
 
                 //在庫一覧が開かれているか。
                 if (_stockFrom != null)

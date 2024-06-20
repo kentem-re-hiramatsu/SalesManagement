@@ -38,7 +38,7 @@ namespace Product.Cores.Model
         /// <summary>
         /// 販売処理
         /// </summary>
-        public void ProcessSales(int salesQuantity, string salesDataTime)
+        public void ProcessSale(int salesQuantity, string salesDataTime)
         {
             //0以上かつ在庫数以下
             if (salesQuantity > 0 && StockQuantity >= salesQuantity)

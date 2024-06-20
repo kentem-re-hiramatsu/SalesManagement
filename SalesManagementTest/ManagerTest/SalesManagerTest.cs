@@ -35,8 +35,8 @@ namespace SalesManagementTest.ManagerTest
             var cherry = new Sales(200, cherryPuchase);
             var banana = new Sales(300, bananaPuchase);
 
-            cherry.ProcessSales(2, "06/19");
-            banana.ProcessSales(1, "06/19");
+            cherry.ProcessSale(2, "06/19");
+            banana.ProcessSale(1, "06/19");
 
             salesmana.Add(cherry);
             salesmana.Add(banana);

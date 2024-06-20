@@ -33,7 +33,7 @@ namespace SalesManagementTest.ModelTest
             var sales = new Sales(200, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
-            sales.ProcessSales(3, "06/19");
+            sales.ProcessSale(3, "06/19");
             Assert.AreEqual(3, sales.SalesQuantity);
             Assert.AreEqual(5, sales.StockQuantity);
             Assert.AreEqual("06/19", sales.SalesDataTime);
@@ -48,9 +48,9 @@ namespace SalesManagementTest.ModelTest
             var sales = new Sales(200, purchase);
             Assert.AreEqual(8, sales.StockQuantity);
 
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(9, "06/19"));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(0, "06/19"));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSales(-1, "06/19"));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSale(9, "06/19"));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSale(0, "06/19"));
+            Assert.ThrowsException<Exception>(() => sales.ProcessSale(-1, "06/19"));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace SalesManagementTest.ModelTest
         public void TotaltSalesAmountAndTotalIncomeAmountTest()
         {
             var sales = new Sales(200, purchase);
-            sales.ProcessSales(3, "06/19");
+            sales.ProcessSale(3, "06/19");
 
             var salesPrice = 200;
             var salesQuantity = 3;
