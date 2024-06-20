@@ -1,6 +1,7 @@
 ﻿using Product.Cores.Manager;
 using System;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace WindowsFormsApp2
 {
@@ -8,10 +9,12 @@ namespace WindowsFormsApp2
     {
         private int _selectedIndex;
         private SalesManager _salesMana;
+        private StockForm _stockFrom;
 
-        public SalesForm(SalesManager salesMana)
+        public SalesForm(SalesManager salesMana, StockForm stockForm)
         {
             _salesMana = salesMana;
+            _stockFrom = stockForm;
             InitializeComponent();
         }
 
@@ -41,6 +44,13 @@ namespace WindowsFormsApp2
             try
             {
                 _salesMana.GetSales(_selectedIndex).ProcessSales(int.Parse(SalesQuantityTextBox.Text), SalesDateTime.Value.ToString("MM/dd"));
+
+                //在庫一覧が開かれているか。
+                if (_stockFrom != null)
+                {
+                    _stockFrom.UpdateScreen();
+                }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }

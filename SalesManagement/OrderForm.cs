@@ -60,6 +60,7 @@ namespace WindowsFormsApp1
                 _purchaseMana.Add(purchase);
                 _salesMana.Add(new Sales(salesPrice, purchase));
 
+                //在庫一覧が開かれているか。
                 if (_stockForm != null)
                 {
                     _stockForm.UpdateScreen();

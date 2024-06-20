@@ -32,7 +32,7 @@ namespace SalesManagement
 
         private void SalesProcessingButton_Click(object sender, System.EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana);
+            var salesOrderForm = new SalesForm(_salesMana, _stockForm);
             if (DialogResult.OK == salesOrderForm.ShowDialog())
             {
                 UpdateScreen();
