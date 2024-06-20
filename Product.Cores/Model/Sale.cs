@@ -4,8 +4,8 @@ namespace Product.Cores.Model
 {
     public class Sale
     {
-        public int SalesPrice { get; }
-        public int SalesQuantity { get; private set; }
+        public int SalePrice { get; }
+        public int SaleQuantity { get; private set; }
         public string SalesDataTime { get; private set; }
         public int StockQuantity { get; private set; }
         public Purchase Purchase { get; }
@@ -14,11 +14,15 @@ namespace Product.Cores.Model
         {
             if (price > 0 && price > purchase.PurchasePrice)
             {
-                SalesPrice = price;
+                SalePrice = price;
+            }
+            else if (price <= 0)
+            {
+                throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
             else
             {
-                throw new Exception(Consts.INPUT_ERROR_MESSAGE);
+                throw new Exception(Consts.PURCHASE_OVER_PRICE_ERROR_MESSAGE);
             }
 
             StockQuantity = purchase.PurchaseQuantity;
@@ -33,12 +37,12 @@ namespace Product.Cores.Model
         /// <summary>
         /// 売上金額
         /// </summary>
-        public int GetSalesAmount() => SalesPrice * SalesQuantity;
+        public int GetSalesAmount() => SalePrice * SaleQuantity;
 
         /// <summary>
         /// 利益金額
         /// </summary>
-        public int GetIncomeAmount() => GetSalesAmount() - Purchase.PurchasePrice * SalesQuantity;
+        public int GetIncomeAmount() => GetSalesAmount() - Purchase.PurchasePrice * SaleQuantity;
 
         /// <summary>
         /// 販売処理
@@ -48,13 +52,17 @@ namespace Product.Cores.Model
             //0以上かつ在庫数以下
             if (salesQuantity > 0 && StockQuantity >= salesQuantity)
             {
-                SalesQuantity = salesQuantity;
+                SaleQuantity = salesQuantity;
                 StockQuantity -= salesQuantity;
                 SalesDataTime = salesDataTime;
             }
-            else
+            else if (salesQuantity <= 0)
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
+            }
+            else
+            {
+                throw new Exception(Consts.INVENTORY_QUANTITY_ERROR_MESSAGE);
             }
         }
     }
