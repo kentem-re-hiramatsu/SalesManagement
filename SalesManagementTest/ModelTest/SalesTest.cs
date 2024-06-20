@@ -7,7 +7,7 @@ namespace SalesManagementTest.ModelTest
     [TestClass]
     public class SalesTest
     {
-        Purchase purchase = new Purchase("ばなな", 8, 100);
+        Purchase purchase = new Purchase("ばなな", "06/20", 8, 100);
 
         [TestMethod]
         public void SalesConstructorTest()

@@ -12,8 +12,8 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void AddTest()
         {
-            var cherry = new Purchase("さくらんぼ", 5, 100);
-            var banana = new Purchase("バナナ", 3, 150);
+            var cherry = new Purchase("さくらんぼ", "06/20", 5, 100);
+            var banana = new Purchase("バナナ", "06/20", 3, 150);
 
             Assert.AreEqual(0, purchase.PurchaseList.Count);
 

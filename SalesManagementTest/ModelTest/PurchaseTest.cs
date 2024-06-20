@@ -10,19 +10,19 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void PurchaseConstructorTest()
         {
-            var purchase = new Purchase("りんご", 5, 80);
-            var nowDateTime = DateTime.Now.Date.ToString("MM/dd");
+            var purchase = new Purchase("りんご", "06/20", 5, 80);
+            var nowDateTime = ("06/20");
 
             Assert.AreEqual("りんご", purchase.ProductName);
             Assert.AreEqual(5, purchase.PurchaseQuantity);
             Assert.AreEqual(80, purchase.PurchasePrice);
             Assert.AreEqual(nowDateTime, purchase.PurchaseDateTime);
 
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", 0, 90));
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", -1, 90));
+            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 0, 90));
+            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", -1, 90));
 
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", 5, 0));
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", 5, -1));
+            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 5, 0));
+            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 5, -1));
         }
     }
 }
