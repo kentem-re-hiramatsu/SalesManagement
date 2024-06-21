@@ -87,10 +87,10 @@ namespace WindowsFormsApp2
             SalesButton.Enabled = e.CurrentValue == CheckState.Unchecked;
 
             if (e.CurrentValue == CheckState.Unchecked)
+            {
                 SalesButtonChanged();
-
-            if (e.CurrentValue == CheckState.Unchecked)
                 _selectedIndex = e.Index;
+            }
         }
 
         private void SalesQuantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
