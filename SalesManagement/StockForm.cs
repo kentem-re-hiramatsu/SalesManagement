@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
                 {
                     product.ProductName,
                     product.PurchaseDateTime.ToString("yyyy/MM/dd"),
-                    product.PurchasePrice.ToString(),
-                    product.SalePrice.ToString(),
+                    product.PurchasePrice.ToString("#,0円"),
+                    product.SalePrice.ToString("#,0円"),
                     product.StockQuantity.ToString()
                 }));
             }

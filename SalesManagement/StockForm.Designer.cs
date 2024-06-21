@@ -62,19 +62,23 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "仕入日";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "仕入価格";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "販売価格";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "在庫数";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 

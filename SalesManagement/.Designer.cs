@@ -101,24 +101,29 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "販売価格";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "仕入日";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader3.Width = 75;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "販売日";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader4.Width = 75;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "販売数";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "売上金額";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader6.Width = 76;
             // 
             // TotaltSalesAmountLabel
@@ -201,7 +206,6 @@
             this.Controls.Add(this.SalesProcessingButton);
             this.Name = "MainForm";
             this.Text = "販売処理";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
