@@ -5,24 +5,29 @@ namespace Product.Cores.Model
     public class Purchase
     {
         public string ProductName { get; }
-        public int PurchaseQuantity { get; }
         public int PurchasePrice { get; }
-        public string PurchaseDateTime { get; }
+        public int SalePrice { get; }
+        public int StockQuantity { get; set; }
+        public DateTime PurchaseDateTime { get; }
 
-        public Purchase(string name, string purchaseDateTime, int purchaseQuantity, int price)
+        public Purchase(string name, int purchasePrice, int salePrice, int stockQuantity, DateTime purchaseDateTime)
         {
             ProductName = name;
-            PurchaseDateTime = purchaseDateTime;
-
-            if (purchaseQuantity > 0 && price > 0)
+            if (purchasePrice > 0 && salePrice > 0 && salePrice > purchasePrice && stockQuantity > 0)
             {
-                PurchaseQuantity = purchaseQuantity;
-                PurchasePrice = price;
+                PurchasePrice = purchasePrice;
+                SalePrice = salePrice;
+                StockQuantity = stockQuantity;
             }
-            else
+            else if (purchasePrice <= 0 || salePrice <= 0 || stockQuantity <= 0)
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
+            else
+            {
+                throw new Exception(Consts.PURCHASE_OVER_PRICE_ERROR_MESSAGE);
+            }
+            PurchaseDateTime = purchaseDateTime;
         }
     }
 }
