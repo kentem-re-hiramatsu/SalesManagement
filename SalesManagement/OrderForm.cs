@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        public void OkButtonChangedEnabled()
+        private void OkButtonChangedEnabled()
         {
             OkButton.Enabled = ProductTextBox.Text.Length > 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0;
         }
