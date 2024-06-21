@@ -60,7 +60,7 @@ namespace SalesManagement
         {
             _stockForm = new StockForm(_productManager);
 
-            _stockForm.FormClosed += StockForm_FormClosed;
+            _stockForm.FormClosed += (object sen, FormClosedEventArgs ex) => { InventoryListButton.Enabled = true; };
             _stockForm.Show();
             InventoryListButton.Enabled = false;
         }
@@ -68,11 +68,6 @@ namespace SalesManagement
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void StockForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            InventoryListButton.Enabled = true;
         }
 
         public void TodaySalesFiltering()
