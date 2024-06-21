@@ -10,19 +10,25 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void PurchaseConstructorTest()
         {
-            var purchase = new Purchase("りんご", "06/20", 5, 80);
-            var nowDateTime = ("06/20");
+            var purchase = new Purchase("りんご", 100, 200, 20, new DateTime(2024, 06, 21));
+            var purchaseDateTime = (new DateTime(2024, 06, 21));
 
             Assert.AreEqual("りんご", purchase.ProductName);
-            Assert.AreEqual(5, purchase.PurchaseQuantity);
-            Assert.AreEqual(80, purchase.PurchasePrice);
-            Assert.AreEqual(nowDateTime, purchase.PurchaseDateTime);
+            Assert.AreEqual(100, purchase.PurchasePrice);
+            Assert.AreEqual(200, purchase.SalePrice);
+            Assert.AreEqual(20, purchase.StockQuantity);
+            Assert.AreEqual(purchaseDateTime, purchase.PurchaseDateTime);
 
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 0, 90));
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", -1, 90));
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 0, 200, 20, new DateTime(2024, 06, 21)));
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", -1, 200, 20, new DateTime(2024, 06, 21)));
 
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 5, 0));
-            Assert.ThrowsException<Exception>(() => new Purchase("みかん", "06/20", 5, -1));
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 100, 0, 20, new DateTime(2024, 06, 21)));
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 100, -1, 20, new DateTime(2024, 06, 21)));
+
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 100, 200, 0, new DateTime(2024, 06, 21)));
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 100, 200, -1, new DateTime(2024, 06, 21)));
+
+            Assert.ThrowsException<Exception>(() => new Purchase("りんご", 200, 200, 20, new DateTime(2024, 06, 21)));
         }
     }
 }

@@ -7,50 +7,23 @@ namespace SalesManagementTest.ModelTest
     [TestClass]
     public class SalesTest
     {
-        Purchase purchase = new Purchase("ばなな", "06/20", 8, 100);
+        Purchase purchase = new Purchase("ばなな", 100, 200, 20, new DateTime(2024, 06, 20));
 
         [TestMethod]
         public void SalesConstructorTest()
         {
-            var sales = new Sale(200, purchase);
+            var sale = new Sale(10, new DateTime(2024, 06, 22), purchase);
 
-            Assert.AreEqual(200, sales.SalePrice);
-            Assert.AreEqual(8, sales.StockQuantity);
+            Assert.AreEqual(8, sale.SaleQuantity);
+            Assert.AreEqual(new DateTime(2024, 06, 22), sale.SaleDateTime);
 
-            Assert.ThrowsException<Exception>(() => new Sale(0, purchase));
-            Assert.ThrowsException<Exception>(() => new Sale(-1, purchase));
+            Assert.ThrowsException<Exception>(() => new Sale(0, new DateTime(2024, 06, 22), purchase));
+            Assert.ThrowsException<Exception>(() => new Sale(-1, new DateTime(2024, 06, 22), purchase));
 
             //仕入価格が販売価格が同じまたは下回っていないか
-            Assert.ThrowsException<Exception>(() => new Sale(100, purchase));
-        }
-
-        /// <summary>
-        /// 販売処理テスト
-        /// </summary>
-        [TestMethod]
-        public void ProcessSalesTest()
-        {
-            var sales = new Sale(200, purchase);
-            Assert.AreEqual(8, sales.StockQuantity);
-
-            sales.ProcessSale(3, "06/19");
-            Assert.AreEqual(3, sales.SaleQuantity);
-            Assert.AreEqual(5, sales.StockQuantity);
-            Assert.AreEqual("06/19", sales.SalesDataTime);
-        }
-
-        /// <summary>
-        /// 販売数が在庫数を上回ったときエラーテスト
-        /// </summary>
-        [TestMethod]
-        public void OverProcessSalesTest()
-        {
-            var sales = new Sale(200, purchase);
-            Assert.AreEqual(8, sales.StockQuantity);
-
-            Assert.ThrowsException<Exception>(() => sales.ProcessSale(9, "06/19"));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSale(0, "06/19"));
-            Assert.ThrowsException<Exception>(() => sales.ProcessSale(-1, "06/19"));
+            Assert.ThrowsException<Exception>(() => new Sale(30, new DateTime(2024, 06, 22), purchase));
+            //購入日が仕入日より下回っていないか。
+            Assert.ThrowsException<Exception>(() => new Sale(10, new DateTime(2024, 06, 10), purchase));
         }
 
         /// <summary>
@@ -59,11 +32,10 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void TotaltSalesAmountAndTotalIncomeAmountTest()
         {
-            var sales = new Sale(200, purchase);
-            sales.ProcessSale(3, "06/19");
+            var sales = new Sale(10, new DateTime(2024, 06, 22), purchase);
 
             var salesPrice = 200;
-            var salesQuantity = 3;
+            var salesQuantity = 10;
             var salesAmount = salesPrice * salesQuantity;
 
             Assert.AreEqual(salesAmount, sales.GetSalesAmount());

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Product.Cores.Manager;
 using Product.Cores.Model;
+using System;
 
 namespace SalesManagementTest.ManagerTest
 {
@@ -10,20 +11,27 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void HistoryTest()
         {
-            var _historyMana = new HistoryManager();
-            var mikanPurchase = new Purchase("みかん", "6/24", 5, 100);
-            var bananaPurchase = new Purchase("ばなな", "6/24", 5, 100);
-            var mikanSale = new Sale(200, mikanPurchase);
-            var bananaSale = new Sale(200, bananaPurchase);
+            var _productyMana = new ProductManager();
+            var mikanPurchase = new Purchase("みかん", 100, 200, 10, new DateTime(2024, 06, 21));
+            var bananaPurchase = new Purchase("ばなな", 150, 300, 10, new DateTime(2024, 06, 25));
 
-            Assert.AreEqual(0, _historyMana.HistoryList.Count);
+            Assert.AreEqual(0, _productyMana.ProductList.Count);
 
-            _historyMana.Add(mikanSale);
-            _historyMana.Add(bananaSale);
+            _productyMana.Add(mikanPurchase);
+            _productyMana.Add(bananaPurchase);
 
-            Assert.AreEqual(2, _historyMana.HistoryList.Count);
-            Assert.AreEqual("みかん", _historyMana.GetSale(0).Purchase.ProductName);
-            Assert.AreEqual("ばなな", _historyMana.GetSale(1).Purchase.ProductName);
+            Assert.AreEqual(2, _productyMana.ProductList.Count);
+            Assert.AreEqual("みかん", _productyMana.GetPurchase(0).ProductName);
+            Assert.AreEqual("みかん", _productyMana.GetPurchase(1).ProductName);
+
+            Assert.AreEqual(100, _productyMana.GetPurchase(0).PurchasePrice);
+            Assert.AreEqual(150, _productyMana.GetPurchase(1).PurchasePrice);
+
+            Assert.AreEqual(200, _productyMana.GetPurchase(0).SalePrice);
+            Assert.AreEqual(300, _productyMana.GetPurchase(1).SalePrice);
+
+            Assert.AreEqual(new DateTime(2024, 06, 21), _productyMana.GetPurchase(0).PurchaseDateTime);
+            Assert.AreEqual(new DateTime(2024, 06, 25), _productyMana.GetPurchase(1).PurchaseDateTime);
         }
     }
 }
