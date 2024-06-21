@@ -44,7 +44,7 @@ namespace SalesManagement
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
             var salesOrderForm = new SalesForm(_salesMana, _productManager, _stockForm);
-            if (DialogResult.OK == salesOrderForm.ShowDialog())
+            if (salesOrderForm.ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
             }
