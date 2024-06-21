@@ -62,7 +62,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "仕入日";
-            this.columnHeader2.Width = 70;
+            this.columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 

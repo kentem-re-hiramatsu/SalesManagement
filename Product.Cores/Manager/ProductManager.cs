@@ -1,16 +1,15 @@
-﻿using Product.Cores.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Product.Cores.Manager
 {
     public class ProductManager
     {
-        private List<Purchase> _productList = new List<Purchase>();
+        private List<Model.Product> _productList = new List<Model.Product>();
 
-        public IReadOnlyCollection<Purchase> ProductList { get { return _productList; } }
+        public IReadOnlyCollection<Model.Product> ProductList { get { return _productList; } }
 
-        public void Add(Purchase purchase) => _productList.Add(purchase);
+        public void Add(Model.Product purchase) => _productList.Add(purchase);
 
-        public Purchase GetPurchase(int index) => _productList[index];
+        public Model.Product GetProduct(int index) => _productList[index];
     }
 }

@@ -43,6 +43,7 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.ClearFilterButton = new System.Windows.Forms.Button();
             this.TodaySalesButton = new System.Windows.Forms.Button();
+            this.SelectProductFilterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
@@ -104,10 +105,12 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "仕入日";
+            this.columnHeader3.Width = 75;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "販売日";
+            this.columnHeader4.Width = 75;
             // 
             // columnHeader5
             // 
@@ -151,7 +154,7 @@
             // 
             this.ClearFilterButton.Enabled = false;
             this.ClearFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.ClearFilterButton.Location = new System.Drawing.Point(406, 46);
+            this.ClearFilterButton.Location = new System.Drawing.Point(406, 66);
             this.ClearFilterButton.Name = "ClearFilterButton";
             this.ClearFilterButton.Size = new System.Drawing.Size(59, 30);
             this.ClearFilterButton.TabIndex = 9;
@@ -162,7 +165,7 @@
             // TodaySalesButton
             // 
             this.TodaySalesButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.TodaySalesButton.Location = new System.Drawing.Point(341, 46);
+            this.TodaySalesButton.Location = new System.Drawing.Point(341, 30);
             this.TodaySalesButton.Name = "TodaySalesButton";
             this.TodaySalesButton.Size = new System.Drawing.Size(59, 30);
             this.TodaySalesButton.TabIndex = 10;
@@ -170,11 +173,23 @@
             this.TodaySalesButton.UseVisualStyleBackColor = true;
             this.TodaySalesButton.Click += new System.EventHandler(this.TodaySalesButton_Click);
             // 
+            // SelectProductFilterButton
+            // 
+            this.SelectProductFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.SelectProductFilterButton.Location = new System.Drawing.Point(406, 30);
+            this.SelectProductFilterButton.Name = "SelectProductFilterButton";
+            this.SelectProductFilterButton.Size = new System.Drawing.Size(59, 30);
+            this.SelectProductFilterButton.TabIndex = 11;
+            this.SelectProductFilterButton.Text = "選択商品";
+            this.SelectProductFilterButton.UseVisualStyleBackColor = true;
+            this.SelectProductFilterButton.Click += new System.EventHandler(this.SelectProductFilterButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 418);
+            this.Controls.Add(this.SelectProductFilterButton);
             this.Controls.Add(this.TodaySalesButton);
             this.Controls.Add(this.ClearFilterButton);
             this.Controls.Add(this.CloseButton);
@@ -209,6 +224,7 @@
         private System.Windows.Forms.Button ClearFilterButton;
         private System.Windows.Forms.Button TodaySalesButton;
         private System.Windows.Forms.Button InventoryListButton;
+        private System.Windows.Forms.Button SelectProductFilterButton;
     }
 }
 

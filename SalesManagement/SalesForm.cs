@@ -1,4 +1,5 @@
 ﻿using Product.Cores.Manager;
+using Product.Cores.Model;
 using System;
 using System.Windows.Forms;
 using WindowsFormsApp1;
@@ -8,14 +9,14 @@ namespace WindowsFormsApp2
     public partial class SalesForm : Form
     {
         private int _selectedIndex;
-        private SalesManager _salesMana;
-        private HistoryManager _historyMana;
+        private SalesHistoryManager _salesMana;
+        private ProductManager _productMana;
         private StockForm _stockFrom;
 
-        public SalesForm(SalesManager salesMana, HistoryManager historyMana, StockForm stockForm)
+        public SalesForm(SalesHistoryManager salesMana, ProductManager productMana, StockForm stockForm)
         {
             _salesMana = salesMana;
-            _historyMana = historyMana;
+            _productMana = productMana;
             _stockFrom = stockForm;
             InitializeComponent();
         }
@@ -29,10 +30,16 @@ namespace WindowsFormsApp2
         {
             StockListView.Items.Clear();
 
-            foreach (var sales in _salesMana.SalesList)
+            foreach (var product in _productMana.ProductList)
             {
-                var purchase = sales.Purchase;
-                StockListView.Items.Add(new ListViewItem(new string[] { "", purchase.ProductName, purchase.PurchaseDateTime.ToString(), purchase.PurchasePrice.ToString(), sales.SalePrice.ToString(), sales.StockQuantity.ToString() }));
+                StockListView.Items.Add(new ListViewItem(new string[]
+                { "",
+                    product.ProductName,
+                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    product.PurchasePrice.ToString(),
+                    product.SalePrice.ToString(),
+                    product.StockQuantity.ToString()
+                }));
             }
         }
 
@@ -43,11 +50,13 @@ namespace WindowsFormsApp2
 
         private void SalesButton_Click(object sender, EventArgs e)
         {
+            var saleQuantity = int.Parse(SalesQuantityTextBox.Text);
+            var saleDateTime = SaleDateTime.Value;
+            var product = _productMana.GetProduct(_selectedIndex);
+
             try
             {
-                _salesMana.GetSales(_selectedIndex).ProcessSale(int.Parse(SalesQuantityTextBox.Text), SalesDateTime.Value.ToString("MM/dd"));
-                _historyMana.Add(_salesMana.GetSales(_selectedIndex).CloneSale());
-
+                _salesMana.Add(new Sale(saleQuantity, saleDateTime, product));
                 //在庫一覧が開かれているか。
                 if (_stockFrom != null)
                 {
@@ -74,7 +83,7 @@ namespace WindowsFormsApp2
 
             //商品にチェックがされている時入力を活性化
             SalesQuantityTextBox.Enabled = e.CurrentValue == CheckState.Unchecked;
-            SalesDateTime.Enabled = e.CurrentValue == CheckState.Unchecked;
+            SaleDateTime.Enabled = e.CurrentValue == CheckState.Unchecked;
             SalesButton.Enabled = e.CurrentValue == CheckState.Unchecked;
 
             if (e.CurrentValue == CheckState.Unchecked)

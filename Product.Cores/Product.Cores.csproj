@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
-    <Compile Include="Manager\HistoryManager.cs" />
-    <Compile Include="Manager\SalesManager.cs" />
-    <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Manager\ProductManager.cs" />
+    <Compile Include="Manager\SalesHistoryManager.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

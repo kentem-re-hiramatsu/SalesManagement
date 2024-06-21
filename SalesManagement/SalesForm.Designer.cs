@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SalesDateTime = new System.Windows.Forms.DateTimePicker();
+            this.SaleDateTime = new System.Windows.Forms.DateTimePicker();
             this.SalesTimeDateLabel = new System.Windows.Forms.Label();
             this.SalesQuantityTextBox = new System.Windows.Forms.TextBox();
             this.SalesLabel = new System.Windows.Forms.Label();
@@ -36,23 +36,23 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.StockListView = new System.Windows.Forms.ListView();
+            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // SalesDateTime
+            // SaleDateTime
             // 
-            this.SalesDateTime.Enabled = false;
-            this.SalesDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SalesDateTime.Location = new System.Drawing.Point(93, 423);
-            this.SalesDateTime.Name = "SalesDateTime";
-            this.SalesDateTime.Size = new System.Drawing.Size(100, 19);
-            this.SalesDateTime.TabIndex = 7;
-            this.SalesDateTime.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
+            this.SaleDateTime.Enabled = false;
+            this.SaleDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SaleDateTime.Location = new System.Drawing.Point(93, 423);
+            this.SaleDateTime.Name = "SaleDateTime";
+            this.SaleDateTime.Size = new System.Drawing.Size(100, 19);
+            this.SaleDateTime.TabIndex = 7;
+            this.SaleDateTime.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
             // 
             // SalesTimeDateLabel
             // 
@@ -137,6 +137,11 @@
             this.StockListView.View = System.Windows.Forms.View.Details;
             this.StockListView.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StockListView_ItemCheck);
             // 
+            // columnHeader
+            // 
+            this.columnHeader.Text = "";
+            this.columnHeader.Width = 35;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "商品名";
@@ -145,7 +150,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "仕入日";
-            this.columnHeader2.Width = 70;
+            this.columnHeader2.Width = 75;
             // 
             // columnHeader3
             // 
@@ -159,17 +164,12 @@
             // 
             this.columnHeader5.Text = "在庫数";
             // 
-            // columnHeader
-            // 
-            this.columnHeader.Text = "";
-            this.columnHeader.Width = 35;
-            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 462);
-            this.Controls.Add(this.SalesDateTime);
+            this.Controls.Add(this.SaleDateTime);
             this.Controls.Add(this.SalesTimeDateLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.SalesQuantityTextBox);
@@ -186,7 +186,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker SalesDateTime;
+        private System.Windows.Forms.DateTimePicker SaleDateTime;
         private System.Windows.Forms.Label SalesTimeDateLabel;
         private System.Windows.Forms.TextBox SalesQuantityTextBox;
         private System.Windows.Forms.Label SalesLabel;

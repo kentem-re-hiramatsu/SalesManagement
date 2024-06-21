@@ -11,8 +11,8 @@ namespace SalesManagement
 {
     public partial class MainForm : Form
     {
-        private SalesManager _salesMana = new SalesManager();
-        private HistoryManager _historyManager = new HistoryManager();
+        private SalesHistoryManager _salesMana = new SalesHistoryManager();
+        private ProductManager _productManager = new ProductManager();
         private StockForm _stockForm;
 
         public MainForm()
@@ -21,25 +21,32 @@ namespace SalesManagement
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _stockForm = new StockForm(_salesMana);
         }
 
         private void UpdateScreen()
         {
             SalesListView.Items.Clear();
-            foreach (var sale in _historyManager.HistoryList)
+            foreach (var sale in _salesMana.HistoryList)
             {
-                var purchase = sale.Purchase;
-                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, sale.SalePrice.ToString(), purchase.PurchaseDateTime, sale.SalesDataTime, sale.SaleQuantity.ToString(), sale.GetSalesAmount().ToString() }));
+                var product = sale.Product;
+                SalesListView.Items.Add(new ListViewItem(new string[]
+                {
+                    product.ProductName,
+                    product.SalePrice.ToString(),
+                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    sale.SaleDateTime.ToString("yyyy/MM/dd"),
+                    sale.SaleQuantity.ToString(),
+                    sale.GetSalesAmount().ToString()
+                }));
             }
 
-            TotaltSalesAmountLabel.Text = $"売上合計金額：{_historyManager.HistoryList.Sum(x => x.GetSalesAmount())}円";
-            TotalIncomeAmountLabel.Text = $"利益合計金額：{_historyManager.HistoryList.Sum(x => x.GetIncomeAmount())}円";
+            TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.HistoryList.Sum(x => x.GetSalesAmount())}円";
+            TotalIncomeAmountLabel.Text = $"利益合計金額：{_salesMana.HistoryList.Sum(x => x.GetIncomeAmount())}円";
         }
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana, _historyManager, _stockForm);
+            var salesOrderForm = new SalesForm(_salesMana, _productManager, _stockForm);
             if (DialogResult.OK == salesOrderForm.ShowDialog())
             {
                 UpdateScreen();
@@ -48,13 +55,13 @@ namespace SalesManagement
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_salesMana, _stockForm);
+            var orderForm = new OrderForm(_productManager, _stockForm);
             orderForm.ShowDialog();
         }
 
         private void InventoryListButton_Click(object sender, EventArgs e)
         {
-            _stockForm = new StockForm(_salesMana);
+            _stockForm = new StockForm(_productManager);
 
             _stockForm.FormClosed += StockForm_FormClosed;
             _stockForm.Show();
@@ -76,32 +83,42 @@ namespace SalesManagement
             SalesListView.Items.Clear();
 
             IEnumerable<Sale> todaySaleList = new List<Sale>();
-            todaySaleList = _historyManager.HistoryList.Where(x => x.SalesDataTime == DateTime.Now.ToString("MM/dd"));
+            todaySaleList = _salesMana.HistoryList.Where(x => x.SaleDateTime == DateTime.Today);
 
             foreach (var TodaySale in todaySaleList)
             {
-                var purchase = TodaySale.Purchase;
-                SalesListView.Items.Add(new ListViewItem(new string[] { purchase.ProductName, TodaySale.SalePrice.ToString(), purchase.PurchaseDateTime, TodaySale.SalesDataTime, TodaySale.SaleQuantity.ToString(), TodaySale.GetSalesAmount().ToString() }));
+                var product = TodaySale.Product;
+                SalesListView.Items.Add(new ListViewItem(new string[]
+                {
+                    product.ProductName,
+                    product.SalePrice.ToString(),
+                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    TodaySale.SaleDateTime.ToString("yyyy/MM/dd"),
+                    TodaySale.SaleQuantity.ToString(),
+                    TodaySale.GetSalesAmount().ToString()
+                }));
             }
             TotaltSalesAmountLabel.Text = $"売上合計金額：{todaySaleList.Sum(x => x.GetSalesAmount())}円";
             TotalIncomeAmountLabel.Text = $"利益合計金額：{todaySaleList.Sum(x => x.GetIncomeAmount())}円";
         }
 
-        private void FilterButtonChanged(bool isTodaySalesButtonClick)
-        {
-            TodaySalesButton.Enabled = !isTodaySalesButtonClick;
-            ClearFilterButton.Enabled = isTodaySalesButtonClick;
-        }
-
         private void TodaySalesButton_Click(object sender, EventArgs e)
         {
-            FilterButtonChanged(true);
+
+            TodaySalesButton.Enabled = false;
+            ClearFilterButton.Enabled = true;
             TodaySalesFiltering();
         }
 
+        private void SelectProductFilterButton_Click(object sender, EventArgs e)
+        {
+            SelectProductFilterButton.Enabled = false;
+            ClearFilterButton.Enabled = true;
+        }
         private void ClearFilterButton_Click(object sender, EventArgs e)
         {
-            FilterButtonChanged(false);
+            TodaySalesButton.Enabled = true;
+            SelectProductFilterButton.Enabled = true;
             UpdateScreen();
         }
     }

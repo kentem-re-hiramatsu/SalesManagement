@@ -1,5 +1,4 @@
 ﻿using Product.Cores.Manager;
-using Product.Cores.Model;
 using System;
 using System.Windows.Forms;
 
@@ -7,12 +6,12 @@ namespace WindowsFormsApp1
 {
     public partial class OrderForm : Form
     {
-        private SalesManager _salesMana;
+        private ProductManager _productMana;
         private StockForm _stockForm;
 
-        public OrderForm(SalesManager salesMana, StockForm stockForm)
+        public OrderForm(ProductManager productMana, StockForm stockForm)
         {
-            _salesMana = salesMana;
+            _productMana = productMana;
             _stockForm = stockForm;
             InitializeComponent();
         }
@@ -48,15 +47,14 @@ namespace WindowsFormsApp1
         private void OkButton_Click(object sender, EventArgs e)
         {
             var productName = ProductTextBox.Text;
-            var purchaseDateTime = SalesDateTime.Value.ToString("MM/dd");
-            var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
             var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
-            var salesPrice = int.Parse(SalesPriceTextBox.Text);
+            var salePrice = int.Parse(SalesPriceTextBox.Text);
+            var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
+            var purchaseDateTime = SalesDateTime.Value;
 
             try
             {
-                var purchase = new Purchase(productName, purchaseDateTime, purchaseQuantity, purchasePrice);
-                _salesMana.Add(new Sale(salesPrice, purchase));
+                _productMana.Add(new Product.Cores.Model.Product(productName, purchasePrice, salePrice, purchaseQuantity, purchaseDateTime));
 
                 //在庫一覧が開かれているか。
                 if (_stockForm != null)
