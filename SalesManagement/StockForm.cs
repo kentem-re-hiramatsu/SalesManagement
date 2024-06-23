@@ -6,9 +6,9 @@ namespace WindowsFormsApp1
 {
     public partial class StockForm : Form
     {
-        private ProductManager _productMana;
+        private PurchaseManager _productMana;
 
-        public StockForm(ProductManager productMana)
+        public StockForm(PurchaseManager productMana)
         {
             _productMana = productMana;
             InitializeComponent();

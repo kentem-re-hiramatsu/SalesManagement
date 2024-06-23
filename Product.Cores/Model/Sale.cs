@@ -6,9 +6,9 @@ namespace Product.Cores.Model
     {
         public int SaleQuantity { get; private set; }
         public DateTime SaleDateTime { get; private set; }
-        public Product Product { get; }
+        public Purchase Purchase { get; }
 
-        public Sale(int saleQuantity, DateTime saleDateTime, Product purchase)
+        public Sale(int saleQuantity, DateTime saleDateTime, Purchase purchase)
         {
             if (saleQuantity > 0 && purchase.StockQuantity >= saleQuantity && saleDateTime >= purchase.PurchaseDateTime)
             {
@@ -28,17 +28,17 @@ namespace Product.Cores.Model
             {
                 throw new Exception(Consts.INVENTORY_QUANTITY_ERROR_MESSAGE);
             }
-            Product = purchase;
+            Purchase = purchase;
         }
 
         /// <summary>
         /// 売上金額
         /// </summary>
-        public int GetSalesAmount() => Product.SalePrice * SaleQuantity;
+        public int GetSalesAmount() => Purchase.SalePrice * SaleQuantity;
 
         /// <summary>
         /// 利益金額
         /// </summary>
-        public int GetIncomeAmount() => GetSalesAmount() - Product.PurchasePrice * SaleQuantity;
+        public int GetIncomeAmount() => GetSalesAmount() - Purchase.PurchasePrice * SaleQuantity;
     }
 }

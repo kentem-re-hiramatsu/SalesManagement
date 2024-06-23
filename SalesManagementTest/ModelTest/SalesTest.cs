@@ -7,7 +7,7 @@ namespace SalesManagementTest.ModelTest
     [TestClass]
     public class SalesTest
     {
-        Product.Cores.Model.Product purchase = new Product.Cores.Model.Product("ばなな", 100, 200, 20, new DateTime(2024, 06, 20));
+        Purchase purchase = new Purchase("ばなな", 100, 200, 20, new DateTime(2024, 06, 20));
 
         [TestMethod]
         public void SalesConstructorTest()

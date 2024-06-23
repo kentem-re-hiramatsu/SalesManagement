@@ -2,17 +2,19 @@
 
 namespace Product.Cores.Model
 {
-    public class Product
+    public class Purchase
     {
         public string ProductName { get; }
         public int PurchasePrice { get; }
         public int SalePrice { get; }
         public int StockQuantity { get; set; }
         public DateTime PurchaseDateTime { get; }
+        public Purchase purchase { get; }
 
-        public Product(string name, int purchasePrice, int salePrice, int purchaseQuantity, DateTime purchaseDateTime)
+        public Purchase(string name, int purchasePrice, int salePrice, int purchaseQuantity, DateTime purchaseDateTime)
         {
             ProductName = name;
+
             if (purchasePrice > 0 && salePrice > 0 && salePrice > purchasePrice && purchaseQuantity > 0)
             {
                 PurchasePrice = purchasePrice;

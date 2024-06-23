@@ -10,13 +10,13 @@ namespace WindowsFormsApp2
     {
         private int _selectedIndex;
         private SalesHistoryManager _salesMana;
-        private ProductManager _productMana;
+        private PurchaseManager _purchaseMana;
         private StockForm _stockFrom;
 
-        public SalesForm(SalesHistoryManager salesMana, ProductManager productMana, StockForm stockForm)
+        public SalesForm(SalesHistoryManager salesMana, PurchaseManager productMana, StockForm stockForm)
         {
             _salesMana = salesMana;
-            _productMana = productMana;
+            _purchaseMana = productMana;
             _stockFrom = stockForm;
             InitializeComponent();
         }
@@ -30,15 +30,15 @@ namespace WindowsFormsApp2
         {
             StockListView.Items.Clear();
 
-            foreach (var product in _productMana.ProductList)
+            foreach (var purchase in _purchaseMana.ProductList)
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 { "",
-                    product.ProductName,
-                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
-                    product.PurchasePrice.ToString("#,0円"),
-                    product.SalePrice.ToString("#,0円"),
-                    product.StockQuantity.ToString()
+                    purchase.ProductName,
+                    purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    purchase.PurchasePrice.ToString("#,0円"),
+                    purchase.SalePrice.ToString("#,0円"),
+                    purchase.StockQuantity.ToString()
                 }));
             }
         }
@@ -52,7 +52,7 @@ namespace WindowsFormsApp2
         {
             var saleQuantity = int.Parse(SalesQuantityTextBox.Text);
             var saleDateTime = SaleDateTime.Value;
-            var product = _productMana.GetProduct(_selectedIndex);
+            var product = _purchaseMana.GetProduct(_selectedIndex);
 
             try
             {

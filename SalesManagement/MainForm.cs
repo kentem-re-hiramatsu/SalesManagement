@@ -12,7 +12,7 @@ namespace SalesManagement
     public partial class MainForm : Form
     {
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
-        private ProductManager _productManager = new ProductManager();
+        private PurchaseManager _purchaseManager = new PurchaseManager();
         private StockForm _stockForm;
 
         public MainForm()
@@ -25,12 +25,12 @@ namespace SalesManagement
             SalesListView.Items.Clear();
             foreach (var sale in _salesMana.HistoryList)
             {
-                var product = sale.Product;
+                var purchase = sale.Purchase;
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
-                    product.ProductName,
-                    product.SalePrice.ToString("#,0円"),
-                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    purchase.ProductName,
+                    purchase.SalePrice.ToString("#,0円"),
+                    purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     sale.SaleDateTime.ToString("yyyy/MM/dd"),
                     sale.SaleQuantity.ToString(),
                     sale.GetSalesAmount().ToString("#,0円")
@@ -43,7 +43,7 @@ namespace SalesManagement
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana, _productManager, _stockForm);
+            var salesOrderForm = new SalesForm(_salesMana, _purchaseManager, _stockForm);
             if (salesOrderForm.ShowDialog() == DialogResult.OK)
             {
                 UpdateScreen();
@@ -52,15 +52,15 @@ namespace SalesManagement
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_productManager, _stockForm);
+            var orderForm = new OrderForm(_purchaseManager, _stockForm);
             orderForm.ShowDialog();
         }
 
         private void InventoryListButton_Click(object sender, EventArgs e)
         {
-            _stockForm = new StockForm(_productManager);
+            _stockForm = new StockForm(_purchaseManager);
 
-            _stockForm.FormClosed += (object sen, FormClosedEventArgs ex) => { InventoryListButton.Enabled = true; };
+            _stockForm.FormClosed += new FormClosedEventHandler((object sen, FormClosedEventArgs ex) => { InventoryListButton.Enabled = true; });
             _stockForm.Show();
             InventoryListButton.Enabled = false;
         }
@@ -79,12 +79,12 @@ namespace SalesManagement
 
             foreach (var TodaySale in todaySaleList)
             {
-                var product = TodaySale.Product;
+                var purchase = TodaySale.Purchase;
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
-                    product.ProductName,
-                    product.SalePrice.ToString("#,0円"),
-                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    purchase.ProductName,
+                    purchase.SalePrice.ToString("#,0円"),
+                    purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     TodaySale.SaleDateTime.ToString("yyyy/MM/dd"),
                     TodaySale.SaleQuantity.ToString(),
                     TodaySale.GetSalesAmount().ToString("#,0円")
