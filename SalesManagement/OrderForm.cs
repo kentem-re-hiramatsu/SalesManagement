@@ -9,9 +9,9 @@ namespace SalesManagement
     {
         private PurchaseManager _purchaseMana;
 
-        public OrderForm(PurchaseManager productMana)
+        public OrderForm(PurchaseManager purchaseMana)
         {
-            _purchaseMana = productMana;
+            _purchaseMana = purchaseMana;
             InitializeComponent();
         }
 
