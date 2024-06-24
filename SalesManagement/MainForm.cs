@@ -28,6 +28,7 @@ namespace SalesManagement
                 var purchase = sale.Purchase;
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
+                    "",
                     purchase.ProductName,
                     purchase.SalePrice.ToString("#,0円"),
                     purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
@@ -74,7 +75,7 @@ namespace SalesManagement
             Close();
         }
 
-        public void TodaySalesFiltering()
+        private void FilterTodaySales()
         {
             SalesListView.Items.Clear();
 
@@ -86,6 +87,7 @@ namespace SalesManagement
                 var purchase = TodaySale.Purchase;
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
+                    "",
                     purchase.ProductName,
                     purchase.SalePrice.ToString("#,0円"),
                     purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
@@ -98,16 +100,28 @@ namespace SalesManagement
             TotalIncomeAmountLabel.Text = $"利益合計金額：{todaySaleList.Sum(x => x.GetIncomeAmount()).ToString("#,0円")}";
         }
 
+        private void FilterSelectedSales()
+        {
+            foreach (ListViewItem item in SalesListView.Items)
+            {
+                if (!item.Checked)
+                {
+                    item.ListView.Items.RemoveAt(item.Index);
+                }
+            }
+        }
+
         private void TodaySalesButton_Click(object sender, EventArgs e)
         {
             TodaySalesButton.Enabled = false;
             ClearFilterButtonChanged();
-            TodaySalesFiltering();
+            FilterTodaySales();
         }
 
         private void SelectProductFilterButton_Click(object sender, EventArgs e)
         {
             SelectProductFilterButton.Enabled = false;
+            FilterSelectedSales();
             ClearFilterButtonChanged();
         }
         private void ClearFilterButton_Click(object sender, EventArgs e)

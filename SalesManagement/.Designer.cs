@@ -44,6 +44,7 @@
             this.ClearFilterButton = new System.Windows.Forms.Button();
             this.TodaySalesButton = new System.Windows.Forms.Button();
             this.SelectProductFilterButton = new System.Windows.Forms.Button();
+            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // SalesProcessingButton
@@ -78,17 +79,20 @@
             // 
             // SalesListView
             // 
+            this.SalesListView.CheckBoxes = true;
             this.SalesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.SalesListView.FullRowSelect = true;
             this.SalesListView.HideSelection = false;
-            this.SalesListView.Location = new System.Drawing.Point(12, 102);
+            this.SalesListView.Location = new System.Drawing.Point(14, 102);
             this.SalesListView.Name = "SalesListView";
-            this.SalesListView.Size = new System.Drawing.Size(453, 247);
+            this.SalesListView.Size = new System.Drawing.Size(484, 247);
             this.SalesListView.TabIndex = 3;
             this.SalesListView.UseCompatibleStateImageBehavior = false;
             this.SalesListView.View = System.Windows.Forms.View.Details;
@@ -147,7 +151,7 @@
             // CloseButton
             // 
             this.CloseButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.CloseButton.Location = new System.Drawing.Point(372, 355);
+            this.CloseButton.Location = new System.Drawing.Point(405, 355);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(93, 29);
             this.CloseButton.TabIndex = 8;
@@ -159,7 +163,7 @@
             // 
             this.ClearFilterButton.Enabled = false;
             this.ClearFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.ClearFilterButton.Location = new System.Drawing.Point(406, 66);
+            this.ClearFilterButton.Location = new System.Drawing.Point(439, 66);
             this.ClearFilterButton.Name = "ClearFilterButton";
             this.ClearFilterButton.Size = new System.Drawing.Size(59, 30);
             this.ClearFilterButton.TabIndex = 9;
@@ -170,7 +174,7 @@
             // TodaySalesButton
             // 
             this.TodaySalesButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.TodaySalesButton.Location = new System.Drawing.Point(341, 30);
+            this.TodaySalesButton.Location = new System.Drawing.Point(374, 30);
             this.TodaySalesButton.Name = "TodaySalesButton";
             this.TodaySalesButton.Size = new System.Drawing.Size(59, 30);
             this.TodaySalesButton.TabIndex = 10;
@@ -181,7 +185,7 @@
             // SelectProductFilterButton
             // 
             this.SelectProductFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.SelectProductFilterButton.Location = new System.Drawing.Point(406, 30);
+            this.SelectProductFilterButton.Location = new System.Drawing.Point(439, 30);
             this.SelectProductFilterButton.Name = "SelectProductFilterButton";
             this.SelectProductFilterButton.Size = new System.Drawing.Size(59, 30);
             this.SelectProductFilterButton.TabIndex = 11;
@@ -189,11 +193,16 @@
             this.SelectProductFilterButton.UseVisualStyleBackColor = true;
             this.SelectProductFilterButton.Click += new System.EventHandler(this.SelectProductFilterButton_Click);
             // 
+            // columnHeader
+            // 
+            this.columnHeader.Text = "";
+            this.columnHeader.Width = 25;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 418);
+            this.ClientSize = new System.Drawing.Size(510, 418);
             this.Controls.Add(this.SelectProductFilterButton);
             this.Controls.Add(this.TodaySalesButton);
             this.Controls.Add(this.ClearFilterButton);
@@ -229,6 +238,7 @@
         private System.Windows.Forms.Button TodaySalesButton;
         private System.Windows.Forms.Button InventoryListButton;
         private System.Windows.Forms.Button SelectProductFilterButton;
+        private System.Windows.Forms.ColumnHeader columnHeader;
     }
 }
 
