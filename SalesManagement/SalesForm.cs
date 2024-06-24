@@ -106,10 +106,5 @@ namespace WindowsFormsApp2
         {
             SalesButtonChanged();
         }
-
-        private void StockListView_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-
-        }
     }
 }

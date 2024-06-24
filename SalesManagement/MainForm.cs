@@ -47,8 +47,8 @@ namespace SalesManagement
             if (salesOrderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
                 _stockForm.UpdateScreen();
-                UpdateScreen();
             }
+            UpdateScreen();
         }
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
@@ -100,22 +100,27 @@ namespace SalesManagement
 
         private void TodaySalesButton_Click(object sender, EventArgs e)
         {
-
             TodaySalesButton.Enabled = false;
-            ClearFilterButton.Enabled = true;
+            ClearFilterButtonChanged();
             TodaySalesFiltering();
         }
 
         private void SelectProductFilterButton_Click(object sender, EventArgs e)
         {
             SelectProductFilterButton.Enabled = false;
-            ClearFilterButton.Enabled = true;
+            ClearFilterButtonChanged();
         }
         private void ClearFilterButton_Click(object sender, EventArgs e)
         {
             TodaySalesButton.Enabled = true;
             SelectProductFilterButton.Enabled = true;
+            ClearFilterButtonChanged();
             UpdateScreen();
+        }
+
+        private void ClearFilterButtonChanged()
+        {
+            ClearFilterButton.Enabled = !TodaySalesButton.Enabled || !SelectProductFilterButton.Enabled;
         }
     }
 }

@@ -138,7 +138,6 @@
             this.StockListView.UseCompatibleStateImageBehavior = false;
             this.StockListView.View = System.Windows.Forms.View.Details;
             this.StockListView.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StockListView_ItemCheck);
-            this.StockListView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.StockListView_ItemChecked);
             // 
             // columnHeader
             // 
