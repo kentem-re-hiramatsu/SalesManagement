@@ -23,15 +23,15 @@ namespace SalesManagement
         {
             StockListView.Items.Clear();
 
-            foreach (var product in _purchaseMana.PurchaseList)
+            foreach (var purchase in _purchaseMana.PurchaseList)
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 {
-                    product.ProductName,
-                    product.PurchaseDateTime.ToString("yyyy/MM/dd"),
-                    product.PurchasePrice.ToString("#,0円"),
-                    product.SalePrice.ToString("#,0円"),
-                    product.StockQuantity.ToString()
+                    purchase.ProductName,
+                    purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
+                    purchase.PurchasePrice.ToString("#,0円"),
+                    purchase.SalePrice.ToString("#,0円"),
+                    purchase.StockQuantity.ToString()
                 }));
             }
         }
