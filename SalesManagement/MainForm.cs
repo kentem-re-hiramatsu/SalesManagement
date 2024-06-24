@@ -56,7 +56,7 @@ namespace SalesManagement
         {
             var orderForm = new OrderForm(_purchaseManager);
 
-            if (DialogResult.OK == orderForm.ShowDialog() && _stockForm != null)
+            if (orderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
                 _stockForm.UpdateScreen();
             }
