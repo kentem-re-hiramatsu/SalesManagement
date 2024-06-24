@@ -20,17 +20,17 @@ namespace SalesManagementTest.ManagerTest
             _purchaseMana.Add(bananaPurchase);
 
             Assert.AreEqual(2, _purchaseMana.PurchaseList.Count);
-            Assert.AreEqual("みかん", _purchaseMana.GetProduct(0).ProductName);
-            Assert.AreEqual("ばなな", _purchaseMana.GetProduct(1).ProductName);
+            Assert.AreEqual("みかん", _purchaseMana.GetPurchase(0).ProductName);
+            Assert.AreEqual("ばなな", _purchaseMana.GetPurchase(1).ProductName);
 
-            Assert.AreEqual(100, _purchaseMana.GetProduct(0).PurchasePrice);
-            Assert.AreEqual(150, _purchaseMana.GetProduct(1).PurchasePrice);
+            Assert.AreEqual(100, _purchaseMana.GetPurchase(0).PurchasePrice);
+            Assert.AreEqual(150, _purchaseMana.GetPurchase(1).PurchasePrice);
 
-            Assert.AreEqual(200, _purchaseMana.GetProduct(0).SalePrice);
-            Assert.AreEqual(300, _purchaseMana.GetProduct(1).SalePrice);
+            Assert.AreEqual(200, _purchaseMana.GetPurchase(0).SalePrice);
+            Assert.AreEqual(300, _purchaseMana.GetPurchase(1).SalePrice);
 
-            Assert.AreEqual(new DateTime(2024, 06, 21), _purchaseMana.GetProduct(0).PurchaseDateTime);
-            Assert.AreEqual(new DateTime(2024, 06, 25), _purchaseMana.GetProduct(1).PurchaseDateTime);
+            Assert.AreEqual(new DateTime(2024, 06, 21), _purchaseMana.GetPurchase(0).PurchaseDateTime);
+            Assert.AreEqual(new DateTime(2024, 06, 25), _purchaseMana.GetPurchase(1).PurchaseDateTime);
         }
     }
 }

@@ -12,6 +12,6 @@ namespace Product.Cores.Manager
 
         public void Add(Purchase purchase) => _purchaseList.Add(purchase);
 
-        public Purchase GetProduct(int index) => _purchaseList[index];
+        public Purchase GetPurchase(int index) => _purchaseList[index];
     }
 }

@@ -11,10 +11,10 @@ namespace WindowsFormsApp2
         private SalesHistoryManager _salesMana;
         private PurchaseManager _purchaseMana;
 
-        public SalesForm(SalesHistoryManager salesMana, PurchaseManager productMana)
+        public SalesForm(SalesHistoryManager salesMana, PurchaseManager purchaseMana)
         {
             _salesMana = salesMana;
-            _purchaseMana = productMana;
+            _purchaseMana = purchaseMana;
             InitializeComponent();
         }
 
@@ -49,11 +49,11 @@ namespace WindowsFormsApp2
         {
             var saleQuantity = int.Parse(SalesQuantityTextBox.Text);
             var saleDateTime = SaleDateTime.Value;
-            var product = _purchaseMana.GetProduct(_selectedIndex);
+            var purchase = _purchaseMana.GetPurchase(_selectedIndex);
 
             try
             {
-                _salesMana.Add(new Sale(saleQuantity, saleDateTime, product));
+                _salesMana.Add(new Sale(saleQuantity, saleDateTime, purchase));
                 DialogResult = DialogResult.OK;
                 Close();
             }

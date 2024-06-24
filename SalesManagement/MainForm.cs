@@ -12,7 +12,7 @@ namespace SalesManagement
     public partial class MainForm : Form
     {
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
-        private PurchaseManager _purchaseManager = new PurchaseManager();
+        private PurchaseManager _purchaseMana = new PurchaseManager();
         private StockForm _stockForm;
 
         public MainForm()
@@ -44,7 +44,7 @@ namespace SalesManagement
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana, _purchaseManager);
+            var salesOrderForm = new SalesForm(_salesMana, _purchaseMana);
             if (salesOrderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
                 _stockForm.UpdateScreen();
@@ -54,7 +54,7 @@ namespace SalesManagement
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_purchaseManager);
+            var orderForm = new OrderForm(_purchaseMana);
 
             if (orderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
@@ -64,7 +64,7 @@ namespace SalesManagement
 
         private void InventoryListButton_Click(object sender, EventArgs e)
         {
-            _stockForm = new StockForm(_purchaseManager);
+            _stockForm = new StockForm(_purchaseMana);
             _stockForm.FormClosed += new FormClosedEventHandler((object sen, FormClosedEventArgs ex) => { InventoryListButton.Enabled = true; });
             _stockForm.Show();
             InventoryListButton.Enabled = false;
