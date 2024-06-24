@@ -32,6 +32,7 @@
             this.PurchaseProcessingButton = new System.Windows.Forms.Button();
             this.InventoryListButton = new System.Windows.Forms.Button();
             this.SalesListView = new System.Windows.Forms.ListView();
+            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,12 +45,13 @@
             this.ClearFilterButton = new System.Windows.Forms.Button();
             this.TodaySalesButton = new System.Windows.Forms.Button();
             this.SelectProductFilterButton = new System.Windows.Forms.Button();
-            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DescendingButton = new System.Windows.Forms.Button();
+            this.AscendingButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
             // 
-            this.SalesProcessingButton.Location = new System.Drawing.Point(12, 46);
+            this.SalesProcessingButton.Location = new System.Drawing.Point(12, 30);
             this.SalesProcessingButton.Name = "SalesProcessingButton";
             this.SalesProcessingButton.Size = new System.Drawing.Size(90, 30);
             this.SalesProcessingButton.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             // PurchaseProcessingButton
             // 
-            this.PurchaseProcessingButton.Location = new System.Drawing.Point(108, 46);
+            this.PurchaseProcessingButton.Location = new System.Drawing.Point(108, 30);
             this.PurchaseProcessingButton.Name = "PurchaseProcessingButton";
             this.PurchaseProcessingButton.Size = new System.Drawing.Size(90, 30);
             this.PurchaseProcessingButton.TabIndex = 1;
@@ -69,7 +71,7 @@
             // 
             // InventoryListButton
             // 
-            this.InventoryListButton.Location = new System.Drawing.Point(204, 46);
+            this.InventoryListButton.Location = new System.Drawing.Point(204, 30);
             this.InventoryListButton.Name = "InventoryListButton";
             this.InventoryListButton.Size = new System.Drawing.Size(90, 30);
             this.InventoryListButton.TabIndex = 2;
@@ -96,6 +98,12 @@
             this.SalesListView.TabIndex = 3;
             this.SalesListView.UseCompatibleStateImageBehavior = false;
             this.SalesListView.View = System.Windows.Forms.View.Details;
+            this.SalesListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.SalesListView_ColumnClick);
+            // 
+            // columnHeader
+            // 
+            this.columnHeader.Text = "";
+            this.columnHeader.Width = 25;
             // 
             // columnHeader1
             // 
@@ -163,7 +171,7 @@
             // 
             this.ClearFilterButton.Enabled = false;
             this.ClearFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.ClearFilterButton.Location = new System.Drawing.Point(439, 66);
+            this.ClearFilterButton.Location = new System.Drawing.Point(440, 30);
             this.ClearFilterButton.Name = "ClearFilterButton";
             this.ClearFilterButton.Size = new System.Drawing.Size(59, 30);
             this.ClearFilterButton.TabIndex = 9;
@@ -174,7 +182,7 @@
             // TodaySalesButton
             // 
             this.TodaySalesButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.TodaySalesButton.Location = new System.Drawing.Point(374, 30);
+            this.TodaySalesButton.Location = new System.Drawing.Point(310, 30);
             this.TodaySalesButton.Name = "TodaySalesButton";
             this.TodaySalesButton.Size = new System.Drawing.Size(59, 30);
             this.TodaySalesButton.TabIndex = 10;
@@ -185,7 +193,7 @@
             // SelectProductFilterButton
             // 
             this.SelectProductFilterButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.SelectProductFilterButton.Location = new System.Drawing.Point(439, 30);
+            this.SelectProductFilterButton.Location = new System.Drawing.Point(375, 30);
             this.SelectProductFilterButton.Name = "SelectProductFilterButton";
             this.SelectProductFilterButton.Size = new System.Drawing.Size(59, 30);
             this.SelectProductFilterButton.TabIndex = 11;
@@ -193,16 +201,36 @@
             this.SelectProductFilterButton.UseVisualStyleBackColor = true;
             this.SelectProductFilterButton.Click += new System.EventHandler(this.SelectProductFilterButton_Click);
             // 
-            // columnHeader
+            // DescendingButton
             // 
-            this.columnHeader.Text = "";
-            this.columnHeader.Width = 25;
+            this.DescendingButton.Enabled = false;
+            this.DescendingButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.DescendingButton.Location = new System.Drawing.Point(459, 66);
+            this.DescendingButton.Name = "DescendingButton";
+            this.DescendingButton.Size = new System.Drawing.Size(39, 30);
+            this.DescendingButton.TabIndex = 12;
+            this.DescendingButton.Text = "降順";
+            this.DescendingButton.UseVisualStyleBackColor = true;
+            this.DescendingButton.Click += new System.EventHandler(this.DescendingButton_Click);
+            // 
+            // AscendingButton
+            // 
+            this.AscendingButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.AscendingButton.Location = new System.Drawing.Point(414, 66);
+            this.AscendingButton.Name = "AscendingButton";
+            this.AscendingButton.Size = new System.Drawing.Size(39, 30);
+            this.AscendingButton.TabIndex = 13;
+            this.AscendingButton.Text = "昇順";
+            this.AscendingButton.UseVisualStyleBackColor = true;
+            this.AscendingButton.Click += new System.EventHandler(this.AscendingButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 418);
+            this.Controls.Add(this.AscendingButton);
+            this.Controls.Add(this.DescendingButton);
             this.Controls.Add(this.SelectProductFilterButton);
             this.Controls.Add(this.TodaySalesButton);
             this.Controls.Add(this.ClearFilterButton);
@@ -239,6 +267,8 @@
         private System.Windows.Forms.Button InventoryListButton;
         private System.Windows.Forms.Button SelectProductFilterButton;
         private System.Windows.Forms.ColumnHeader columnHeader;
+        private System.Windows.Forms.Button DescendingButton;
+        private System.Windows.Forms.Button AscendingButton;
     }
 }
 
