@@ -52,7 +52,7 @@
             this.SaleDateTime.Name = "SaleDateTime";
             this.SaleDateTime.Size = new System.Drawing.Size(100, 19);
             this.SaleDateTime.TabIndex = 7;
-            this.SaleDateTime.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
+            this.SaleDateTime.Value = new System.DateTime(2024, 6, 24, 0, 0, 0, 0);
             // 
             // SalesTimeDateLabel
             // 

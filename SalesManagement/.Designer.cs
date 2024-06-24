@@ -47,6 +47,7 @@
             this.SelectProductFilterButton = new System.Windows.Forms.Button();
             this.DescendingButton = new System.Windows.Forms.Button();
             this.AscendingButton = new System.Windows.Forms.Button();
+            this.SortClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
@@ -205,7 +206,7 @@
             // 
             this.DescendingButton.Enabled = false;
             this.DescendingButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.DescendingButton.Location = new System.Drawing.Point(459, 66);
+            this.DescendingButton.Location = new System.Drawing.Point(409, 66);
             this.DescendingButton.Name = "DescendingButton";
             this.DescendingButton.Size = new System.Drawing.Size(39, 30);
             this.DescendingButton.TabIndex = 12;
@@ -216,7 +217,7 @@
             // AscendingButton
             // 
             this.AscendingButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
-            this.AscendingButton.Location = new System.Drawing.Point(414, 66);
+            this.AscendingButton.Location = new System.Drawing.Point(364, 66);
             this.AscendingButton.Name = "AscendingButton";
             this.AscendingButton.Size = new System.Drawing.Size(39, 30);
             this.AscendingButton.TabIndex = 13;
@@ -224,11 +225,24 @@
             this.AscendingButton.UseVisualStyleBackColor = true;
             this.AscendingButton.Click += new System.EventHandler(this.AscendingButton_Click);
             // 
+            // SortClearButton
+            // 
+            this.SortClearButton.Enabled = false;
+            this.SortClearButton.Font = new System.Drawing.Font("MS UI Gothic", 8F);
+            this.SortClearButton.Location = new System.Drawing.Point(454, 66);
+            this.SortClearButton.Name = "SortClearButton";
+            this.SortClearButton.Size = new System.Drawing.Size(39, 30);
+            this.SortClearButton.TabIndex = 14;
+            this.SortClearButton.Text = "解除";
+            this.SortClearButton.UseVisualStyleBackColor = true;
+            this.SortClearButton.Click += new System.EventHandler(this.SortClearButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 418);
+            this.Controls.Add(this.SortClearButton);
             this.Controls.Add(this.AscendingButton);
             this.Controls.Add(this.DescendingButton);
             this.Controls.Add(this.SelectProductFilterButton);
@@ -269,6 +283,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader;
         private System.Windows.Forms.Button DescendingButton;
         private System.Windows.Forms.Button AscendingButton;
+        private System.Windows.Forms.Button SortClearButton;
     }
 }
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.PuchaseOrderGroup = new System.Windows.Forms.GroupBox();
+            this.SalesDateTime = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.SalesPriceTextBox = new System.Windows.Forms.TextBox();
             this.PurchasePriceTextBox = new System.Windows.Forms.TextBox();
             this.PurchaseQuantityTextBox = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.ProductLabel = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SalesDateTime = new System.Windows.Forms.DateTimePicker();
             this.PuchaseOrderGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,26 @@
             this.PuchaseOrderGroup.TabIndex = 0;
             this.PuchaseOrderGroup.TabStop = false;
             this.PuchaseOrderGroup.Text = "仕入処理";
+            // 
+            // SalesDateTime
+            // 
+            this.SalesDateTime.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.SalesDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SalesDateTime.Location = new System.Drawing.Point(126, 51);
+            this.SalesDateTime.Name = "SalesDateTime";
+            this.SalesDateTime.Size = new System.Drawing.Size(117, 21);
+            this.SalesDateTime.TabIndex = 12;
+            this.SalesDateTime.Value = new System.DateTime(2024, 6, 24, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.label1.Location = new System.Drawing.Point(16, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 14);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "仕入日";
             // 
             // SalesPriceTextBox
             // 
@@ -164,26 +184,6 @@
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.label1.Location = new System.Drawing.Point(16, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 14);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "仕入日";
-            // 
-            // SalesDateTime
-            // 
-            this.SalesDateTime.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.SalesDateTime.Location = new System.Drawing.Point(126, 51);
-            this.SalesDateTime.Name = "SalesDateTime";
-            this.SalesDateTime.Size = new System.Drawing.Size(117, 21);
-            this.SalesDateTime.TabIndex = 12;
-            this.SalesDateTime.Value = new System.DateTime(2024, 6, 19, 0, 0, 0, 0);
             // 
             // OrderForm
             // 

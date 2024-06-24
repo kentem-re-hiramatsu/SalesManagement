@@ -198,6 +198,13 @@ namespace SalesManagement
         {
             AscendingButton.Enabled = !isAscendingButton;
             DescendingButton.Enabled = isAscendingButton;
+            SortClearButton.Enabled = AscendingButton.Enabled || DescendingButton.Enabled;
+        }
+
+        private void SortClearButton_Click(object sender, EventArgs e)
+        {
+            SortClearButton.Enabled = false;
+            UpdateScreen();
         }
     }
 }
