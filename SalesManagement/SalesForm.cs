@@ -27,7 +27,7 @@ namespace WindowsFormsApp2
         {
             StockListView.Items.Clear();
 
-            foreach (var purchase in _purchaseMana.ProductList)
+            foreach (var purchase in _purchaseMana.PurchaseList)
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 { "",

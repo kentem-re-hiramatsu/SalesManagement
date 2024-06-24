@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         {
             StockListView.Items.Clear();
 
-            foreach (var product in _productMana.ProductList)
+            foreach (var product in _productMana.PurchaseList)
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 {

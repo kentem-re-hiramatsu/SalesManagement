@@ -14,12 +14,12 @@ namespace SalesManagementTest.ManagerTest
             var mikanPurchase = new Product.Cores.Model.Purchase("みかん", 100, 200, 10, new DateTime(2024, 06, 21));
             var bananaPurchase = new Product.Cores.Model.Purchase("ばなな", 150, 300, 10, new DateTime(2024, 06, 25));
 
-            Assert.AreEqual(0, _purchaseMana.ProductList.Count);
+            Assert.AreEqual(0, _purchaseMana.PurchaseList.Count);
 
             _purchaseMana.Add(mikanPurchase);
             _purchaseMana.Add(bananaPurchase);
 
-            Assert.AreEqual(2, _purchaseMana.ProductList.Count);
+            Assert.AreEqual(2, _purchaseMana.PurchaseList.Count);
             Assert.AreEqual("みかん", _purchaseMana.GetProduct(0).ProductName);
             Assert.AreEqual("ばなな", _purchaseMana.GetProduct(1).ProductName);
 
