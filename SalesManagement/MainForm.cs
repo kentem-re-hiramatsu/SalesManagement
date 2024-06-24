@@ -43,23 +43,27 @@ namespace SalesManagement
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
-            var salesOrderForm = new SalesForm(_salesMana, _purchaseManager, _stockForm);
-            if (salesOrderForm.ShowDialog() == DialogResult.OK)
+            var salesOrderForm = new SalesForm(_salesMana, _purchaseManager);
+            if (salesOrderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
+                _stockForm.UpdateScreen();
                 UpdateScreen();
             }
         }
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_purchaseManager, _stockForm);
-            orderForm.ShowDialog();
+            var orderForm = new OrderForm(_purchaseManager);
+
+            if (DialogResult.OK == orderForm.ShowDialog() && _stockForm != null)
+            {
+                _stockForm.UpdateScreen();
+            }
         }
 
         private void InventoryListButton_Click(object sender, EventArgs e)
         {
             _stockForm = new StockForm(_purchaseManager);
-
             _stockForm.FormClosed += new FormClosedEventHandler((object sen, FormClosedEventArgs ex) => { InventoryListButton.Enabled = true; });
             _stockForm.Show();
             InventoryListButton.Enabled = false;

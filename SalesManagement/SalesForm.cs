@@ -2,7 +2,6 @@
 using Product.Cores.Model;
 using System;
 using System.Windows.Forms;
-using WindowsFormsApp1;
 
 namespace WindowsFormsApp2
 {
@@ -11,13 +10,11 @@ namespace WindowsFormsApp2
         private int _selectedIndex;
         private SalesHistoryManager _salesMana;
         private PurchaseManager _purchaseMana;
-        private StockForm _stockFrom;
 
-        public SalesForm(SalesHistoryManager salesMana, PurchaseManager productMana, StockForm stockForm)
+        public SalesForm(SalesHistoryManager salesMana, PurchaseManager productMana)
         {
             _salesMana = salesMana;
             _purchaseMana = productMana;
-            _stockFrom = stockForm;
             InitializeComponent();
         }
 
@@ -57,12 +54,6 @@ namespace WindowsFormsApp2
             try
             {
                 _salesMana.Add(new Sale(saleQuantity, saleDateTime, product));
-                //在庫一覧が開かれているか。
-                if (_stockFrom != null)
-                {
-                    _stockFrom.UpdateScreen();
-                }
-
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -114,6 +105,11 @@ namespace WindowsFormsApp2
         private void SalesQuantityTextBox_TextChanged(object sender, EventArgs e)
         {
             SalesButtonChanged();
+        }
+
+        private void StockListView_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+
         }
     }
 }

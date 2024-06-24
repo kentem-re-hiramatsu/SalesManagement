@@ -8,12 +8,10 @@ namespace WindowsFormsApp1
     public partial class OrderForm : Form
     {
         private PurchaseManager _purchaseMana;
-        private StockForm _stockForm;
 
-        public OrderForm(PurchaseManager productMana, StockForm stockForm)
+        public OrderForm(PurchaseManager productMana)
         {
             _purchaseMana = productMana;
-            _stockForm = stockForm;
             InitializeComponent();
         }
 
@@ -57,11 +55,7 @@ namespace WindowsFormsApp1
             {
                 _purchaseMana.Add(new Purchase(productName, purchasePrice, salePrice, purchaseQuantity, purchaseDateTime));
 
-                //在庫一覧が開かれているか。
-                if (_stockForm != null)
-                {
-                    _stockForm.UpdateScreen();
-                }
+                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)
