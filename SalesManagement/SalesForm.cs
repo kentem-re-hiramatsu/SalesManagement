@@ -1,5 +1,5 @@
-﻿using Product.Cores.Manager;
-using Product.Cores.Model;
+﻿using Product.Cores.Managers;
+using Product.Cores.Models;
 using System;
 using System.Windows.Forms;
 

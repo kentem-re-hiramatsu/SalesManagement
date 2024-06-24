@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Product.Cores.Manager;
-using Product.Cores.Model;
+using Product.Cores.Managers;
+using Product.Cores.Models;
 using System;
 
 namespace SalesManagementTest.ManagerTest

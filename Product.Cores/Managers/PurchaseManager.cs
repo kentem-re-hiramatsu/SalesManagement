@@ -1,8 +1,8 @@
-﻿using Product.Cores.Model;
+﻿using Product.Cores.Models;
 
 using System.Collections.Generic;
 
-namespace Product.Cores.Manager
+namespace Product.Cores.Managers
 {
     public class PurchaseManager
     {

@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
-    <Compile Include="Manager\PurchaseManager.cs" />
-    <Compile Include="Manager\SalesHistoryManager.cs" />
-    <Compile Include="Model\Purchase.cs" />
-    <Compile Include="Model\Sale.cs" />
+    <Compile Include="Managers\PurchaseManager.cs" />
+    <Compile Include="Managers\SalesHistoryManager.cs" />
+    <Compile Include="Models\Purchase.cs" />
+    <Compile Include="Models\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Product.Cores.Manager;
+using Product.Cores.Managers;
 using System;
 
 namespace SalesManagementTest.ManagerTest
@@ -11,8 +11,8 @@ namespace SalesManagementTest.ManagerTest
         public void HistoryTest()
         {
             var _purchaseMana = new PurchaseManager();
-            var mikanPurchase = new Product.Cores.Model.Purchase("みかん", 100, 200, 10, new DateTime(2024, 06, 21));
-            var bananaPurchase = new Product.Cores.Model.Purchase("ばなな", 150, 300, 10, new DateTime(2024, 06, 25));
+            var mikanPurchase = new Product.Cores.Models.Purchase("みかん", 100, 200, 10, new DateTime(2024, 06, 21));
+            var bananaPurchase = new Product.Cores.Models.Purchase("ばなな", 150, 300, 10, new DateTime(2024, 06, 25));
 
             Assert.AreEqual(0, _purchaseMana.PurchaseList.Count);
 

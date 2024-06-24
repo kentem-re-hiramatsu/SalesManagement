@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Product.Cores.Model;
+using Product.Cores.Models;
 using System;
 
 namespace SalesManagementTest.ModelTest

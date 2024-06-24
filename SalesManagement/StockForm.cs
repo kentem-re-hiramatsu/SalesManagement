@@ -1,4 +1,4 @@
-﻿using Product.Cores.Manager;
+﻿using Product.Cores.Managers;
 using System;
 using System.Windows.Forms;
 
