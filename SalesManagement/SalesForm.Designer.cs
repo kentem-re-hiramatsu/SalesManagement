@@ -128,6 +128,7 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.StockListView.FullRowSelect = true;
             this.StockListView.HideSelection = false;
             this.StockListView.Location = new System.Drawing.Point(12, 52);
             this.StockListView.MultiSelect = false;
