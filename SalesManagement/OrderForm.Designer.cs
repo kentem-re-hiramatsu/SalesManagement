@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace SalesManagement
 {
     partial class OrderForm
     {

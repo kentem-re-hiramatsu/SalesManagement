@@ -3,7 +3,7 @@ using Product.Cores.Model;
 using System;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace SalesManagement
 {
     public partial class SalesForm : Form
     {
