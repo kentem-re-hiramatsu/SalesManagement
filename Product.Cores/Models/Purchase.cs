@@ -9,7 +9,6 @@ namespace Product.Cores.Models
         public int SalePrice { get; }
         public int StockQuantity { get; set; }
         public DateTime PurchaseDateTime { get; }
-        public Purchase purchase { get; }
 
         public Purchase(string name, int purchasePrice, int salePrice, int purchaseQuantity, DateTime purchaseDateTime)
         {
