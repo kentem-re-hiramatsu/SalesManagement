@@ -12,7 +12,7 @@ namespace SalesManagement
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
         private PurchaseManager _purchaseMana = new PurchaseManager();
         private StockForm _stockForm;
-        private int _columnNum;
+
         public MainForm()
         {
             InitializeComponent();
