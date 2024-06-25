@@ -71,7 +71,7 @@
             this.SalesDateTime.Name = "SalesDateTime";
             this.SalesDateTime.Size = new System.Drawing.Size(117, 21);
             this.SalesDateTime.TabIndex = 12;
-            this.SalesDateTime.Value = new System.DateTime(2024, 6, 24, 0, 0, 0, 0);
+            this.SalesDateTime.Value = new System.DateTime(2024, 6, 25, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -195,6 +195,7 @@
             this.Controls.Add(this.PuchaseOrderGroup);
             this.Name = "OrderForm";
             this.Text = "仕入処理";
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.PuchaseOrderGroup.ResumeLayout(false);
             this.PuchaseOrderGroup.PerformLayout();
             this.ResumeLayout(false);

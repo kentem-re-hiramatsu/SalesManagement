@@ -63,5 +63,10 @@ namespace SalesManagement
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            SalesDateTime.Value = DateTime.Now.Date;
+        }
     }
 }

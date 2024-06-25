@@ -23,5 +23,42 @@ namespace Product.Cores.Managers
         /// 利益合計金額
         /// </summary>
         public int GetTotalIncomeAmount() => _historyList.Sum(sale => sale.GetIncomeAmount());
+
+        public IEnumerable<Sale> SalesColumSort(int index, bool ascendingButtonEnabled)
+        {
+            IEnumerable<Sale> sortList = null;
+
+            switch (index)
+            {
+                case Consts.PRODUCT_NAME_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.ProductName)
+                                                       : _historyList.OrderByDescending(x => x.Purchase.ProductName);
+                    break;
+                case Consts.SALE_PRICE_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.SalePrice)
+                                                       : _historyList.OrderByDescending(x => x.Purchase.SalePrice);
+                    break;
+                case Consts.PURCHASE_DAY_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.PurchaseDateTime)
+                                                       : _historyList.OrderByDescending(x => x.Purchase.PurchaseDateTime);
+
+                    break;
+                case Consts.SALE_DAY_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.SaleDateTime)
+                                                       : _historyList.OrderByDescending(x => x.SaleDateTime);
+                    break;
+                case Consts.SALE_QUANTITY_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.SaleQuantity)
+                                                       : _historyList.OrderByDescending(x => x.SaleQuantity);
+                    break;
+                case Consts.SALE_AMOUNT_COLUMN:
+                    sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.GetSalesAmount())
+                                                       : _historyList.OrderByDescending(x => x.GetSalesAmount());
+                    break;
+
+                default: break;
+            }
+            return sortList;
+        }
     }
 }

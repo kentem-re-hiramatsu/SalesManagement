@@ -99,6 +99,7 @@ namespace SalesManagement
 
         private void SalesForm_Load(object sender, EventArgs e)
         {
+            SaleDateTime.Value = DateTime.Now.Date;
             UpdateScreen();
         }
 

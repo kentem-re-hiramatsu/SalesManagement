@@ -43,6 +43,7 @@ namespace SalesManagement
         private void SalesProcessingButton_Click(object sender, EventArgs e)
         {
             var salesOrderForm = new SalesForm(_salesMana, _purchaseMana);
+
             if (salesOrderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
                 _stockForm.UpdateScreen();
@@ -137,39 +138,10 @@ namespace SalesManagement
 
         private void SalesListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            var columnNum = e.Column;
-            IEnumerable<Sale> sortList = null;
+            var sortList = _salesMana.SalesColumSort(e.Column, AscendingButton.Enabled);
 
-            switch (e.Column)
-            {
-                case 1:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.Purchase.ProductName)
-                                                        : _salesMana.HistoryList.OrderByDescending(x => x.Purchase.ProductName);
-                    break;
-                case 2:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.Purchase.SalePrice)
-                                                        : _salesMana.HistoryList.OrderByDescending(x => x.Purchase.SalePrice);
-                    break;
-                case 3:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.Purchase.PurchaseDateTime) :
-                                                          _salesMana.HistoryList.OrderByDescending(x => x.Purchase.PurchaseDateTime);
-                    break;
-                case 4:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.SaleDateTime) :
-                                                          _salesMana.HistoryList.OrderByDescending(x => x.SaleDateTime);
-                    break;
-                case 5:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.SaleQuantity) :
-                                                          _salesMana.HistoryList.OrderByDescending(x => x.SaleQuantity);
-                    break;
-                case 6:
-                    sortList = !AscendingButton.Enabled ? _salesMana.HistoryList.OrderBy(x => x.GetSalesAmount()) :
-                                                          _salesMana.HistoryList.OrderByDescending(x => x.GetSalesAmount());
-                    break;
-
-                default: break;
-            }
             SalesListView.Items.Clear();
+
             foreach (var sale in sortList)
             {
                 SalesListView.Items.Add(new ListViewItem(new string[]
