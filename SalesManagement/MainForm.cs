@@ -1,7 +1,5 @@
 ﻿using Product.Cores.Managers;
-using Product.Cores.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -76,27 +74,13 @@ namespace SalesManagement
 
         private void FilterTodaySales()
         {
-            SalesListView.Items.Clear();
-
-            IEnumerable<Sale> todaySaleList = new List<Sale>();
-            todaySaleList = _salesMana.HistoryList.Where(x => x.SaleDateTime == DateTime.Today);
-
-            foreach (var TodaySale in todaySaleList)
+            foreach (ListViewItem item in SalesListView.Items)
             {
-                var purchase = TodaySale.Purchase;
-                SalesListView.Items.Add(new ListViewItem(new string[]
+                if (item.SubItems[4].Text != DateTime.Today.ToString("yyyy/MM/dd"))
                 {
-                    "",
-                    purchase.ProductName,
-                    purchase.SalePrice.ToString("#,0円"),
-                    purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
-                    TodaySale.SaleDateTime.ToString("yyyy/MM/dd"),
-                    TodaySale.SaleQuantity.ToString(),
-                    TodaySale.GetSalesAmount().ToString("#,0円")
-                }));
+                    item.ListView.Items.RemoveAt(item.Index);
+                }
             }
-            TotaltSalesAmountLabel.Text = $"売上合計金額：{todaySaleList.Sum(x => x.GetSalesAmount()).ToString("#,0円")}";
-            TotalIncomeAmountLabel.Text = $"利益合計金額：{todaySaleList.Sum(x => x.GetIncomeAmount()).ToString("#,0円")}";
         }
 
         private void FilterSelectedSales()
