@@ -1,4 +1,5 @@
-﻿using Product.Cores.Managers;
+﻿using Product.Cores;
+using Product.Cores.Managers;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -122,6 +123,9 @@ namespace SalesManagement
 
         private void SalesListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
+            if (e.Column == Consts.CHECK_BOX_COLUMN)
+                return;
+
             var sortList = _salesMana.SalesColumSort(e.Column, AscendingButton.Enabled);
 
             SalesListView.Items.Clear();
