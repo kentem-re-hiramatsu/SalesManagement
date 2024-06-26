@@ -50,6 +50,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CartAddButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaleDateTime
@@ -244,11 +245,23 @@
             this.CartAddButton.UseVisualStyleBackColor = true;
             this.CartAddButton.Click += new System.EventHandler(this.CartAddButton_Click);
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.DeleteButton.Location = new System.Drawing.Point(582, 379);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(90, 32);
+            this.DeleteButton.TabIndex = 11;
+            this.DeleteButton.Text = "削除";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 462);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.CartAddButton);
             this.Controls.Add(this.CartListView);
             this.Controls.Add(this.label2);
@@ -291,6 +304,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.Button CartAddButton;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }
 

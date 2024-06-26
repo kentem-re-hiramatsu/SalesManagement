@@ -12,5 +12,7 @@ namespace Product.Cores.Managers
         public void Add(Sale sale) => _cartList.Add(sale);
 
         public Sale GetSale(int index) => _cartList[index];
+
+        public void Remove(int index) => _cartList.RemoveAt(index);
     }
 }

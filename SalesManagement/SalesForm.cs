@@ -136,5 +136,16 @@ namespace SalesManagement
             ButtonChanged();
             CartAddButton.Enabled = false;
         }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = CartListView.SelectedItems[0].Index;
+            var saleQuantity = _salesCartMana.GetSale(selectedIndex).SaleQuantity;
+
+            _salesCartMana.GetSale(selectedIndex).Purchase.StockQuantity += saleQuantity;
+            _salesCartMana.Remove(selectedIndex);
+
+            UpdateScreen();
+        }
     }
 }
