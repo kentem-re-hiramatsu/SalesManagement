@@ -206,6 +206,7 @@
             this.CartListView.TabIndex = 9;
             this.CartListView.UseCompatibleStateImageBehavior = false;
             this.CartListView.View = System.Windows.Forms.View.Details;
+            this.CartListView.SelectedIndexChanged += new System.EventHandler(this.CartListView_SelectedIndexChanged);
             // 
             // columnHeader7
             // 
@@ -247,6 +248,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Enabled = false;
             this.DeleteButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.DeleteButton.Location = new System.Drawing.Point(582, 379);
             this.DeleteButton.Name = "DeleteButton";

@@ -59,6 +59,7 @@ namespace SalesManagement
         {
             CartAddButton.Enabled = SalesQuantityTextBox.Text.Length > 0;
             SalesButton.Enabled = CartListView.Items.Count > 0;
+            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
         }
 
         private void SalesButton_Click(object sender, EventArgs e)
@@ -146,6 +147,12 @@ namespace SalesManagement
             _salesCartMana.Remove(selectedIndex);
 
             UpdateScreen();
+            ButtonChanged();
+        }
+
+        private void CartListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ButtonChanged();
         }
     }
 }
