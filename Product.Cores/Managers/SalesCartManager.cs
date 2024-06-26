@@ -13,8 +13,8 @@ namespace Product.Cores.Managers
         public void Add(Sale sale)
         {
             var cartWhereList = _cartList.Where(x => x.Purchase.ProductName == sale.Purchase.ProductName &&
-                                            x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
-                                            x.SaleDateTime == sale.SaleDateTime);
+                                                x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
+                                                x.SaleDateTime == sale.SaleDateTime);
 
             if (cartWhereList.Count() > 0)
             {
@@ -22,7 +22,6 @@ namespace Product.Cores.Managers
                 {
                     saleCart.SaleQuantity += sale.SaleQuantity;
                 }
-
             }
             else
             {
