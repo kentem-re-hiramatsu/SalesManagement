@@ -190,7 +190,6 @@
             // 
             // CartListView
             // 
-            this.CartListView.CheckBoxes = true;
             this.CartListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
