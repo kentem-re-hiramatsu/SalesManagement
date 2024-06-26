@@ -234,6 +234,7 @@
             // 
             // CartAddButton
             // 
+            this.CartAddButton.Enabled = false;
             this.CartAddButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.CartAddButton.Location = new System.Drawing.Point(311, 417);
             this.CartAddButton.Name = "CartAddButton";

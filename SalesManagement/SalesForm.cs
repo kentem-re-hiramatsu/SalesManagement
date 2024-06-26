@@ -55,9 +55,10 @@ namespace SalesManagement
             }
         }
 
-        public void SalesButtonChanged()
+        public void ButtonChanged()
         {
-            SalesButton.Enabled = SalesQuantityTextBox.Text.Length > 0;
+            CartAddButton.Enabled = SalesQuantityTextBox.Text.Length > 0;
+            SalesButton.Enabled = CartListView.Items.Count > 0;
         }
 
         private void SalesButton_Click(object sender, EventArgs e)
@@ -83,11 +84,11 @@ namespace SalesManagement
             //商品にチェックがされている時入力を活性化
             SalesQuantityTextBox.Enabled = e.CurrentValue == CheckState.Unchecked;
             SaleDateTime.Enabled = e.CurrentValue == CheckState.Unchecked;
-            SalesButton.Enabled = e.CurrentValue == CheckState.Unchecked;
+            CartAddButton.Enabled = e.CurrentValue == CheckState.Unchecked;
 
             if (e.CurrentValue == CheckState.Unchecked)
             {
-                SalesButtonChanged();
+                ButtonChanged();
                 _selectedIndex = e.Index;
             }
         }
@@ -113,7 +114,7 @@ namespace SalesManagement
 
         private void SalesQuantityTextBox_TextChanged(object sender, EventArgs e)
         {
-            SalesButtonChanged();
+            ButtonChanged();
         }
 
         private void CartAddButton_Click(object sender, EventArgs e)
@@ -132,6 +133,8 @@ namespace SalesManagement
             }
 
             UpdateScreen();
+            ButtonChanged();
+            CartAddButton.Enabled = false;
         }
     }
 }
