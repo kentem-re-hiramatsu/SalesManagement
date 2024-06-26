@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ManagerTest\HistoryManagerTest.cs" />
     <Compile Include="ManagerTest\SaleManagerTest.cs" />
+    <Compile Include="ManagerTest\SalesCartManagerTest.cs" />
     <Compile Include="ModelTest\PurchaseTest.cs" />
     <Compile Include="ModelTest\SalesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

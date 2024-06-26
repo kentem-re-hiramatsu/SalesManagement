@@ -42,6 +42,14 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.CartListView = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CartAddButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaleDateTime
@@ -89,7 +97,7 @@
             // 
             this.SalesButton.Enabled = false;
             this.SalesButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.SalesButton.Location = new System.Drawing.Point(238, 377);
+            this.SalesButton.Location = new System.Drawing.Point(678, 379);
             this.SalesButton.Name = "SalesButton";
             this.SalesButton.Size = new System.Drawing.Size(90, 32);
             this.SalesButton.TabIndex = 3;
@@ -100,7 +108,7 @@
             // CloseButton
             // 
             this.CloseButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.CloseButton.Location = new System.Drawing.Point(238, 417);
+            this.CloseButton.Location = new System.Drawing.Point(678, 417);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(90, 32);
             this.CloseButton.TabIndex = 7;
@@ -170,11 +178,80 @@
             this.columnHeader5.Text = "在庫数";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+            this.label2.Location = new System.Drawing.Point(404, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 15);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "カート";
+            // 
+            // CartListView
+            // 
+            this.CartListView.CheckBoxes = true;
+            this.CartListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.CartListView.FullRowSelect = true;
+            this.CartListView.HideSelection = false;
+            this.CartListView.Location = new System.Drawing.Point(407, 52);
+            this.CartListView.MultiSelect = false;
+            this.CartListView.Name = "CartListView";
+            this.CartListView.Size = new System.Drawing.Size(361, 302);
+            this.CartListView.TabIndex = 9;
+            this.CartListView.UseCompatibleStateImageBehavior = false;
+            this.CartListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "商品名";
+            this.columnHeader7.Width = 86;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "販売価格";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader8.Width = 75;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "仕入日";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "販売日";
+            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "販売数";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // CartAddButton
+            // 
+            this.CartAddButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.CartAddButton.Location = new System.Drawing.Point(311, 417);
+            this.CartAddButton.Name = "CartAddButton";
+            this.CartAddButton.Size = new System.Drawing.Size(90, 32);
+            this.CartAddButton.TabIndex = 10;
+            this.CartAddButton.Text = "カートに追加";
+            this.CartAddButton.UseVisualStyleBackColor = true;
+            this.CartAddButton.Click += new System.EventHandler(this.CartAddButton_Click);
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 462);
+            this.ClientSize = new System.Drawing.Size(807, 462);
+            this.Controls.Add(this.CartAddButton);
+            this.Controls.Add(this.CartListView);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.SaleDateTime);
             this.Controls.Add(this.SalesTimeDateLabel);
             this.Controls.Add(this.CloseButton);
@@ -206,6 +283,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ListView CartListView;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.Button CartAddButton;
     }
 }
 

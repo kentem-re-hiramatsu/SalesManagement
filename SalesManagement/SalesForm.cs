@@ -10,6 +10,7 @@ namespace SalesManagement
         private int _selectedIndex;
         private SalesHistoryManager _salesMana;
         private PurchaseManager _purchaseMana;
+        private SalesCartManager _salesCartMana = new SalesCartManager();
 
         public SalesForm(SalesHistoryManager salesMana, PurchaseManager purchaseMana)
         {
@@ -26,6 +27,7 @@ namespace SalesManagement
         public void UpdateScreen()
         {
             StockListView.Items.Clear();
+            CartListView.Items.Clear();
 
             foreach (var purchase in _purchaseMana.PurchaseList)
             {
@@ -38,6 +40,19 @@ namespace SalesManagement
                     purchase.StockQuantity.ToString()
                 }));
             }
+
+            foreach (var sale in _salesCartMana.CartList)
+            {
+                var purchase = sale.Purchase;
+                CartListView.Items.Add(new ListViewItem(new string[]
+                {
+                    purchase.ProductName,
+                    purchase.SalePrice.ToString("#,0円"),
+                    purchase.PurchaseDateTime.ToString("MM/dd"),
+                    sale.SaleDateTime.ToString("MM/dd"),
+                    sale.SaleQuantity.ToString()
+                }));
+            }
         }
 
         public void SalesButtonChanged()
@@ -47,20 +62,13 @@ namespace SalesManagement
 
         private void SalesButton_Click(object sender, EventArgs e)
         {
-            var saleQuantity = int.Parse(SalesQuantityTextBox.Text);
-            var saleDateTime = SaleDateTime.Value;
-            var purchase = _purchaseMana.GetPurchase(_selectedIndex);
+            foreach (var cartSale in _salesCartMana.CartList)
+            {
+                _salesMana.Add(cartSale);
+            }
 
-            try
-            {
-                _salesMana.Add(new Sale(saleQuantity, saleDateTime, purchase));
-                DialogResult = DialogResult.OK;
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void StockListView_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -106,6 +114,24 @@ namespace SalesManagement
         private void SalesQuantityTextBox_TextChanged(object sender, EventArgs e)
         {
             SalesButtonChanged();
+        }
+
+        private void CartAddButton_Click(object sender, EventArgs e)
+        {
+            var saleQuantity = int.Parse(SalesQuantityTextBox.Text);
+            var saleDateTime = SaleDateTime.Value;
+            var purchase = _purchaseMana.GetPurchase(_selectedIndex);
+
+            try
+            {
+                _salesCartMana.Add(new Sale(saleQuantity, saleDateTime, purchase));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            UpdateScreen();
         }
     }
 }

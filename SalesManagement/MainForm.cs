@@ -125,7 +125,7 @@ namespace SalesManagement
 
         private void SalesListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            if (e.Column == Consts.CHECK_BOX_COLUMN)
+            if (e.Column == Consts.CHECK_BOX_COLUMN || !SortClearButton.Enabled)
                 return;
 
             var sortList = _salesMana.SalesColumSort(e.Column, DescendingButton.Enabled);
