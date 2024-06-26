@@ -95,11 +95,15 @@
             this.SalesListView.HideSelection = false;
             this.SalesListView.Location = new System.Drawing.Point(14, 102);
             this.SalesListView.Name = "SalesListView";
+            this.SalesListView.OwnerDraw = true;
             this.SalesListView.Size = new System.Drawing.Size(484, 247);
             this.SalesListView.TabIndex = 3;
             this.SalesListView.UseCompatibleStateImageBehavior = false;
             this.SalesListView.View = System.Windows.Forms.View.Details;
             this.SalesListView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.SalesListView_ColumnClick);
+            this.SalesListView.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.SalesListView_DrawColumnHeader);
+            this.SalesListView.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.SalesListView_DrawItem);
+            this.SalesListView.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.SalesListView_DrawSubItem);
             // 
             // columnHeader
             // 

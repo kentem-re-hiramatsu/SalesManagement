@@ -41,7 +41,6 @@ namespace Product.Cores.Managers
                 case Consts.PURCHASE_DAY_COLUMN:
                     sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.PurchaseDateTime)
                                                        : _historyList.OrderByDescending(x => x.Purchase.PurchaseDateTime);
-
                     break;
                 case Consts.SALE_DAY_COLUMN:
                     sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.SaleDateTime)
@@ -55,7 +54,6 @@ namespace Product.Cores.Managers
                     sortList = !ascendingButtonEnabled ? _historyList.OrderBy(x => x.GetSalesAmount())
                                                        : _historyList.OrderByDescending(x => x.GetSalesAmount());
                     break;
-
                 default: break;
             }
             return sortList;

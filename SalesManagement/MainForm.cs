@@ -1,6 +1,7 @@
 ﻿using Product.Cores;
 using Product.Cores.Managers;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace SalesManagement
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
         private PurchaseManager _purchaseMana = new PurchaseManager();
         private StockForm _stockForm;
+
+        private int _selectedColumnNum = -1;
 
         public MainForm()
         {
@@ -77,7 +80,7 @@ namespace SalesManagement
         {
             foreach (ListViewItem item in SalesListView.Items)
             {
-                if (item.SubItems[4].Text != DateTime.Today.ToString("yyyy/MM/dd"))
+                if (item.SubItems[Consts.SALE_DAY_COLUMN].Text != DateTime.Today.ToString("yyyy/MM/dd"))
                 {
                     item.ListView.Items.RemoveAt(item.Index);
                 }
@@ -143,6 +146,11 @@ namespace SalesManagement
                     sale.GetSalesAmount().ToString("#,0円")
                 }));
             }
+
+            if (SortClearButton.Enabled)
+            {
+                _selectedColumnNum = e.Column;
+            }
         }
 
         private void AscendingButton_Click(object sender, EventArgs e)
@@ -163,8 +171,32 @@ namespace SalesManagement
 
         private void SortClearButton_Click(object sender, EventArgs e)
         {
+            _selectedColumnNum = -1;
             SortClearButton.Enabled = false;
             UpdateScreen();
+        }
+
+        private void SalesListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
+
+        private void SalesListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        {
+            if (e.ColumnIndex == _selectedColumnNum)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, e.Bounds);
+                TextRenderer.DrawText(e.Graphics, e.SubItem.Text, e.Item.Font, e.Bounds, e.Item.ForeColor);
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+        }
+
+        private void SalesListView_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = false;
         }
     }
 }
