@@ -95,7 +95,6 @@
             this.SalesListView.HideSelection = false;
             this.SalesListView.Location = new System.Drawing.Point(14, 102);
             this.SalesListView.Name = "SalesListView";
-            this.SalesListView.OwnerDraw = true;
             this.SalesListView.Size = new System.Drawing.Size(484, 247);
             this.SalesListView.TabIndex = 3;
             this.SalesListView.UseCompatibleStateImageBehavior = false;

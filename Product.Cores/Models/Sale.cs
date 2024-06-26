@@ -4,7 +4,7 @@ namespace Product.Cores.Models
 {
     public class Sale
     {
-        public int SaleQuantity { get; private set; }
+        public int SaleQuantity { get; set; }
         public DateTime SaleDateTime { get; private set; }
         public Purchase Purchase { get; }
 
