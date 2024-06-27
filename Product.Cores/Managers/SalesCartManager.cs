@@ -1,8 +1,8 @@
-﻿using Product.Cores.Models;
+﻿using Products.Cores.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Product.Cores.Managers
+namespace Products.Cores.Managers
 {
     public class SalesCartManager
     {
@@ -12,7 +12,7 @@ namespace Product.Cores.Managers
 
         public void Add(Sale sale)
         {
-            var cartWhereList = _cartList.Where(x => x.Purchase.ProductName == sale.Purchase.ProductName &&
+            var cartWhereList = _cartList.Where(x => x.Purchase.Product.Name == sale.Purchase.Product.Name &&
                                                 x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
                                                 x.SaleDateTime == sale.SaleDateTime);
 
