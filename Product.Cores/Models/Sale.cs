@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Product.Cores.Models
+namespace Products.Cores.Models
 {
     public class Sale
     {

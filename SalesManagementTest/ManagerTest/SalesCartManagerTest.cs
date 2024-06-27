@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Product.Cores.Managers;
-using Product.Cores.Models;
+using Products.Cores.Managers;
+using Products.Cores.Models;
 using System;
 
 namespace SalesManagementTest.ManagerTest
@@ -15,7 +15,7 @@ namespace SalesManagementTest.ManagerTest
         {
             Assert.AreEqual(0, salesmana.CartList.Count);
 
-            var banana = new Purchase("ばなな", 100, 200, 10, new DateTime(2024, 06, 21));
+            var banana = new Purchase(new Product("ばなな"), 100, 200, 10, new DateTime(2024, 06, 21));
             salesmana.Add(new Sale(2, new DateTime(2024, 06, 22), banana));
             salesmana.Add(new Sale(3, new DateTime(2024, 06, 21), banana));
 
@@ -29,7 +29,7 @@ namespace SalesManagementTest.ManagerTest
         {
             Assert.AreEqual(0, salesmana.CartList.Count);
 
-            var banana = new Purchase("ばなな", 100, 200, 10, new DateTime(2024, 06, 21));
+            var banana = new Purchase(new Product("ばなな"), 100, 200, 10, new DateTime(2024, 06, 21));
             salesmana.Add(new Sale(2, new DateTime(2024, 06, 22), banana));
             salesmana.Add(new Sale(3, new DateTime(2024, 06, 21), banana));
             salesmana.Add(new Sale(3, new DateTime(2024, 06, 22), banana));
@@ -41,7 +41,7 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void Remove()
         {
-            var banana = new Purchase("ばなな", 100, 200, 10, new DateTime(2024, 06, 21));
+            var banana = new Purchase(new Product("ばなな"), 100, 200, 10, new DateTime(2024, 06, 21));
             salesmana.Add(new Sale(2, new DateTime(2024, 06, 22), banana));
             salesmana.Add(new Sale(3, new DateTime(2024, 06, 21), banana));
 

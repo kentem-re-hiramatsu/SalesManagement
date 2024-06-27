@@ -48,11 +48,12 @@
             this.DescendingButton = new System.Windows.Forms.Button();
             this.AscendingButton = new System.Windows.Forms.Button();
             this.SortClearButton = new System.Windows.Forms.Button();
+            this.ProductAddButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalesProcessingButton
             // 
-            this.SalesProcessingButton.Location = new System.Drawing.Point(12, 30);
+            this.SalesProcessingButton.Location = new System.Drawing.Point(14, 66);
             this.SalesProcessingButton.Name = "SalesProcessingButton";
             this.SalesProcessingButton.Size = new System.Drawing.Size(90, 30);
             this.SalesProcessingButton.TabIndex = 0;
@@ -62,7 +63,7 @@
             // 
             // PurchaseProcessingButton
             // 
-            this.PurchaseProcessingButton.Location = new System.Drawing.Point(108, 30);
+            this.PurchaseProcessingButton.Location = new System.Drawing.Point(14, 30);
             this.PurchaseProcessingButton.Name = "PurchaseProcessingButton";
             this.PurchaseProcessingButton.Size = new System.Drawing.Size(90, 30);
             this.PurchaseProcessingButton.TabIndex = 1;
@@ -72,7 +73,7 @@
             // 
             // InventoryListButton
             // 
-            this.InventoryListButton.Location = new System.Drawing.Point(204, 30);
+            this.InventoryListButton.Location = new System.Drawing.Point(110, 66);
             this.InventoryListButton.Name = "InventoryListButton";
             this.InventoryListButton.Size = new System.Drawing.Size(90, 30);
             this.InventoryListButton.TabIndex = 2;
@@ -241,11 +242,22 @@
             this.SortClearButton.UseVisualStyleBackColor = true;
             this.SortClearButton.Click += new System.EventHandler(this.SortClearButton_Click);
             // 
+            // ProductAddButton
+            // 
+            this.ProductAddButton.Location = new System.Drawing.Point(110, 30);
+            this.ProductAddButton.Name = "ProductAddButton";
+            this.ProductAddButton.Size = new System.Drawing.Size(90, 30);
+            this.ProductAddButton.TabIndex = 15;
+            this.ProductAddButton.Text = "商品登録";
+            this.ProductAddButton.UseVisualStyleBackColor = true;
+            this.ProductAddButton.Click += new System.EventHandler(this.ProductAddButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 418);
+            this.Controls.Add(this.ProductAddButton);
             this.Controls.Add(this.SortClearButton);
             this.Controls.Add(this.AscendingButton);
             this.Controls.Add(this.DescendingButton);
@@ -288,6 +300,7 @@
         private System.Windows.Forms.Button DescendingButton;
         private System.Windows.Forms.Button AscendingButton;
         private System.Windows.Forms.Button SortClearButton;
+        private System.Windows.Forms.Button ProductAddButton;
     }
 }
 

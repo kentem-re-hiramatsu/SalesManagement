@@ -34,24 +34,24 @@
             this.SalesPriceTextBox = new System.Windows.Forms.TextBox();
             this.PurchasePriceTextBox = new System.Windows.Forms.TextBox();
             this.PurchaseQuantityTextBox = new System.Windows.Forms.TextBox();
-            this.ProductTextBox = new System.Windows.Forms.TextBox();
             this.SalesPriceLabel = new System.Windows.Forms.Label();
             this.PurchasePriceLabel = new System.Windows.Forms.Label();
             this.PurchaseQuantityLabel = new System.Windows.Forms.Label();
             this.ProductLabel = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.ProductNameComboBox = new System.Windows.Forms.ComboBox();
             this.PuchaseOrderGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // PuchaseOrderGroup
             // 
+            this.PuchaseOrderGroup.Controls.Add(this.ProductNameComboBox);
             this.PuchaseOrderGroup.Controls.Add(this.SalesDateTime);
             this.PuchaseOrderGroup.Controls.Add(this.label1);
             this.PuchaseOrderGroup.Controls.Add(this.SalesPriceTextBox);
             this.PuchaseOrderGroup.Controls.Add(this.PurchasePriceTextBox);
             this.PuchaseOrderGroup.Controls.Add(this.PurchaseQuantityTextBox);
-            this.PuchaseOrderGroup.Controls.Add(this.ProductTextBox);
             this.PuchaseOrderGroup.Controls.Add(this.SalesPriceLabel);
             this.PuchaseOrderGroup.Controls.Add(this.PurchasePriceLabel);
             this.PuchaseOrderGroup.Controls.Add(this.PurchaseQuantityLabel);
@@ -112,15 +112,6 @@
             this.PurchaseQuantityTextBox.TabIndex = 5;
             this.PurchaseQuantityTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             this.PurchaseQuantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PurchaseQuantityTextBox_KeyPress);
-            // 
-            // ProductTextBox
-            // 
-            this.ProductTextBox.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.ProductTextBox.Location = new System.Drawing.Point(126, 24);
-            this.ProductTextBox.Name = "ProductTextBox";
-            this.ProductTextBox.Size = new System.Drawing.Size(117, 21);
-            this.ProductTextBox.TabIndex = 4;
-            this.ProductTextBox.TextChanged += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // SalesPriceLabel
             // 
@@ -185,6 +176,14 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // ProductNameComboBox
+            // 
+            this.ProductNameComboBox.FormattingEnabled = true;
+            this.ProductNameComboBox.Location = new System.Drawing.Point(126, 25);
+            this.ProductNameComboBox.Name = "ProductNameComboBox";
+            this.ProductNameComboBox.Size = new System.Drawing.Size(117, 20);
+            this.ProductNameComboBox.TabIndex = 12;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -207,7 +206,6 @@
         private System.Windows.Forms.GroupBox PuchaseOrderGroup;
         private System.Windows.Forms.TextBox PurchasePriceTextBox;
         private System.Windows.Forms.TextBox PurchaseQuantityTextBox;
-        private System.Windows.Forms.TextBox ProductTextBox;
         private System.Windows.Forms.Label SalesPriceLabel;
         private System.Windows.Forms.Label PurchasePriceLabel;
         private System.Windows.Forms.Label PurchaseQuantityLabel;
@@ -217,6 +215,7 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker SalesDateTime;
+        private System.Windows.Forms.ComboBox ProductNameComboBox;
     }
 }
 

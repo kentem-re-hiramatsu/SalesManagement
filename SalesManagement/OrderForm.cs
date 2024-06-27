@@ -1,5 +1,5 @@
-﻿using Product.Cores.Managers;
-using Product.Cores.Models;
+﻿using Products.Cores.Managers;
+using Products.Cores.Models;
 using System;
 using System.Windows.Forms;
 
@@ -8,16 +8,26 @@ namespace SalesManagement
     public partial class OrderForm : Form
     {
         private PurchaseManager _purchaseMana;
+        private ProductManager _productMana;
 
-        public OrderForm(PurchaseManager purchaseMana)
+        public OrderForm(PurchaseManager purchaseMana, ProductManager productMana)
         {
             _purchaseMana = purchaseMana;
+            _productMana = productMana;
             InitializeComponent();
+        }
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            SalesDateTime.Value = DateTime.Now.Date;
+            foreach (var product in _productMana.ProductList)
+            {
+                ProductNameComboBox.Items.Add(product.Name);
+            }
         }
 
         private void OkButtonChangedEnabled()
         {
-            OkButton.Enabled = ProductTextBox.Text.Length > 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0;
+            OkButton.Enabled = ProductNameComboBox.SelectedIndex >= 0 && PurchaseQuantityTextBox.Text.Length > 0 && PurchasePriceTextBox.Text.Length > 0 && SalesPriceTextBox.Text.Length > 0;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -45,7 +55,7 @@ namespace SalesManagement
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            var productName = ProductTextBox.Text;
+            var product = _productMana.GetProduct(ProductNameComboBox.SelectedIndex);
             var purchasePrice = int.Parse(PurchasePriceTextBox.Text);
             var salePrice = int.Parse(SalesPriceTextBox.Text);
             var purchaseQuantity = int.Parse(PurchaseQuantityTextBox.Text);
@@ -53,7 +63,7 @@ namespace SalesManagement
 
             try
             {
-                _purchaseMana.Add(new Purchase(productName, purchasePrice, salePrice, purchaseQuantity, purchaseDateTime));
+                _purchaseMana.Add(new Purchase(product, purchasePrice, salePrice, purchaseQuantity, purchaseDateTime));
 
                 DialogResult = DialogResult.OK;
                 Close();
@@ -62,11 +72,6 @@ namespace SalesManagement
             {
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void OrderForm_Load(object sender, EventArgs e)
-        {
-            SalesDateTime.Value = DateTime.Now.Date;
         }
     }
 }

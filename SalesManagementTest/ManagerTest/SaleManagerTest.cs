@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Product.Cores.Managers;
-using Product.Cores.Models;
+using Products.Cores.Managers;
+using Products.Cores.Models;
 using System;
 
 namespace SalesManagementTest.ManagerTest
@@ -13,7 +13,7 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void AddTest()
         {
-            var cherry = new Purchase("さくらんぼ", 100, 200, 10, new DateTime(2024, 06, 21));
+            var cherry = new Purchase(new Product("さくらんぼ"), 100, 200, 10, new DateTime(2024, 06, 21));
             var firstSale = new Sale(3, new DateTime(2024, 06, 22), cherry);
             var secondSale = new Sale(5, new DateTime(2024, 06, 23), cherry);
 
@@ -33,7 +33,7 @@ namespace SalesManagementTest.ManagerTest
         [TestMethod]
         public void TotalSalesAndTotalIncomeAmountTest()
         {
-            var cherry = new Purchase("さくらんぼ", 100, 200, 10, new DateTime(2024, 06, 21));
+            var cherry = new Purchase(new Product("さくらんぼ"), 100, 200, 10, new DateTime(2024, 06, 21));
             var firstSale = new Sale(3, new DateTime(2024, 06, 22), cherry);
             var secondSale = new Sale(5, new DateTime(2024, 06, 23), cherry);
 

@@ -1,4 +1,4 @@
-﻿using Product.Cores.Managers;
+﻿using Products.Cores.Managers;
 using System;
 using System.Windows.Forms;
 
@@ -27,7 +27,7 @@ namespace SalesManagement
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 {
-                    purchase.ProductName,
+                    purchase.Product.Name,
                     purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     purchase.PurchasePrice.ToString("#,0円"),
                     purchase.SalePrice.ToString("#,0円"),

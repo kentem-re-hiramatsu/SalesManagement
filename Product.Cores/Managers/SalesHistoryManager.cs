@@ -1,8 +1,8 @@
-﻿using Product.Cores.Models;
+﻿using Products.Cores.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Product.Cores.Managers
+namespace Products.Cores.Managers
 {
     public class SalesHistoryManager
     {
@@ -31,8 +31,8 @@ namespace Product.Cores.Managers
             switch (index)
             {
                 case Consts.PRODUCT_NAME_COLUMN:
-                    sortList = descendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.ProductName)
-                                                       : _historyList.OrderByDescending(x => x.Purchase.ProductName);
+                    sortList = descendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.Product.Name)
+                                                       : _historyList.OrderByDescending(x => x.Purchase.Product.Name);
                     break;
                 case Consts.SALE_PRICE_COLUMN:
                     sortList = descendingButtonEnabled ? _historyList.OrderBy(x => x.Purchase.SalePrice)

@@ -1,5 +1,5 @@
-﻿using Product.Cores.Managers;
-using Product.Cores.Models;
+﻿using Products.Cores.Managers;
+using Products.Cores.Models;
 using System;
 using System.Windows.Forms;
 
@@ -43,7 +43,7 @@ namespace SalesManagement
             {
                 StockListView.Items.Add(new ListViewItem(new string[]
                 { "",
-                    purchase.ProductName,
+                    purchase.Product.Name,
                     purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     purchase.PurchasePrice.ToString("#,0円"),
                     purchase.SalePrice.ToString("#,0円"),
@@ -56,7 +56,7 @@ namespace SalesManagement
                 var purchase = sale.Purchase;
                 CartListView.Items.Add(new ListViewItem(new string[]
                 {
-                    purchase.ProductName,
+                    purchase.Product.Name,
                     purchase.SalePrice.ToString("#,0円"),
                     purchase.PurchaseDateTime.ToString("MM/dd"),
                     sale.SaleDateTime.ToString("MM/dd"),

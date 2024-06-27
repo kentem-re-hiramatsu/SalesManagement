@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagerTest\HistoryManagerTest.cs" />
+    <Compile Include="ManagerTest\ProductManagerTest.cs" />
     <Compile Include="ManagerTest\SaleManagerTest.cs" />
     <Compile Include="ManagerTest\SalesCartManagerTest.cs" />
+    <Compile Include="ModelTest\ProductTest.cs" />
     <Compile Include="ModelTest\PurchaseTest.cs" />
     <Compile Include="ModelTest\SalesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,9 +62,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Product.Cores\Product.Cores.csproj">
+    <ProjectReference Include="..\Product.Cores\Products.Cores.csproj">
       <Project>{5e389749-144c-468a-ac07-847085e7b5c6}</Project>
-      <Name>Product.Cores</Name>
+      <Name>Products.Cores</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

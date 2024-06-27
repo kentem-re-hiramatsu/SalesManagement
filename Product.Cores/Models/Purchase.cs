@@ -1,18 +1,18 @@
 ﻿using System;
 
-namespace Product.Cores.Models
+namespace Products.Cores.Models
 {
     public class Purchase
     {
-        public string ProductName { get; }
+        public Product Product { get; }
         public int PurchasePrice { get; }
         public int SalePrice { get; }
         public int StockQuantity { get; set; }
         public DateTime PurchaseDateTime { get; }
 
-        public Purchase(string name, int purchasePrice, int salePrice, int purchaseQuantity, DateTime purchaseDateTime)
+        public Purchase(Product product, int purchasePrice, int salePrice, int purchaseQuantity, DateTime purchaseDateTime)
         {
-            ProductName = name;
+            Product = product;
 
             if (purchasePrice > 0 && salePrice > 0 && salePrice > purchasePrice && purchaseQuantity > 0)
             {

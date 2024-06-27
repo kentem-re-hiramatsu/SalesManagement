@@ -1,5 +1,5 @@
-﻿using Product.Cores;
-using Product.Cores.Managers;
+﻿using Products.Cores;
+using Products.Cores.Managers;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -11,6 +11,7 @@ namespace SalesManagement
     {
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
         private PurchaseManager _purchaseMana = new PurchaseManager();
+        private ProductManager _productMana = new ProductManager();
         private StockForm _stockForm;
         private int _selectedColumnNum = -1;
 
@@ -29,7 +30,7 @@ namespace SalesManagement
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
                     "",
-                    purchase.ProductName,
+                    purchase.Product.Name,
                     purchase.SalePrice.ToString("#,0円"),
                     purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     sale.SaleDateTime.ToString("yyyy/MM/dd"),
@@ -54,7 +55,7 @@ namespace SalesManagement
 
         private void PurchaseProcessingButton_Click(object sender, EventArgs e)
         {
-            var orderForm = new OrderForm(_purchaseMana);
+            var orderForm = new OrderForm(_purchaseMana, _productMana);
 
             if (orderForm.ShowDialog() == DialogResult.OK && _stockForm != null)
             {
@@ -137,7 +138,7 @@ namespace SalesManagement
                 SalesListView.Items.Add(new ListViewItem(new string[]
                 {
                     "",
-                    sale.Purchase.ProductName,
+                    sale.Purchase.Product.Name,
                     sale.Purchase.SalePrice.ToString("#,0円"),
                     sale.Purchase.PurchaseDateTime.ToString("yyyy/MM/dd"),
                     sale.SaleDateTime.ToString("yyyy/MM/dd"),
@@ -197,6 +198,11 @@ namespace SalesManagement
         private void SalesListView_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = false;
+        }
+
+        private void ProductAddButton_Click(object sender, EventArgs e)
+        {
+            new ProductForm(_productMana).ShowDialog();
         }
     }
 }
