@@ -21,6 +21,16 @@ namespace SalesManagement
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            if (CartListView.Items.Count > 0)
+            {
+                for (int i = 0; CartListView.Items.Count > i; i++)
+                {
+                    var saleQuantity = _salesCartMana.GetSale(0).SaleQuantity;
+
+                    _salesCartMana.GetSale(0).Purchase.StockQuantity += saleQuantity;
+                    _salesCartMana.Remove(0);
+                }
+            }
             Close();
         }
 
