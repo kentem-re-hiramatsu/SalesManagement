@@ -32,5 +32,10 @@ namespace SalesManagement
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ProductNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ProductAddButton.Enabled = ProductNameTextBox.Text.Length > 0;
+        }
     }
 }

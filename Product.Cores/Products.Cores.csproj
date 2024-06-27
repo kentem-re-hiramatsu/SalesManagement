@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
+    <Compile Include="Managers\DataFileManager.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\PurchaseManager.cs" />
     <Compile Include="Managers\SalesCartManager.cs" />
@@ -52,5 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="Data\ProductsData.csv" />
+    <None Include="Data\PurchasesData.csv" />
+    <None Include="Data\SalesData.csv" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

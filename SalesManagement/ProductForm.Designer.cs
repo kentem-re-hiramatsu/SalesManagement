@@ -41,6 +41,7 @@
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.Size = new System.Drawing.Size(163, 21);
             this.ProductNameTextBox.TabIndex = 0;
+            this.ProductNameTextBox.TextChanged += new System.EventHandler(this.ProductNameTextBox_TextChanged);
             // 
             // label
             // 
@@ -54,6 +55,7 @@
             // 
             // ProductAddButton
             // 
+            this.ProductAddButton.Enabled = false;
             this.ProductAddButton.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.ProductAddButton.Location = new System.Drawing.Point(103, 104);
             this.ProductAddButton.Name = "ProductAddButton";
