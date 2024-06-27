@@ -17,6 +17,8 @@ namespace Products.Cores.Managers
                 if (product.Name == productItem.Name)
                     throw new Exception(Consts.SAME_PRODUCT_NAME_ERROR_MESSAGE);
             }
+
+            product.Id = _productList.Count;
             _productList.Add(product);
         }
 
