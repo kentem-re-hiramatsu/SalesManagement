@@ -204,5 +204,11 @@ namespace SalesManagement
         {
             new ProductForm(_productMana).ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            new DataFileManager(_productMana, _purchaseMana, _salesMana).DataLoad();
+            UpdateScreen();
+        }
     }
 }
