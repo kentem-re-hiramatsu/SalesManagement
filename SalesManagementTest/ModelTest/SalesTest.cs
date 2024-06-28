@@ -12,19 +12,19 @@ namespace SalesManagementTest.ModelTest
         [TestMethod]
         public void SalesConstructorTest()
         {
-            var sale = new Sale(10, new DateTime(2024, 06, 22), purchase);
-            DateTime saleDateTime = new DateTime(2024, 06, 22);
+            var sale = new Sale(10, new DateTime(2024, 06, 20), purchase);
+            DateTime saleDateTime = new DateTime(2024, 06, 20);
 
             Assert.AreEqual(10, sale.SaleQuantity);
             Assert.AreEqual(saleDateTime, sale.SaleDateTime);
 
-            Assert.ThrowsException<Exception>(() => new Sale(0, new DateTime(2024, 06, 22), purchase));
-            Assert.ThrowsException<Exception>(() => new Sale(-1, new DateTime(2024, 06, 22), purchase));
+            Assert.ThrowsException<Exception>(() => new Sale(0, new DateTime(2024, 06, 20), purchase));
+            Assert.ThrowsException<Exception>(() => new Sale(-1, new DateTime(2024, 06, 20), purchase));
 
             //仕入数が販売数と同じまたは下回っていないか
-            Assert.ThrowsException<Exception>(() => new Sale(30, new DateTime(2024, 06, 22), purchase).UpdateInventory(30));
+            Assert.ThrowsException<Exception>(() => new Sale(30, new DateTime(2024, 06, 20), purchase).UpdateInventory(30));
             //購入日が仕入日より下回っていないか。
-            Assert.ThrowsException<Exception>(() => new Sale(10, new DateTime(2024, 06, 10), purchase));
+            Assert.ThrowsException<Exception>(() => new Sale(10, new DateTime(2024, 06, 19), purchase));
         }
 
         /// <summary>
