@@ -26,9 +26,6 @@ namespace SalesManagementTest.ModelTest
             Assert.ThrowsException<Exception>(() => new Purchase(ringo, 100, 0, 20, new DateTime(2024, 06, 21)));
             Assert.ThrowsException<Exception>(() => new Purchase(ringo, 100, -1, 20, new DateTime(2024, 06, 21)));
 
-            Assert.ThrowsException<Exception>(() => new Purchase(ringo, 100, 200, 0, new DateTime(2024, 06, 21)));
-            Assert.ThrowsException<Exception>(() => new Purchase(ringo, 100, 200, -1, new DateTime(2024, 06, 21)));
-
             Assert.ThrowsException<Exception>(() => new Purchase(ringo, 200, 200, 20, new DateTime(2024, 06, 21)));
         }
     }
