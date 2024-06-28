@@ -23,12 +23,11 @@ namespace SalesManagement
         {
             if (CartListView.Items.Count > 0)
             {
-                for (int i = 0; CartListView.Items.Count > i; i++)
+                for (int i = 0; _salesCartMana.CartList.Count > i; i++)
                 {
-                    var saleQuantity = _salesCartMana.GetSale(0).SaleQuantity;
+                    var saleQuantity = _salesCartMana.GetSale(i).SaleQuantity;
 
-                    _salesCartMana.GetSale(0).Purchase.StockQuantity += saleQuantity;
-                    _salesCartMana.Remove(0);
+                    _salesCartMana.GetSale(i).Purchase.StockQuantity += saleQuantity;
                 }
             }
             Close();
@@ -65,11 +64,9 @@ namespace SalesManagement
             }
         }
 
-        public void ButtonChanged()
+        public void CartAddButtonChanged()
         {
             CartAddButton.Enabled = SalesQuantityTextBox.Text.Length > 0;
-            SalesButton.Enabled = CartListView.Items.Count > 0;
-            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
         }
 
         private void SalesButton_Click(object sender, EventArgs e)
@@ -99,7 +96,7 @@ namespace SalesManagement
 
             if (e.CurrentValue == CheckState.Unchecked)
             {
-                ButtonChanged();
+                CartAddButtonChanged();
                 _selectedIndex = e.Index;
             }
         }
@@ -125,7 +122,7 @@ namespace SalesManagement
 
         private void SalesQuantityTextBox_TextChanged(object sender, EventArgs e)
         {
-            ButtonChanged();
+            CartAddButtonChanged();
         }
 
         private void CartAddButton_Click(object sender, EventArgs e)
@@ -136,16 +133,20 @@ namespace SalesManagement
 
             try
             {
-                _salesCartMana.Add(new Sale(saleQuantity, saleDateTime, purchase));
+                var sale = new Sale(saleQuantity, saleDateTime, purchase);
+                sale.UpdateInventory(saleQuantity);
+
+                _salesCartMana.Add(sale);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            UpdateScreen();
-            ButtonChanged();
             CartAddButton.Enabled = false;
+            SalesQuantityTextBox.Enabled = false;
+            SaleDateTime.Enabled = false;
+            UpdateScreen();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -157,12 +158,13 @@ namespace SalesManagement
             _salesCartMana.Remove(selectedIndex);
 
             UpdateScreen();
-            ButtonChanged();
+            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
         }
 
         private void CartListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ButtonChanged();
+            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
+            SalesButton.Enabled = CartListView.Items.Count > 0;
         }
     }
 }
