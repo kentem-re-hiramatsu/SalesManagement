@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PuchaseOrderGroup = new System.Windows.Forms.GroupBox();
+            this.ProductNameComboBox = new System.Windows.Forms.ComboBox();
             this.SalesDateTime = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.SalesPriceTextBox = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.ProductLabel = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.ProductNameComboBox = new System.Windows.Forms.ComboBox();
             this.PuchaseOrderGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,15 @@
             this.PuchaseOrderGroup.TabIndex = 0;
             this.PuchaseOrderGroup.TabStop = false;
             this.PuchaseOrderGroup.Text = "仕入処理";
+            // 
+            // ProductNameComboBox
+            // 
+            this.ProductNameComboBox.FormattingEnabled = true;
+            this.ProductNameComboBox.Location = new System.Drawing.Point(126, 25);
+            this.ProductNameComboBox.Name = "ProductNameComboBox";
+            this.ProductNameComboBox.Size = new System.Drawing.Size(117, 20);
+            this.ProductNameComboBox.TabIndex = 12;
+            this.ProductNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ProductTextBox_TextChanged);
             // 
             // SalesDateTime
             // 
@@ -175,14 +184,6 @@
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // ProductNameComboBox
-            // 
-            this.ProductNameComboBox.FormattingEnabled = true;
-            this.ProductNameComboBox.Location = new System.Drawing.Point(126, 25);
-            this.ProductNameComboBox.Name = "ProductNameComboBox";
-            this.ProductNameComboBox.Size = new System.Drawing.Size(117, 20);
-            this.ProductNameComboBox.TabIndex = 12;
             // 
             // OrderForm
             // 
