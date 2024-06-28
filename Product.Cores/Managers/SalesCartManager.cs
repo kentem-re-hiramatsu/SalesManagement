@@ -12,16 +12,12 @@ namespace Products.Cores.Managers
 
         public void Add(Sale sale)
         {
-            var cartWhereList = _cartList.Where(x => x.Purchase.Product.Name == sale.Purchase.Product.Name &&
+            var sameSale = _cartList.FirstOrDefault(x => x.Purchase.Product.Name == sale.Purchase.Product.Name &&
                                                 x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
                                                 x.SaleDateTime == sale.SaleDateTime);
-
-            if (cartWhereList.Count() > 0)
+            if (sameSale != null)
             {
-                foreach (var saleCart in cartWhereList)
-                {
-                    saleCart.SaleQuantity += sale.SaleQuantity;
-                }
+                sameSale.SaleQuantity += sale.SaleQuantity;
             }
             else
             {
