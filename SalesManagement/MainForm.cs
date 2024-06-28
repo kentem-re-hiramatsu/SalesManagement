@@ -2,7 +2,6 @@
 using Products.Cores.Managers;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SalesManagement
@@ -12,11 +11,13 @@ namespace SalesManagement
         private SalesHistoryManager _salesMana = new SalesHistoryManager();
         private PurchaseManager _purchaseMana = new PurchaseManager();
         private ProductManager _productMana = new ProductManager();
+        private DataFileManager _dataFileMana;
         private StockForm _stockForm;
         private int _selectedColumnNum = -1;
 
         public MainForm()
         {
+            _dataFileMana = new DataFileManager(_productMana, _purchaseMana, _salesMana);
             InitializeComponent();
         }
 
@@ -38,8 +39,8 @@ namespace SalesManagement
                     sale.GetSalesAmount().ToString("#,0円")
                 }));
             }
-            TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.HistoryList.Sum(x => x.GetSalesAmount()).ToString("#,0円")}";
-            TotalIncomeAmountLabel.Text = $"利益合計金額：{_salesMana.HistoryList.Sum(x => x.GetIncomeAmount()).ToString("#,0円")}";
+            TotaltSalesAmountLabel.Text = $"売上合計金額：{_salesMana.GetTotalSalesAmount().ToString("#,0円")}";
+            TotalIncomeAmountLabel.Text = $"利益合計金額：{_salesMana.GetTotalIncomeAmount().ToString("#,0円")}";
         }
 
         private void SalesProcessingButton_Click(object sender, EventArgs e)
@@ -207,8 +208,13 @@ namespace SalesManagement
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            new DataFileManager(_productMana, _purchaseMana, _salesMana).DataLoad();
+            _dataFileMana.DataLoad();
             UpdateScreen();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _dataFileMana.SaveData();
         }
     }
 }
