@@ -10,7 +10,23 @@ namespace Products.Cores.Managers
 
         public IReadOnlyCollection<Sale> HistoryList { get { return _historyList; } }
 
-        public void Add(Sale sale) => _historyList.Add(sale);
+        public void Add(Sale sale)
+        {
+            var sameSale = _historyList.FirstOrDefault(x => x.Purchase.Product.Name == sale.Purchase.Product.Name &&
+                                                            x.Purchase.SalePrice == sale.Purchase.SalePrice &&
+                                                            x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
+                                                            x.SaleDateTime == sale.SaleDateTime
+                                                            );
+
+            if (sameSale != null)
+            {
+                sameSale.SaleQuantity += sale.SaleQuantity;
+            }
+            else
+            {
+                _historyList.Add(sale);
+            }
+        }
 
         public Sale GetSale(int index) => _historyList[index];
 
