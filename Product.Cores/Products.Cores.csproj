@@ -52,7 +52,6 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Data\ProductsData.csv" />
     <None Include="Data\PurchasesData.csv" />
