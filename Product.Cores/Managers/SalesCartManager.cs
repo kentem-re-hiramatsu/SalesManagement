@@ -13,8 +13,11 @@ namespace Products.Cores.Managers
         public void Add(Sale sale)
         {
             var sameSale = _cartList.FirstOrDefault(x => x.Purchase.Product.Name == sale.Purchase.Product.Name &&
-                                                x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
-                                                x.SaleDateTime == sale.SaleDateTime);
+                                                         x.Purchase.PurchaseDateTime == sale.Purchase.PurchaseDateTime &&
+                                                         x.SaleDateTime == sale.SaleDateTime &&
+                                                         x.Purchase.SalePrice == sale.Purchase.SalePrice &&
+                                                         x.Purchase.PurchasePrice == sale.Purchase.PurchasePrice
+                                                         );
             if (sameSale != null)
             {
                 sameSale.SaleQuantity += sale.SaleQuantity;
