@@ -69,16 +69,17 @@ namespace Products.Cores.Managers
                 }
             }
 
-            for (int i = 0; saleList.Count > i; i++)
+            foreach (var purchase in _purchaseMana.PurchaseList)
             {
-                string[] saleData = saleList[i].Split(',');
-
-                foreach (var purchase in _purchaseMana.PurchaseList)
+                for (int i = 0; saleList.Count > i; i++)
                 {
+                    string[] saleData = saleList[i].Split(',');
+
                     if (purchase.Product.Id == int.Parse(saleData[2]) && purchase.PurchaseDateTime == DateTime.Parse(saleData[3]))
                     {
                         var sale = new Sale(int.Parse(saleData[0]), DateTime.Parse(saleData[1]), purchase);
                         _salesHistoryMana.Add(sale);
+                        break;
                     }
                 }
             }
