@@ -79,7 +79,6 @@ namespace Products.Cores.Managers
                     {
                         var sale = new Sale(int.Parse(saleData[0]), DateTime.Parse(saleData[1]), purchase);
                         _salesHistoryMana.Add(sale);
-                        break;
                     }
                 }
             }
