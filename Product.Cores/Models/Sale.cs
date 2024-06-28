@@ -10,10 +10,9 @@ namespace Products.Cores.Models
 
         public Sale(int saleQuantity, DateTime saleDateTime, Purchase purchase)
         {
-            if (saleQuantity > 0 && purchase.StockQuantity >= saleQuantity && saleDateTime >= purchase.PurchaseDateTime)
+            if (saleQuantity > 0 && saleDateTime >= purchase.PurchaseDateTime)
             {
                 SaleQuantity = saleQuantity;
-                purchase.StockQuantity -= saleQuantity;
                 SaleDateTime = saleDateTime;
             }
             else if (saleQuantity <= 0)
@@ -24,11 +23,19 @@ namespace Products.Cores.Models
             {
                 throw new Exception(Consts.LESS_THAN_SALEDAY_ERROR_MESSAGE);
             }
+            Purchase = purchase;
+        }
+
+        public void UpdateInventory(int saleQuantity)
+        {
+            if (Purchase.StockQuantity >= saleQuantity)
+            {
+                Purchase.StockQuantity -= saleQuantity;
+            }
             else
             {
                 throw new Exception(Consts.INVENTORY_QUANTITY_ERROR_MESSAGE);
             }
-            Purchase = purchase;
         }
 
         /// <summary>
