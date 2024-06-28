@@ -21,8 +21,8 @@ namespace SalesManagementTest.ModelTest
             Assert.ThrowsException<Exception>(() => new Sale(0, new DateTime(2024, 06, 22), purchase));
             Assert.ThrowsException<Exception>(() => new Sale(-1, new DateTime(2024, 06, 22), purchase));
 
-            //仕入価格が販売価格が同じまたは下回っていないか
-            Assert.ThrowsException<Exception>(() => new Sale(30, new DateTime(2024, 06, 22), purchase));
+            //仕入数が販売数と同じまたは下回っていないか
+            Assert.ThrowsException<Exception>(() => new Sale(30, new DateTime(2024, 06, 22), purchase).UpdateInventory(30));
             //購入日が仕入日より下回っていないか。
             Assert.ThrowsException<Exception>(() => new Sale(10, new DateTime(2024, 06, 10), purchase));
         }
