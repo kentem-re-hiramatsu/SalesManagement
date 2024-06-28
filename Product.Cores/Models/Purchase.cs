@@ -14,13 +14,13 @@ namespace Products.Cores.Models
         {
             Product = product;
 
-            if (purchasePrice > 0 && salePrice > 0 && salePrice > purchasePrice && purchaseQuantity > 0)
+            if (purchasePrice > 0 && salePrice > 0 && salePrice > purchasePrice)
             {
                 PurchasePrice = purchasePrice;
                 SalePrice = salePrice;
                 StockQuantity = purchaseQuantity;
             }
-            else if (purchasePrice <= 0 || salePrice <= 0 || purchaseQuantity <= 0)
+            else if (purchasePrice <= 0 || salePrice <= 0)
             {
                 throw new Exception(Consts.INPUT_ERROR_MESSAGE);
             }
