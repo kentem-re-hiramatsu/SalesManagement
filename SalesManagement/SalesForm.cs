@@ -103,6 +103,9 @@ namespace SalesManagement
             if (e.CurrentValue == CheckState.Unchecked)
             {
                 CartAddButtonChanged();
+                var purchaseDateTime = _purchaseMana.GetPurchase(e.Index).PurchaseDateTime;
+                SaleDateTime.MinDate = purchaseDateTime;
+                SaleDateTime.Value = purchaseDateTime;
                 _selectedIndex = e.Index;
             }
         }
