@@ -6,7 +6,7 @@ using System;
 namespace SalesManagementTest.ManagerTest
 {
     [TestClass]
-    public class HistoryManagerTest
+    public class PurchaseManagerTest
     {
         [TestMethod]
         public void HistoryTest()
