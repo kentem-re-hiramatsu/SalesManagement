@@ -45,12 +45,12 @@ namespace Products.Cores.Managers
                 }
             }
 
-            for (int i = 0; purchaseList.Count > i; i++)
+            foreach (var product in _productMana.ProductList)
             {
-                string[] purchaseData = purchaseList[i].Split(',');
-
-                foreach (var product in _productMana.ProductList)
+                for (int i = 0; purchaseList.Count > i; i++)
                 {
+                    string[] purchaseData = purchaseList[i].Split(',');
+
                     if (product.Name == purchaseData[0])
                     {
                         var purchase = new Purchase(product, int.Parse(purchaseData[1]), int.Parse(purchaseData[2]),
