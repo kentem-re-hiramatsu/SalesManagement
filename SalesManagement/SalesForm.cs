@@ -69,6 +69,12 @@ namespace SalesManagement
             CartAddButton.Enabled = SalesQuantityTextBox.Text.Length > 0;
         }
 
+        public void DeleteButtonAndSalesButtonChanged()
+        {
+            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
+            SalesButton.Enabled = CartListView.Items.Count > 0;
+        }
+
         private void SalesButton_Click(object sender, EventArgs e)
         {
             foreach (var cartSale in _salesCartMana.CartList)
@@ -143,10 +149,11 @@ namespace SalesManagement
                 MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            UpdateScreen();
             CartAddButton.Enabled = false;
             SalesQuantityTextBox.Enabled = false;
             SaleDateTime.Enabled = false;
-            UpdateScreen();
+            SalesButton.Enabled = CartListView.Items.Count > 0;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -158,13 +165,12 @@ namespace SalesManagement
             _salesCartMana.Remove(selectedIndex);
 
             UpdateScreen();
-            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
+            DeleteButtonAndSalesButtonChanged();
         }
 
         private void CartListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeleteButton.Enabled = CartListView.SelectedItems.Count > 0;
-            SalesButton.Enabled = CartListView.Items.Count > 0;
+            DeleteButtonAndSalesButtonChanged();
         }
     }
 }
