@@ -51,7 +51,7 @@ namespace Products.Cores.Managers
 
                 foreach (var product in _productMana.ProductList)
                 {
-                    if (product.Id == int.Parse(purchaseData[0]))
+                    if (product.Name == purchaseData[0])
                     {
                         var purchase = new Purchase(product, int.Parse(purchaseData[1]), int.Parse(purchaseData[2]),
                                             int.Parse(purchaseData[3]), DateTime.Parse(purchaseData[4]));
@@ -81,6 +81,29 @@ namespace Products.Cores.Managers
                         _salesHistoryMana.Add(sale);
                     }
                 }
+            }
+        }
+        public void SaveData()
+        {
+            File.WriteAllText(_productFilePath, "");
+            File.WriteAllText(_purchaseFilePath, "");
+            File.WriteAllText(_salesHistoryFilePath, "");
+
+            foreach (var product in _productMana.ProductList)
+            {
+                File.AppendAllText(_productFilePath, product.Name + Environment.NewLine);
+            }
+
+            foreach (var purchase in _purchaseMana.PurchaseList)
+            {
+                File.AppendAllText(_purchaseFilePath, $"{purchase.Product.Name},{purchase.PurchasePrice}," +
+                                                      $"{purchase.SalePrice},{purchase.StockQuantity},{purchase.PurchaseDateTime.ToString("yyyy/MM/dd")}" + Environment.NewLine);
+            }
+
+            foreach (var sale in _salesHistoryMana.HistoryList)
+            {
+                File.AppendAllText(_salesHistoryFilePath, $"{sale.SaleQuantity},{sale.SaleDateTime.ToString("yyyy/MM/dd")}," +
+                                                          $"{sale.Purchase.Product.Id},{sale.Purchase.PurchaseDateTime.ToString("yyyy/MM/dd")}" + Environment.NewLine);
             }
         }
     }
