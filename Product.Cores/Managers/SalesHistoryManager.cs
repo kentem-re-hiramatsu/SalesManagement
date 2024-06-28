@@ -27,7 +27,6 @@ namespace Products.Cores.Managers
         public IEnumerable<Sale> SalesColumSort(int index, bool descendingButtonEnabled)
         {
             IEnumerable<Sale> sortList = null;
-
             switch (index)
             {
                 case Consts.PRODUCT_NAME_COLUMN:
